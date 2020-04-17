@@ -383,6 +383,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torque
       objectReference: {fileID: 0}
+    - target: {fileID: 7292481672348857134, guid: ecce04f3c4cff714b94221ef6fdd26f3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9161961656882381475, guid: ecce04f3c4cff714b94221ef6fdd26f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -541,11 +546,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3240184470740248392, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 3740261268231560270, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -600,31 +600,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
-        type: 3}
-      propertyPath: TorqueMultiplier.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
-        type: 3}
-      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
-        type: 3}
-      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
-        type: 3}
-      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
-        type: 3}
-      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].outSlope
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8ca4c457d5c9e042b33f39dd2ff50e1, type: 3}

@@ -7,9 +7,11 @@ namespace ControllerExperiment
     public class CharacterController : MonoBehaviour
     {
         public AnimationCurve TorqueMultiplier;
+        public float MaxTorque;
 
         float Angle;
         float AngleDifference;
+        float Torque;
         Rigidbody rbody;
         TargetAngle targetAngle;
         GameObject ShowTorque;
@@ -17,6 +19,7 @@ namespace ControllerExperiment
         private void Start()
         {
             rbody = this.gameObject.GetComponent<Rigidbody>();
+            rbody.maxAngularVelocity = MaxTorque;
             targetAngle = GameObject.FindObjectOfType<TargetAngle>();
             ShowTorque = GameObject.Find("Torque");
         }
@@ -38,11 +41,11 @@ namespace ControllerExperiment
                 }
             }
 
-            Vector3 torque = (Vector3.up * AngleDifference);
+            Torque = AngleDifference * TorqueMultiplier.Evaluate(Mathf.Abs(AngleDifference) / 180f) * 20f;
+            rbody.AddTorque(Vector3.up * Torque, ForceMode.VelocityChange);
             rbody.AddTorque(Vector3.up * -rbody.angularVelocity.y, ForceMode.VelocityChange);
-            rbody.AddTorque(torque, ForceMode.VelocityChange);
 
-            ShowTorque.transform.position = this.transform.position + torque;
+            ShowTorque.transform.position = this.transform.position + (Vector3.up * Torque);
         }
     }
 }
