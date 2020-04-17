@@ -601,6 +601,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
+        type: 3}
+      propertyPath: TorqueMultiplier.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
+        type: 3}
+      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
+        type: 3}
+      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
+        type: 3}
+      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145520888625704043, guid: c8ca4c457d5c9e042b33f39dd2ff50e1,
+        type: 3}
+      propertyPath: TorqueMultiplier.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8ca4c457d5c9e042b33f39dd2ff50e1, type: 3}
 --- !u!1001 &6743740116943542071
