@@ -19,7 +19,6 @@ namespace ControllerExperiment
         private void Start()
         {
             rbody = this.gameObject.GetComponent<Rigidbody>();
-            rbody.maxAngularVelocity = MaxTorque;
             targetAngle = GameObject.FindObjectOfType<TargetAngle>();
             ShowTorque = GameObject.Find("Torque");
         }
@@ -40,6 +39,8 @@ namespace ControllerExperiment
                     AngleDifference = (360f - AngleDifference) * -1f;
                 }
             }
+
+            rbody.maxAngularVelocity = MaxTorque;
 
             Torque = AngleDifference * TorqueMultiplier.Evaluate(Mathf.Abs(AngleDifference) / 180f) * 20f;
             rbody.AddTorque(Vector3.up * Torque, ForceMode.VelocityChange);
