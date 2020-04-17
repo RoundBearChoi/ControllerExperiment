@@ -28,20 +28,9 @@ namespace ControllerExperiment
                 {
                     Debug.DrawLine(hit.point, control.transform.position, Color.red);
                     targetDirection = hit.point - control.transform.position;
-                    targetAngle.Angle = Get360Angle(targetDirection.x, targetDirection.z);
+                    targetAngle.Angle = AngleCalculator.GetAngle(targetDirection.x, targetDirection.z);
                 }
             }
-        }
-
-        float Get360Angle(float x, float z)
-        {
-            float value = (float)((Mathf.Atan2(x, z) / System.Math.PI) * 180f);
-            if (value < 0)
-            {
-                value += 360f;
-            }
-
-            return value;
         }
     }
 }
