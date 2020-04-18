@@ -6,15 +6,20 @@ namespace ControllerExperiment
 {
     public class CharacterController : MonoBehaviour
     {
+        [Header("Rotation")]
         public AnimationCurve TorqueMultiplier;
         public float MaxTorque;
-
         float Angle;
         float AngleDifference;
         float Torque;
-        Rigidbody rbody;
         TargetAngle targetAngle;
         GameObject ShowTorque;
+
+        [Header("Horizontal Move")]
+        public float WalkSpeed;
+        Vector3 TargetWalkDir = new Vector3();
+        
+        Rigidbody rbody;
 
         private void Start()
         {
@@ -24,6 +29,53 @@ namespace ControllerExperiment
         }
 
         private void FixedUpdate()
+        {
+            RotateToTargetAngle();
+            GetTargetWalkDir();
+            WalkToTargetDir();
+        }
+
+        void GetTargetWalkDir()
+        {
+            TargetWalkDir = Vector3.zero;
+
+            if (Input.GetKey(KeyCode.W))
+            {
+                TargetWalkDir += this.transform.forward * WalkSpeed;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                TargetWalkDir -= this.transform.right * WalkSpeed;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                TargetWalkDir -= this.transform.forward * WalkSpeed;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                TargetWalkDir += this.transform.right * WalkSpeed;
+            }
+        }
+
+        void WalkToTargetDir()
+        {
+            CancelHorizontalVelocity();
+            
+            if (TargetWalkDir.sqrMagnitude > 0.0001f)
+            {
+                rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
+            }
+        }
+
+        void CancelHorizontalVelocity()
+        {
+            rbody.AddForce(new Vector3(-rbody.velocity.x, 0f, -rbody.velocity.z), ForceMode.VelocityChange);
+        }
+
+        void RotateToTargetAngle()
         {
             Angle = AngleCalculator.GetAngle(this.transform.forward.x, this.transform.forward.z);
             AngleDifference = (targetAngle.Angle - Angle);
