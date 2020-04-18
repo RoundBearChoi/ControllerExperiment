@@ -72,7 +72,8 @@ namespace ControllerExperiment
 
         void CancelHorizontalVelocity()
         {
-            rbody.AddForce(new Vector3(-rbody.velocity.x, 0f, -rbody.velocity.z), ForceMode.VelocityChange);
+            rbody.AddForce(Vector3.right * -rbody.velocity.x, ForceMode.VelocityChange);
+            rbody.AddForce(Vector3.forward * -rbody.velocity.z, ForceMode.VelocityChange);
         }
 
         void RotateToTargetAngle()
