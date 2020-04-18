@@ -6,13 +6,13 @@ namespace ControllerExperiment
 {
     public class MouseClick : MonoBehaviour
     {
-        CharacterController control;
+        PlayerController control;
         TargetAngle targetAngle;
         Vector3 targetDirection = new Vector3();
         
         private void Start()
         {
-            control = GameObject.FindObjectOfType<CharacterController>();
+            control = GameObject.FindObjectOfType<PlayerController>();
             targetAngle = GameObject.FindObjectOfType<TargetAngle>();
         }
 

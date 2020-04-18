@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public class CharacterController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         [Header("Rotation")]
         public AnimationCurve TorqueMultiplier;
