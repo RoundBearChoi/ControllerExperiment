@@ -8,12 +8,8 @@ namespace ControllerExperiment
     {
         public static float GetAngle(float x, float z)
         {
-            float value = (float)((Mathf.Atan2(x, z) / System.Math.PI) * 180f);
-
-            //if (value < 0)
-            //{
-            //    value += 360f;
-            //}
+            //float value = (float)((Mathf.Atan2(x, z) / System.Math.PI) * 180f);
+            float value = Mathf.Atan2(x, z) * Mathf.Rad2Deg;
 
             return value;
         }
