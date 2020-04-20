@@ -62,12 +62,12 @@ namespace ControllerExperiment
 
         void WalkToTargetDir()
         {
-            CancelHorizontalVelocity();
-            
             if (TargetWalkDir.sqrMagnitude > 0.0001f)
             {
                 rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
             }
+
+            CancelHorizontalVelocity();
         }
 
         void CancelHorizontalVelocity()

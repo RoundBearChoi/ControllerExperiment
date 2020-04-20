@@ -8,6 +8,7 @@ namespace ControllerExperiment
     {
         Rigidbody rbody;
         public float MoveSpeed;
+        public Vector3 MoveDir;
 
         private void Start()
         {
@@ -19,7 +20,7 @@ namespace ControllerExperiment
             rbody.AddForce(Vector3.forward * -rbody.velocity.z, ForceMode.VelocityChange);
             rbody.AddForce(Vector3.right * -rbody.velocity.x, ForceMode.VelocityChange);
 
-            rbody.AddForce(-Vector3.forward * MoveSpeed, ForceMode.VelocityChange);
+            rbody.AddForce(MoveDir * MoveSpeed, ForceMode.VelocityChange);
         }
     }
 }
