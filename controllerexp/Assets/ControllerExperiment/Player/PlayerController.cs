@@ -78,7 +78,12 @@ namespace ControllerExperiment
                 {
                     TargetWalkDir -= Vector3.up * TargetWalkDir.y;
                     TargetWalkDir.Normalize();
-                    TargetWalkDir *= WalkSpeed * 1.1f;
+                    TargetWalkDir *= WalkSpeed * 1.15f;
+                }
+                else if (TargetWalkDir.y < 0f)
+                {
+                    TargetWalkDir.Normalize();
+                    TargetWalkDir *= WalkSpeed * 0.85f;
                 }
 
                 Debug.DrawLine(this.transform.position, this.transform.position + TargetWalkDir, Color.yellow, 1f);
