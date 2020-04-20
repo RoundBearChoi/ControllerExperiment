@@ -20,6 +20,11 @@ namespace ControllerExperiment
             rbody.AddForce(Vector3.forward * -rbody.velocity.z, ForceMode.VelocityChange);
             rbody.AddForce(Vector3.right * -rbody.velocity.x, ForceMode.VelocityChange);
 
+            if (rbody.velocity.y > 0f)
+            {
+                rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
+            }
+
             rbody.AddForce(MoveDir * MoveSpeed, ForceMode.VelocityChange);
         }
     }

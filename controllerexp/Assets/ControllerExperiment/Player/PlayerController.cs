@@ -18,7 +18,11 @@ namespace ControllerExperiment
         [Header("Horizontal Move")]
         public float WalkSpeed;
         Vector3 TargetWalkDir = new Vector3();
-        
+
+        [Header("Collision")]
+        int DefaultLayerMask = 1 << 0;
+        Vector3 GroundNormal = new Vector3();
+
         Rigidbody rbody;
 
         private void Start()
@@ -33,6 +37,9 @@ namespace ControllerExperiment
             RotateToTargetAngle();
             GetTargetWalkDir();
             WalkToTargetDir();
+
+            CancelHorizontalVelocity();
+            CancelVerticalVelocity();
         }
 
         void GetTargetWalkDir()
@@ -58,22 +65,46 @@ namespace ControllerExperiment
             {
                 TargetWalkDir += this.transform.right * WalkSpeed;
             }
+
+            if (Vector3.SqrMagnitude(TargetWalkDir) > 0.1f)
+            {
+                GroundNormal = GetGroundNormal();
+                TargetWalkDir = Vector3.ProjectOnPlane(TargetWalkDir, GroundNormal);
+
+                TargetWalkDir.Normalize();
+                TargetWalkDir *= WalkSpeed;
+
+                if (TargetWalkDir.y > 0f)
+                {
+                    TargetWalkDir -= Vector3.up * TargetWalkDir.y;
+                    TargetWalkDir.Normalize();
+                    TargetWalkDir *= WalkSpeed * 1.1f;
+                }
+
+                Debug.DrawLine(this.transform.position, this.transform.position + TargetWalkDir, Color.yellow, 1f);
+            }
         }
 
         void WalkToTargetDir()
         {
-            if (TargetWalkDir.sqrMagnitude > 0.0001f)
+            if (TargetWalkDir.sqrMagnitude > 0.1f)
             {
                 rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
             }
-
-            CancelHorizontalVelocity();
         }
 
         void CancelHorizontalVelocity()
         {
             rbody.AddForce(Vector3.right * -rbody.velocity.x, ForceMode.VelocityChange);
             rbody.AddForce(Vector3.forward * -rbody.velocity.z, ForceMode.VelocityChange);
+        }
+
+        void CancelVerticalVelocity()
+        {
+            if (rbody.velocity.y > 0f)
+            {
+                rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
+            }
         }
 
         void RotateToTargetAngle()
@@ -100,6 +131,18 @@ namespace ControllerExperiment
             rbody.AddTorque(Vector3.up * -rbody.angularVelocity.y, ForceMode.VelocityChange);
 
             ShowTorque.transform.position = this.transform.position + (Vector3.up * Torque);
+        }
+
+        Vector3 GetGroundNormal()
+        {
+            Ray ray = new Ray(this.transform.position, Vector3.down);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 2f, DefaultLayerMask))
+            {
+                return hit.normal;
+            }
+
+            return Vector3.zero;
         }
     }
 }
