@@ -104,6 +104,14 @@ namespace ControllerExperiment
                     TargetWalkDir *= (WalkSpeed * 0.6f);
                     control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
                 }
+                //when falling
+                else if (!control.Grounded && !control.JumpTriggered)
+                {
+                    TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
+                    TargetWalkDir.Normalize();
+                    TargetWalkDir *= (WalkSpeed * 0.4f);
+                    control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
+                }
             }
         }
 

@@ -47,14 +47,13 @@ namespace ControllerExperiment
         {
             foreach(ContactPoint p in col.contacts)
             {
-                Vector3 bottom = capCollider.bounds.center - Vector3.up * capCollider.bounds.extents.y;
-                Debug.DrawLine(bottom, p.point, Color.blue, 0.5f);
+                Vector3 bottom = capCollider.bounds.center - (Vector3.up * capCollider.bounds.extents.y);
+                Vector3 curve = bottom + (Vector3.up * capCollider.radius);
 
-                Vector3 dir = bottom - p.point;
-
-                //float angle = 90f - Vector3.Angle(Vector3.down, dir);
+                Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
+                Vector3 dir = curve - p.point;
                 
-                if (dir.sqrMagnitude < capCollider.radius)
+                if (dir.y > 0f)
                 {
                     Grounded = true;
 
@@ -65,10 +64,6 @@ namespace ControllerExperiment
                         JumpUpdated = false;
                         ProcDic[CharacterProc.CANCEL_HORIZONTALVELOCITY]();
                     }
-                }
-                else
-                {
-                    //Debug.Log("side collision");
                 }
             }
         }
