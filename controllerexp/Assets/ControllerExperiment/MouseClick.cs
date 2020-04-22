@@ -7,13 +7,11 @@ namespace ControllerExperiment
     public class MouseClick : MonoBehaviour
     {
         PlayerController control;
-        TargetAngle targetAngle;
         Vector3 targetDirection = new Vector3();
         
         private void Start()
         {
             control = GameObject.FindObjectOfType<PlayerController>();
-            targetAngle = GameObject.FindObjectOfType<TargetAngle>();
         }
 
         private void Update()
@@ -28,7 +26,7 @@ namespace ControllerExperiment
                 {
                     Debug.DrawLine(hit.point, control.transform.position, Color.red);
                     targetDirection = hit.point - control.transform.position;
-                    targetAngle.Angle = AngleCalculator.GetAngle(targetDirection.x, targetDirection.z);
+                    control.TargetAngle = AngleCalculator.GetAngle(targetDirection.x, targetDirection.z);
                 }
             }
         }
