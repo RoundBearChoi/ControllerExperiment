@@ -7,7 +7,10 @@ namespace ControllerExperiment
     public enum SubComponents
     {
         NONE,
+
         MOVE_HORIZONTAL,
+
+        ROTATION,
     }
 
     public enum BoolData

@@ -9,12 +9,7 @@ namespace ControllerExperiment
         [Header("Found on Awake")]
         public Rigidbody rbody;
 
-        [Header("Rotation")]
-        public AnimationCurve TorqueMultiplier;
-        public float MaxTorque;
-        float Angle;
-        float AngleDifference;
-        float Torque;
+        [Header("Attributes")]
         public float TargetAngle;
 
         public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
@@ -27,8 +22,7 @@ namespace ControllerExperiment
         private void FixedUpdate()
         {
             SubComponentsDic[SubComponents.MOVE_HORIZONTAL].OnFixedUpdate();
-
-            RotateToTargetAngle();
+            SubComponentsDic[SubComponents.ROTATION].OnFixedUpdate();
 
             CancelHorizontalVelocity();
             CancelVerticalVelocity();
@@ -46,30 +40,6 @@ namespace ControllerExperiment
             {
                 rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
             }
-        }
-
-        void RotateToTargetAngle()
-        {
-            Angle = AngleCalculator.GetAngle(this.transform.forward.x, this.transform.forward.z);
-            AngleDifference = (TargetAngle - Angle);
-
-            if (Mathf.Abs(AngleDifference) > 180f)
-            {
-                if (AngleDifference < 0f)
-                {
-                    AngleDifference = (360f + AngleDifference);
-                }
-                else if (AngleDifference > 0f)
-                {
-                    AngleDifference = (360f - AngleDifference) * -1f;
-                }
-            }
-
-            rbody.maxAngularVelocity = MaxTorque;
-
-            Torque = AngleDifference * TorqueMultiplier.Evaluate(Mathf.Abs(AngleDifference) / 180f) * 20f;
-            rbody.AddTorque(Vector3.up * Torque, ForceMode.VelocityChange);
-            rbody.AddTorque(Vector3.up * -rbody.angularVelocity.y, ForceMode.VelocityChange);
         }
     }
 }
