@@ -20,9 +20,13 @@ namespace ControllerExperiment
             control.SubComponentsDic.Add(SubComponents.MOVE_HORIZONTAL, this);
         }
 
-        public override void OnFixedUpdate()
+        public override void OnUpdate()
         {
             GetTargetWalkDir();
+        }
+
+        public override void OnFixedUpdate()
+        {
             WalkToTargetDir();
         }
 
@@ -67,18 +71,35 @@ namespace ControllerExperiment
                 else if (TargetWalkDir.y < 0f)
                 {
                     TargetWalkDir.Normalize();
-                    TargetWalkDir *= WalkSpeed * 0.85f;
+                    TargetWalkDir *= WalkSpeed * 1f;
                 }
 
                 Debug.DrawLine(control.rbody.position, control.rbody.position + TargetWalkDir, Color.yellow, 1f);
             }
         }
 
+        void CancelHorizontalVelocity()
+        {
+            control.rbody.AddForce(Vector3.right * -control.rbody.velocity.x, ForceMode.VelocityChange);
+            control.rbody.AddForce(Vector3.forward * -control.rbody.velocity.z, ForceMode.VelocityChange);
+        }
+
         void WalkToTargetDir()
         {
+            CancelHorizontalVelocity();
+
             if (TargetWalkDir.sqrMagnitude > 0.1f)
             {
-                control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
+                //when grounded
+                if (control.Grounded && !control.Jumped)
+                {
+                    control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
+                }
+                //when jumped
+                else
+                {
+
+                }
             }
         }
 
@@ -86,6 +107,7 @@ namespace ControllerExperiment
         {
             Ray ray = new Ray(control.rbody.position, Vector3.down);
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit, 2f, DefaultLayerMask))
             {
                 return hit.normal;
