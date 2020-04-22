@@ -23,6 +23,9 @@ namespace ControllerExperiment
 
         public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
 
+        public Dictionary<CharacterProc, ProcDel> ProcDic = new Dictionary<CharacterProc, ProcDel>();
+        public delegate void ProcDel();
+
         private void Awake()
         {
             JumpTriggered = false;
@@ -60,6 +63,7 @@ namespace ControllerExperiment
                         JumpButtonPressed = false;
                         JumpTriggered = false;
                         JumpUpdated = false;
+                        ProcDic[CharacterProc.CANCEL_HORIZONTALVELOCITY]();
                     }
                 }
                 else

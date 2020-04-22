@@ -26,6 +26,7 @@ namespace ControllerExperiment
     public enum CharacterProc
     {
         NONE,
+        CANCEL_HORIZONTALVELOCITY,
     }
 
     public abstract class SubComponent : MonoBehaviour

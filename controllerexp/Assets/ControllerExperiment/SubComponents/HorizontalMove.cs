@@ -18,6 +18,7 @@ namespace ControllerExperiment
         private void Start()
         {
             control.SubComponentsDic.Add(SubComponents.MOVE_HORIZONTAL, this);
+            control.ProcDic.Add(CharacterProc.CANCEL_HORIZONTALVELOCITY, CancelHorizontalVelocity);
         }
 
         public override void OnUpdate()
@@ -96,9 +97,12 @@ namespace ControllerExperiment
                     control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
                 }
                 //when jumped
-                else
+                else if (!control.Grounded && control.JumpTriggered)
                 {
-
+                    TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
+                    TargetWalkDir.Normalize();
+                    TargetWalkDir *= (WalkSpeed * 0.6f);
+                    control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
                 }
             }
         }
