@@ -356,8 +356,9 @@ MonoBehaviour:
   rbody: {fileID: 0}
   capCollider: {fileID: 0}
   TargetAngle: 0
-  JumpForce: 7
+  JumpForce: 6
   TargetWalkDir: {x: 0, y: 0, z: 0}
   Grounded: 0
-  Jumped: 0
-  JumpForceAdded: 0
+  JumpButtonPressed: 0
+  JumpTriggered: 0
+  JumpUpdated: 0
