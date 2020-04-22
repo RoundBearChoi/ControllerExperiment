@@ -17,14 +17,15 @@ namespace ControllerExperiment
         [Header("Debug")]
         public Vector3 TargetWalkDir = new Vector3();
         public bool Grounded;
-        public bool Jumped;
-        public bool JumpForceAdded;
+        public bool JumpButtonPressed;
+        public bool JumpTriggered;
+        public bool JumpUpdated;
 
         public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
 
         private void Awake()
         {
-            JumpForceAdded = false;
+            JumpTriggered = false;
             rbody = this.gameObject.GetComponent<Rigidbody>();
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
         }
@@ -33,7 +34,7 @@ namespace ControllerExperiment
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                Jumped = true;
+                JumpButtonPressed = true;
             }
 
             SubComponentsDic[SubComponents.MOVE_HORIZONTAL].OnUpdate();
@@ -54,10 +55,11 @@ namespace ControllerExperiment
                 {
                     Grounded = true;
 
-                    if (rbody.velocity.y < 0.01f)
+                    if (JumpUpdated)
                     {
-                        Jumped = false;
-                        JumpForceAdded = false;
+                        JumpButtonPressed = false;
+                        JumpTriggered = false;
+                        JumpUpdated = false;
                     }
                 }
                 else
@@ -73,6 +75,13 @@ namespace ControllerExperiment
             SubComponentsDic[SubComponents.ROTATION].OnFixedUpdate();
 
             Jump();
+
+            if (!JumpButtonPressed && !JumpTriggered)
+            {
+                CancelVerticalVelocity();
+            }
+
+            Grounded = false;
         }
 
         void CancelVerticalVelocity()
@@ -85,21 +94,20 @@ namespace ControllerExperiment
 
         void Jump()
         {
-            if (Jumped)
+            if (JumpTriggered)
             {
-                if (!JumpForceAdded)
-                {
-                    rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
-                    rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
-                    JumpForceAdded = true;
-                }
-            }
-            else
-            {
-                CancelVerticalVelocity();
+                JumpUpdated = true;
             }
 
-            Grounded = false;
+            if (JumpButtonPressed && !JumpUpdated)
+            {
+                Debug.Log("jump triggered");
+                rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
+                rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
+
+                JumpButtonPressed = false;
+                JumpTriggered = true;
+            }
         }
     }
 }

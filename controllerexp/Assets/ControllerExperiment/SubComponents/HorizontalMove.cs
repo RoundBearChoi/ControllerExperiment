@@ -91,7 +91,7 @@ namespace ControllerExperiment
             if (TargetWalkDir.sqrMagnitude > 0.1f)
             {
                 //when grounded
-                if (control.Grounded && !control.Jumped)
+                if (control.Grounded && !control.JumpTriggered)
                 {
                     control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
                 }
