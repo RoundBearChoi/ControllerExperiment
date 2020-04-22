@@ -37,22 +37,22 @@ namespace ControllerExperiment
 
             if (Input.GetKey(KeyCode.W))
             {
-                TargetWalkDir += this.transform.forward * WalkSpeed;
+                TargetWalkDir += control.transform.forward * WalkSpeed;
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                TargetWalkDir -= this.transform.right * WalkSpeed;
+                TargetWalkDir -= control.transform.right * WalkSpeed;
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                TargetWalkDir -= this.transform.forward * WalkSpeed;
+                TargetWalkDir -= control.transform.forward * WalkSpeed;
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                TargetWalkDir += this.transform.right * WalkSpeed;
+                TargetWalkDir += control.transform.right * WalkSpeed;
             }
 
             if (Vector3.SqrMagnitude(TargetWalkDir) > 0.1f)
@@ -75,7 +75,7 @@ namespace ControllerExperiment
                     TargetWalkDir *= WalkSpeed * 1f;
                 }
 
-                Debug.DrawLine(control.rbody.position, control.rbody.position + TargetWalkDir, Color.yellow, 1f);
+                Debug.DrawLine(control.rbody.position, control.rbody.position + TargetWalkDir, Color.yellow, 0.5f);
             }
         }
 
