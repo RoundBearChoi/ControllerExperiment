@@ -75,7 +75,7 @@ namespace ControllerExperiment
                     TargetWalkDir *= WalkSpeed * 1f;
                 }
 
-                Debug.DrawLine(control.rbody.position, control.rbody.position + TargetWalkDir, Color.yellow, 0.5f);
+                Debug.DrawLine(control.rbody.position, control.rbody.position + TargetWalkDir, Color.yellow, 0.25f);
             }
         }
 

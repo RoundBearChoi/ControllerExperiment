@@ -17,6 +17,7 @@ namespace ControllerExperiment
         [Header("Debug")]
         public Vector3 TargetWalkDir = new Vector3();
         public bool Grounded;
+        public int CollidingGrounds;
         public bool JumpButtonPressed;
         public bool JumpTriggered;
         public bool JumpUpdated;
@@ -45,17 +46,20 @@ namespace ControllerExperiment
 
         private void OnCollisionStay(Collision col)
         {
-            foreach(ContactPoint p in col.contacts)
+            CollidingGrounds = 0;
+
+            foreach (ContactPoint p in col.contacts)
             {
                 Vector3 bottom = capCollider.bounds.center - (Vector3.up * capCollider.bounds.extents.y);
                 Vector3 curve = bottom + (Vector3.up * capCollider.radius);
 
-                Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
                 Vector3 dir = curve - p.point;
-                
+                Debug.DrawLine(p.point, p.point + p.normal, Color.blue, 0.25f);
+     
                 if (dir.y > 0f)
                 {
                     Grounded = true;
+                    CollidingGrounds += 1;
 
                     if (JumpUpdated)
                     {
@@ -64,8 +68,22 @@ namespace ControllerExperiment
                         JumpUpdated = false;
                         ProcDic[CharacterProc.CANCEL_HORIZONTALVELOCITY]();
                     }
+
+                    Vector3 contactDir = p.point - curve;
+                    float angle = Vector3.Angle(contactDir, Vector3.up);
+
+                    angle = 180f - Mathf.Abs(angle);
+
+                    //Debug.Log(angle);
+
+                    if (angle > 35f)
+                    {
+                        //Debug.Log("fall???");
+                    }
                 }
             }
+
+            //Debug.Log("colliding grounds: " + CollidingGrounds.ToString());
         }
 
         private void FixedUpdate()
@@ -81,6 +99,7 @@ namespace ControllerExperiment
             }
 
             Grounded = false;
+            CollidingGrounds = 0;
         }
 
         void CancelVerticalVelocity()
