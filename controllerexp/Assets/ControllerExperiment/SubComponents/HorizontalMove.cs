@@ -92,12 +92,12 @@ namespace ControllerExperiment
             if (TargetWalkDir.sqrMagnitude > 0.1f)
             {
                 //when grounded
-                if (control.Grounded && !control.JumpTriggered)
+                if (control.IsGrounded && !control.JumpTriggered)
                 {
                     control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
                 }
                 //when jumped
-                else if (!control.Grounded && control.JumpTriggered)
+                else if (!control.IsGrounded && control.JumpTriggered)
                 {
                     TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
                     TargetWalkDir.Normalize();
@@ -105,7 +105,7 @@ namespace ControllerExperiment
                     control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
                 }
                 //when falling
-                else if (!control.Grounded && !control.JumpTriggered)
+                else if (!control.IsGrounded && !control.JumpTriggered)
                 {
                     TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
                     TargetWalkDir.Normalize();

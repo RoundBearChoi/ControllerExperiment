@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ControllerExperiment.PhysicsState;
 
 namespace ControllerExperiment
 {
@@ -9,6 +10,7 @@ namespace ControllerExperiment
         [Header("Found on Awake")]
         public Rigidbody rbody;
         public CapsuleCollider capCollider;
+        public StateProcessor stateProcessor;
 
         [Header("Attributes")]
         public float TargetAngle;
@@ -16,7 +18,7 @@ namespace ControllerExperiment
 
         [Header("Debug")]
         public Vector3 TargetWalkDir = new Vector3();
-        public bool Grounded;
+        public bool IsGrounded;
         public int CollidingGrounds;
         public bool JumpButtonPressed;
         public bool JumpTriggered;
@@ -32,6 +34,10 @@ namespace ControllerExperiment
             JumpTriggered = false;
             rbody = this.gameObject.GetComponent<Rigidbody>();
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
+
+            //init physics state
+            stateProcessor = this.gameObject.GetComponentInChildren<StateProcessor>();
+            stateProcessor.TransitionTo(typeof(OnGround));
         }
 
         private void Update()
@@ -58,7 +64,7 @@ namespace ControllerExperiment
      
                 if (dir.y > 0f)
                 {
-                    Grounded = true;
+                    IsGrounded = true;
                     CollidingGrounds += 1;
 
                     if (JumpUpdated)
@@ -88,6 +94,8 @@ namespace ControllerExperiment
 
         private void FixedUpdate()
         {
+            stateProcessor.FixedUpdateState();
+
             SubComponentsDic[SubComponents.MOVE_HORIZONTAL].OnFixedUpdate();
             SubComponentsDic[SubComponents.ROTATION].OnFixedUpdate();
 
@@ -98,7 +106,7 @@ namespace ControllerExperiment
                 CancelVerticalVelocity();
             }
 
-            Grounded = false;
+            IsGrounded = false;
             CollidingGrounds = 0;
         }
 
@@ -119,7 +127,6 @@ namespace ControllerExperiment
 
             if (JumpButtonPressed && !JumpUpdated)
             {
-                Debug.Log("jump triggered");
                 rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
                 rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
 
