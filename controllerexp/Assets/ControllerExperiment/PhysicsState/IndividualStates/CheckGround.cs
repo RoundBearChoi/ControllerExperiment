@@ -10,7 +10,7 @@ namespace ControllerExperiment.PhysicsState
         {
             if (!control.IsGrounded)
             {
-                control.stateProcessor.TransitionTo(typeof(Airborne));
+                control.stateProcessor.TransitionTo(typeof(FreeFall));
             }
             else 
             {

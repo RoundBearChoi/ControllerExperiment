@@ -8,7 +8,6 @@ namespace ControllerExperiment.PhysicsState
     {
         public override void OnEnter()
         {
-            Debug.Log("landed and cancelled horizontal velocity");
             control.ProcDic[PlayerFunction.CANCEL_HORIZONTAL_VELOCITY]();
             control.ProcDic[PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
         }
