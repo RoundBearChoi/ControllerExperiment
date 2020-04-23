@@ -17,7 +17,6 @@ namespace ControllerExperiment
         public float JumpForce;
 
         [Header("Debug")]
-        public Vector3 TargetWalkDir = new Vector3();
         public bool IsGrounded;
         public bool JumpButtonPressed;
 
