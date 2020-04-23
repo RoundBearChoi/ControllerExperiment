@@ -17,6 +17,7 @@ namespace ControllerExperiment
         private void Start()
         {
             control.ProcDic.Add(PlayerFunction.ROTATE_TARGETANGLE, RotateToTargetAngle);
+            control.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY, CancelHorizontalAngularVelocity);
         }
 
         void RotateToTargetAngle()
@@ -40,6 +41,11 @@ namespace ControllerExperiment
 
             Torque = AngleDifference * TorqueMultiplier.Evaluate(Mathf.Abs(AngleDifference) / 180f) * 20f;
             control.rbody.AddTorque(Vector3.up * Torque, ForceMode.VelocityChange);
+            CancelHorizontalAngularVelocity();
+        }
+
+        void CancelHorizontalAngularVelocity()
+        {
             control.rbody.AddTorque(Vector3.up * -control.rbody.angularVelocity.y, ForceMode.VelocityChange);
         }
     }

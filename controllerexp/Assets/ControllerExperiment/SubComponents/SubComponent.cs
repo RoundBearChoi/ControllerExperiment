@@ -4,11 +4,6 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public enum SubComponents
-    {
-        NONE,
-    }
-
     public enum BoolData
     {
         NONE,
@@ -22,9 +17,14 @@ namespace ControllerExperiment
     public enum PlayerFunction
     {
         NONE,
+
         SET_TARGETWALKDIRECTION,
+
         WALK_TARGETDIRECTION,
-        CANCEL_HORIZONTALVELOCITY,
+
+        CANCEL_HORIZONTAL_VELOCITY,
+        CANCEL_HORIZONTAL_ANGULAR_VELOCITY,
+
         ROTATE_TARGETANGLE,
     }
 

@@ -12,8 +12,7 @@ namespace ControllerExperiment.PhysicsState
         {
             control = this.gameObject.GetComponentInParent<PlayerController>();
         }
-
-        
+                
         public abstract void ProcStateFixedUpdate();
 
         public virtual void OnEnter()

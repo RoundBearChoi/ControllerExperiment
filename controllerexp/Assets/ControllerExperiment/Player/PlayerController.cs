@@ -20,10 +20,6 @@ namespace ControllerExperiment
         public Vector3 TargetWalkDir = new Vector3();
         public bool IsGrounded;
         public bool JumpButtonPressed;
-        public bool JumpTriggered;
-        public bool JumpUpdated;
-
-        public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
 
         public Dictionary<PlayerFunction, ProcDel> ProcDic = new Dictionary<PlayerFunction, ProcDel>();
         public delegate void ProcDel();
@@ -33,7 +29,6 @@ namespace ControllerExperiment
 
         private void Awake()
         {
-            JumpTriggered = false;
             rbody = this.gameObject.GetComponent<Rigidbody>();
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
@@ -56,14 +51,6 @@ namespace ControllerExperiment
                 {
                     IsGrounded = true;
 
-                    if (JumpUpdated)
-                    {
-                        JumpButtonPressed = false;
-                        JumpTriggered = false;
-                        JumpUpdated = false;
-                        ProcDic[PlayerFunction.CANCEL_HORIZONTALVELOCITY]();
-                    }
-
                     Vector3 contactDir = p.point - curve;
                     float angle = Vector3.Angle(contactDir, Vector3.up);
 
@@ -85,24 +72,13 @@ namespace ControllerExperiment
         {
             stateProcessor.UpdateState();
 
-            if (Input.GetKey(KeyCode.Space))
-            {
-                JumpButtonPressed = true;
-            }
+            JumpButtonPressed = Input.GetKey(KeyCode.Space);
         }
 
         private void FixedUpdate()
         {
             stateProcessor.FixedUpdateState();
 
-            //Jump();
-            //
-            //if (!JumpButtonPressed && !JumpTriggered)
-            //{
-            //    CancelVerticalVelocity();
-            //}
-            //
-            
             IsGrounded = false;
         }
 
@@ -114,21 +90,10 @@ namespace ControllerExperiment
             }
         }
 
-        void Jump()
+        public void AddJumpForce()
         {
-            if (JumpTriggered)
-            {
-                JumpUpdated = true;
-            }
-
-            if (JumpButtonPressed && !JumpUpdated)
-            {
-                rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
-                rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
-
-                JumpButtonPressed = false;
-                JumpTriggered = true;
-            }
+            rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
+            rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
         }
     }
 }

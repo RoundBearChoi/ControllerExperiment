@@ -24,6 +24,12 @@ namespace ControllerExperiment.PhysicsState
         public override void ProcStateUpdate()
         {
             control.ProcDic[PlayerFunction.SET_TARGETWALKDIRECTION]();
+
+            if (control.JumpButtonPressed)
+            {
+                control.AddJumpForce();
+                control.stateProcessor.TransitionTo(typeof(WaitingToJump));
+            }
         }
     }
 }

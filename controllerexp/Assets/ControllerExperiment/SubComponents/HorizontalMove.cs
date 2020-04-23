@@ -16,21 +16,11 @@ namespace ControllerExperiment
 
         private void Start()
         {
-            control.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTALVELOCITY, CancelHorizontalVelocity);
             control.ProcDic.Add(PlayerFunction.SET_TARGETWALKDIRECTION, SetTargetWalkDir);
+            control.SetFloatDic.Add(SetFunction.TARGETWALKSPEED, SetWalkSpeed);
             control.ProcDic.Add(PlayerFunction.WALK_TARGETDIRECTION, WalkToTargetDir);
 
-            control.SetFloatDic.Add(SetFunction.TARGETWALKSPEED, SetWalkSpeed);
-        }
-
-        public override void OnUpdate()
-        {
-            //GetTargetWalkDir();
-        }
-
-        public override void OnFixedUpdate()
-        {
-            //WalkToTargetDir();
+            control.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
         }
 
         void SetTargetWalkDir()
@@ -89,31 +79,6 @@ namespace ControllerExperiment
             CancelHorizontalVelocity();
             MoveForce = TargetWalkDir.normalized * Speed;
             control.rbody.AddForce(MoveForce, ForceMode.VelocityChange);
-
-            //if (TargetWalkDir.sqrMagnitude > 0.1f)
-            //{
-            //    //when grounded
-            //    if (control.IsGrounded && !control.JumpTriggered)
-            //    {
-            //        control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
-            //    }
-            //    //when jumped
-            //    else if (!control.IsGrounded && control.JumpTriggered)
-            //    {
-            //        TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
-            //        TargetWalkDir.Normalize();
-            //        TargetWalkDir *= (WalkSpeed * 0.6f);
-            //        control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
-            //    }
-            //    //when falling
-            //    else if (!control.IsGrounded && !control.JumpTriggered)
-            //    {
-            //        TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
-            //        TargetWalkDir.Normalize();
-            //        TargetWalkDir *= (WalkSpeed * 0.4f);
-            //        control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
-            //    }
-            //}
         }
 
         Vector3 GetGroundNormal()
