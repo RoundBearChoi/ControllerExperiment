@@ -13,10 +13,10 @@ namespace ControllerExperiment
         public StateProcessor stateProcessor;
 
         [Header("Attributes")]
-        public float TargetAngle;
         public float JumpForce;
 
         [Header("Debug")]
+        public float TargetAngle;
         public bool IsGrounded;
         public bool JumpButtonPressed;
 
