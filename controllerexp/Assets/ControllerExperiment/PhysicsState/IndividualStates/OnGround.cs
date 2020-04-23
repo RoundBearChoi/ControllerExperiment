@@ -19,9 +19,11 @@ namespace ControllerExperiment.PhysicsState
             control.ProcDic[PlayerFunction.WALK_TARGETDIRECTION]();
             control.ProcDic[PlayerFunction.ROTATE_TARGETANGLE]();
             control.CancelVerticalVelocity();
+
+            CheckJump();
         }
 
-        public override void ProcStateUpdate()
+        void CheckJump()
         {
             control.ProcDic[PlayerFunction.SET_TARGETWALKDIRECTION]();
 
