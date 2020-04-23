@@ -6,9 +6,8 @@ namespace ControllerExperiment.PhysicsState
 {
     public class StateProcessor : MonoBehaviour
     {
-        [Header("Found on InitProcessor")]
-        public List<PhysicsState> AllStates = new List<PhysicsState>();
         [Header("Debug")]
+        public List<PhysicsState> AllStates = new List<PhysicsState>();
         public PhysicsState Current = null;
 
         void InitProcessor(System.Type type)
