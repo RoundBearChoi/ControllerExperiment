@@ -33,6 +33,11 @@ namespace ControllerExperiment.PhysicsState
 
         public void TransitionTo(System.Type type)
         {
+            if (!type.IsSubclassOf(typeof(PhysicsState)))
+            {
+                Debug.LogError(type.Name + " is not a PhysicsState..");
+            }
+
             Debug.Log("Attempting transition to " + type.Name + "..");
 
             PhysicsState s = GetState(type);
