@@ -10,7 +10,7 @@ namespace ControllerExperiment.PhysicsState
         public List<PhysicsState> AllStates = new List<PhysicsState>();
         public PhysicsState Current = null;
 
-        void InitProcessor(System.Type type)
+        void InitState(System.Type type)
         {
             Debug.Log("State initialized: " + type.Name);
 
@@ -46,7 +46,7 @@ namespace ControllerExperiment.PhysicsState
             if (s == null)
             {
                 //Debug.Log(type.Name + " is null. Initiating..");
-                InitProcessor(type);
+                InitState(type);
             }
             else
             {
