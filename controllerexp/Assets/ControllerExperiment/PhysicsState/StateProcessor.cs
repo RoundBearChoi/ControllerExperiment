@@ -10,6 +10,11 @@ namespace ControllerExperiment.PhysicsState
         public List<PhysicsState> AllStates = new List<PhysicsState>();
         public PhysicsState Current = null;
 
+        private void Awake()
+        {
+            AllStates.Clear();
+        }
+
         void InitState(System.Type type)
         {
             Debug.Log("State initialized: " + type.Name);
