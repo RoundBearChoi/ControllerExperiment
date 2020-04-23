@@ -6,6 +6,24 @@ namespace ControllerExperiment.PhysicsState
 {
     public abstract class PhysicsState: MonoBehaviour
     {
-        public abstract void ProcFixedUpdate();
+        protected PlayerController control;
+
+        private void Awake()
+        {
+            control = this.gameObject.GetComponentInParent<PlayerController>();
+        }
+
+        
+        public abstract void ProcStateFixedUpdate();
+
+        public virtual void OnEnter()
+        {
+
+        }
+
+        public virtual void ProcStateUpdate()
+        {
+
+        }
     }
 }

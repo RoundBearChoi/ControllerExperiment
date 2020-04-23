@@ -7,10 +7,6 @@ namespace ControllerExperiment
     public enum SubComponents
     {
         NONE,
-
-        MOVE_HORIZONTAL,
-
-        ROTATION,
     }
 
     public enum BoolData
@@ -23,10 +19,19 @@ namespace ControllerExperiment
         NONE,
     }
 
-    public enum CharacterProc
+    public enum PlayerFunction
     {
         NONE,
+        SET_TARGETWALKDIRECTION,
+        WALK_TARGETDIRECTION,
         CANCEL_HORIZONTALVELOCITY,
+        ROTATE_TARGETANGLE,
+    }
+
+    public enum SetFunction
+    {
+        NONE,
+        TARGETWALKSPEED,
     }
 
     public abstract class SubComponent : MonoBehaviour

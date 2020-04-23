@@ -4,11 +4,15 @@ using UnityEngine;
 
 namespace ControllerExperiment.PhysicsState
 {
-    public class Airborne : PhysicsState
+    public class CheckGround : PhysicsState
     {
         public override void ProcStateFixedUpdate()
         {
-            if (control.IsGrounded)
+            if (!control.IsGrounded)
+            {
+                control.stateProcessor.TransitionTo(typeof(Airborne));
+            }
+            else 
             {
                 control.stateProcessor.TransitionTo(typeof(OnGround));
             }

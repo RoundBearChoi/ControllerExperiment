@@ -6,53 +6,55 @@ namespace ControllerExperiment
 {
     public class HorizontalMove : SubComponent
     {
-        [Header("Attributes")]
-        public float WalkSpeed;
-        
         [Header("Debug")]
         public Vector3 TargetWalkDir = new Vector3();
+        public float Speed;
+        public Vector3 MoveForce = new Vector3();
         public Vector3 GroundNormal = new Vector3();
 
         int DefaultLayerMask = 1 << 0;
 
         private void Start()
         {
-            control.SubComponentsDic.Add(SubComponents.MOVE_HORIZONTAL, this);
-            control.ProcDic.Add(CharacterProc.CANCEL_HORIZONTALVELOCITY, CancelHorizontalVelocity);
+            control.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTALVELOCITY, CancelHorizontalVelocity);
+            control.ProcDic.Add(PlayerFunction.SET_TARGETWALKDIRECTION, SetTargetWalkDir);
+            control.ProcDic.Add(PlayerFunction.WALK_TARGETDIRECTION, WalkToTargetDir);
+
+            control.SetFloatDic.Add(SetFunction.TARGETWALKSPEED, SetWalkSpeed);
         }
 
         public override void OnUpdate()
         {
-            GetTargetWalkDir();
+            //GetTargetWalkDir();
         }
 
         public override void OnFixedUpdate()
         {
-            WalkToTargetDir();
+            //WalkToTargetDir();
         }
 
-        void GetTargetWalkDir()
+        void SetTargetWalkDir()
         {
             TargetWalkDir = Vector3.zero;
 
             if (Input.GetKey(KeyCode.W))
             {
-                TargetWalkDir += control.transform.forward * WalkSpeed;
+                TargetWalkDir += control.transform.forward;
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                TargetWalkDir -= control.transform.right * WalkSpeed;
+                TargetWalkDir -= control.transform.right;
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                TargetWalkDir -= control.transform.forward * WalkSpeed;
+                TargetWalkDir -= control.transform.forward;
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                TargetWalkDir += control.transform.right * WalkSpeed;
+                TargetWalkDir += control.transform.right;
             }
 
             if (Vector3.SqrMagnitude(TargetWalkDir) > 0.1f)
@@ -61,18 +63,15 @@ namespace ControllerExperiment
                 TargetWalkDir = Vector3.ProjectOnPlane(TargetWalkDir, GroundNormal);
 
                 TargetWalkDir.Normalize();
-                TargetWalkDir *= WalkSpeed;
 
                 if (TargetWalkDir.y > 0f)
                 {
                     TargetWalkDir -= Vector3.up * TargetWalkDir.y;
                     TargetWalkDir.Normalize();
-                    TargetWalkDir *= WalkSpeed * 1.15f;
                 }
                 else if (TargetWalkDir.y < 0f)
                 {
                     TargetWalkDir.Normalize();
-                    TargetWalkDir *= WalkSpeed * 1f;
                 }
 
                 Debug.DrawLine(control.rbody.position, control.rbody.position + TargetWalkDir, Color.yellow, 0.25f);
@@ -88,31 +87,33 @@ namespace ControllerExperiment
         void WalkToTargetDir()
         {
             CancelHorizontalVelocity();
+            MoveForce = TargetWalkDir.normalized * Speed;
+            control.rbody.AddForce(MoveForce, ForceMode.VelocityChange);
 
-            if (TargetWalkDir.sqrMagnitude > 0.1f)
-            {
-                //when grounded
-                if (control.IsGrounded && !control.JumpTriggered)
-                {
-                    control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
-                }
-                //when jumped
-                else if (!control.IsGrounded && control.JumpTriggered)
-                {
-                    TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
-                    TargetWalkDir.Normalize();
-                    TargetWalkDir *= (WalkSpeed * 0.6f);
-                    control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
-                }
-                //when falling
-                else if (!control.IsGrounded && !control.JumpTriggered)
-                {
-                    TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
-                    TargetWalkDir.Normalize();
-                    TargetWalkDir *= (WalkSpeed * 0.4f);
-                    control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
-                }
-            }
+            //if (TargetWalkDir.sqrMagnitude > 0.1f)
+            //{
+            //    //when grounded
+            //    if (control.IsGrounded && !control.JumpTriggered)
+            //    {
+            //        control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
+            //    }
+            //    //when jumped
+            //    else if (!control.IsGrounded && control.JumpTriggered)
+            //    {
+            //        TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
+            //        TargetWalkDir.Normalize();
+            //        TargetWalkDir *= (WalkSpeed * 0.6f);
+            //        control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
+            //    }
+            //    //when falling
+            //    else if (!control.IsGrounded && !control.JumpTriggered)
+            //    {
+            //        TargetWalkDir -= (Vector3.up * TargetWalkDir.y);
+            //        TargetWalkDir.Normalize();
+            //        TargetWalkDir *= (WalkSpeed * 0.4f);
+            //        control.rbody.AddForce(TargetWalkDir, ForceMode.VelocityChange);
+            //    }
+            //}
         }
 
         Vector3 GetGroundNormal()
@@ -126,6 +127,11 @@ namespace ControllerExperiment
             }
 
             return Vector3.zero;
+        }
+
+        void SetWalkSpeed(float f)
+        {
+            Speed = f;
         }
     }
 }

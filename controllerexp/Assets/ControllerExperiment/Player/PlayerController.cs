@@ -19,15 +19,17 @@ namespace ControllerExperiment
         [Header("Debug")]
         public Vector3 TargetWalkDir = new Vector3();
         public bool IsGrounded;
-        public int CollidingGrounds;
         public bool JumpButtonPressed;
         public bool JumpTriggered;
         public bool JumpUpdated;
 
         public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
 
-        public Dictionary<CharacterProc, ProcDel> ProcDic = new Dictionary<CharacterProc, ProcDel>();
+        public Dictionary<PlayerFunction, ProcDel> ProcDic = new Dictionary<PlayerFunction, ProcDel>();
         public delegate void ProcDel();
+
+        public Dictionary<SetFunction, SetPlayer> SetFloatDic = new Dictionary<SetFunction, SetPlayer>();
+        public delegate void SetPlayer(float f);
 
         private void Awake()
         {
@@ -37,23 +39,11 @@ namespace ControllerExperiment
 
             //init physics state
             stateProcessor = this.gameObject.GetComponentInChildren<StateProcessor>();
-            stateProcessor.TransitionTo(typeof(OnGround));
-        }
-
-        private void Update()
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                JumpButtonPressed = true;
-            }
-
-            SubComponentsDic[SubComponents.MOVE_HORIZONTAL].OnUpdate();
+            stateProcessor.TransitionTo(typeof(CheckGround));
         }
 
         private void OnCollisionStay(Collision col)
         {
-            CollidingGrounds = 0;
-
             foreach (ContactPoint p in col.contacts)
             {
                 Vector3 bottom = capCollider.bounds.center - (Vector3.up * capCollider.bounds.extents.y);
@@ -65,14 +55,13 @@ namespace ControllerExperiment
                 if (dir.y > 0f)
                 {
                     IsGrounded = true;
-                    CollidingGrounds += 1;
 
                     if (JumpUpdated)
                     {
                         JumpButtonPressed = false;
                         JumpTriggered = false;
                         JumpUpdated = false;
-                        ProcDic[CharacterProc.CANCEL_HORIZONTALVELOCITY]();
+                        ProcDic[PlayerFunction.CANCEL_HORIZONTALVELOCITY]();
                     }
 
                     Vector3 contactDir = p.point - curve;
@@ -92,25 +81,32 @@ namespace ControllerExperiment
             //Debug.Log("colliding grounds: " + CollidingGrounds.ToString());
         }
 
+        private void Update()
+        {
+            stateProcessor.UpdateState();
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                JumpButtonPressed = true;
+            }
+        }
+
         private void FixedUpdate()
         {
             stateProcessor.FixedUpdateState();
 
-            SubComponentsDic[SubComponents.MOVE_HORIZONTAL].OnFixedUpdate();
-            SubComponentsDic[SubComponents.ROTATION].OnFixedUpdate();
-
-            Jump();
-
-            if (!JumpButtonPressed && !JumpTriggered)
-            {
-                CancelVerticalVelocity();
-            }
-
+            //Jump();
+            //
+            //if (!JumpButtonPressed && !JumpTriggered)
+            //{
+            //    CancelVerticalVelocity();
+            //}
+            //
+            
             IsGrounded = false;
-            CollidingGrounds = 0;
         }
 
-        void CancelVerticalVelocity()
+        public void CancelVerticalVelocity()
         {
             if (rbody.velocity.y > 0f)
             {

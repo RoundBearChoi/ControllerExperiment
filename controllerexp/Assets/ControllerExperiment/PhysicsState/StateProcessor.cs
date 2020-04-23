@@ -6,7 +6,9 @@ namespace ControllerExperiment.PhysicsState
 {
     public class StateProcessor : MonoBehaviour
     {
+        [Header("Found on InitProcessor")]
         public List<PhysicsState> AllStates = new List<PhysicsState>();
+        [Header("Debug")]
         public PhysicsState Current = null;
 
         void InitProcessor(System.Type type)
@@ -38,19 +40,20 @@ namespace ControllerExperiment.PhysicsState
                 Debug.LogError(type.Name + " is not a PhysicsState..");
             }
 
-            Debug.Log("Attempting transition to " + type.Name + "..");
+            //Debug.Log("Attempting transition to " + type.Name + "..");
 
             PhysicsState s = GetState(type);
 
             if (s == null)
             {
-                Debug.Log(type.Name + " is null. Initiating..");
+                //Debug.Log(type.Name + " is null. Initiating..");
                 InitProcessor(type);
             }
             else
             {
                 Debug.Log("Transitioned to: " + type.Name);
                 Current = s;
+                Current.OnEnter();
             }
         }
 
@@ -69,7 +72,12 @@ namespace ControllerExperiment.PhysicsState
 
         public void FixedUpdateState()
         {
-            Current.ProcFixedUpdate();
+            Current.ProcStateFixedUpdate();
+        }
+
+        public void UpdateState()
+        {
+            Current.ProcStateUpdate();
         }
     }
 }

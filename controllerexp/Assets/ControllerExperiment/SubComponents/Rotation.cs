@@ -16,12 +16,7 @@ namespace ControllerExperiment
 
         private void Start()
         {
-            control.SubComponentsDic.Add(SubComponents.ROTATION, this);
-        }
-
-        public override void OnFixedUpdate()
-        {
-            RotateToTargetAngle();
+            control.ProcDic.Add(PlayerFunction.ROTATE_TARGETANGLE, RotateToTargetAngle);
         }
 
         void RotateToTargetAngle()

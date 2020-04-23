@@ -6,9 +6,24 @@ namespace ControllerExperiment.PhysicsState
 {
     public class OnGround : PhysicsState
     {
-        public override void ProcFixedUpdate()
+        [Header("Debug")]
+        public float GroundSpeed = 3.5f;
+
+        public override void OnEnter()
         {
-            //Debug.Log("fixed updating ground state");
+            control.SetFloatDic[SetFunction.TARGETWALKSPEED](GroundSpeed);
+        }
+
+        public override void ProcStateFixedUpdate()
+        {
+            control.ProcDic[PlayerFunction.WALK_TARGETDIRECTION]();
+            control.ProcDic[PlayerFunction.ROTATE_TARGETANGLE]();
+            control.CancelVerticalVelocity();
+        }
+
+        public override void ProcStateUpdate()
+        {
+            control.ProcDic[PlayerFunction.SET_TARGETWALKDIRECTION]();
         }
     }
 }
