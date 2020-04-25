@@ -23,9 +23,9 @@ namespace ControllerExperiment.Ragdoll
 
             GUILayout.Space(5);
 
-            if (GUILayout.Button("Get Character Joints"))
+            if (GUILayout.Button("Setup Character Joints"))
             {
-                r.GetCharacterJoints();
+                r.SetupCharacterJoints();
             }
         }
     }

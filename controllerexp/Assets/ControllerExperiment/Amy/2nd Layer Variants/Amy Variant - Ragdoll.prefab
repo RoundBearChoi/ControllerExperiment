@@ -65,12 +65,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -140,12 +140,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -197,30 +197,30 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -70
+    limit: 1
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 10
+    limit: 117
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 50
+    limit: 90
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 0
+    limit: 20
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -289,12 +289,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -346,30 +346,30 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -70
+    limit: 22.114792
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 10
+    limit: 117.19366
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 50
+    limit: 90.663414
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 0
+    limit: 20.80782
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -421,11 +421,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -90
+    limit: -50
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 50
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -439,12 +439,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -514,12 +514,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -618,12 +618,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -675,11 +675,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -90
+    limit: -50
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 50
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -693,12 +693,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -737,6 +737,16 @@ MonoBehaviour:
   - {fileID: 422493534}
   - {fileID: 1547786574}
   - {fileID: 860875441}
+  RightCharacterJoints:
+  - {fileID: 1708697202}
+  - {fileID: 1322028518}
+  - {fileID: 1547786574}
+  - {fileID: 860875441}
+  LeftCharacterJoints:
+  - {fileID: 2026464425}
+  - {fileID: 1020371929}
+  - {fileID: 680900209}
+  - {fileID: 1607280286}
 --- !u!54 &2026464424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -803,12 +813,12 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1

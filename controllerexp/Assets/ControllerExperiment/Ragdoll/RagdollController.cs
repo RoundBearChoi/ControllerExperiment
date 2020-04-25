@@ -8,6 +8,8 @@ namespace ControllerExperiment.Ragdoll
     {
         public List<GameObject> RagdollParts = new List<GameObject>();
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
+        public List<CharacterJoint> RightCharacterJoints = new List<CharacterJoint>();
+        public List<CharacterJoint> LeftCharacterJoints = new List<CharacterJoint>();
 
         readonly RigidbodyInterpolation DefaultInterpolation = RigidbodyInterpolation.Interpolate;
         readonly CollisionDetectionMode DefaultDetectionMode = CollisionDetectionMode.Continuous;
@@ -42,9 +44,11 @@ namespace ControllerExperiment.Ragdoll
             }
         }
 
-        public void GetCharacterJoints()
+        public void SetupCharacterJoints()
         {
             CharacterJoints.Clear();
+            RightCharacterJoints.Clear();
+            LeftCharacterJoints.Clear();
 
             CharacterJoint[] joints = this.gameObject.GetComponentsInChildren<CharacterJoint>();
 
@@ -53,6 +57,33 @@ namespace ControllerExperiment.Ragdoll
                 if (!CharacterJoints.Contains(j))
                 {
                     CharacterJoints.Add(j);
+                    j.enableProjection = true;
+                    j.enableCollision = true;
+                }
+
+                AddToRightCharacterJoints(j);
+                AddToLeftCharacterJoints(j);
+            }
+        }
+
+        void AddToRightCharacterJoints(CharacterJoint joint)
+        {
+            if (joint.name.Contains("right") || joint.name.Contains("Right"))
+            {
+                if (!RightCharacterJoints.Contains(joint))
+                {
+                    RightCharacterJoints.Add(joint);
+                }
+            }
+        }
+
+        void AddToLeftCharacterJoints(CharacterJoint joint)
+        {
+            if (joint.name.Contains("left") || joint.name.Contains("Left"))
+            {
+                if (!LeftCharacterJoints.Contains(joint))
+                {
+                    LeftCharacterJoints.Add(joint);
                 }
             }
         }
