@@ -18,6 +18,26 @@ namespace ControllerExperiment.Ragdoll
         readonly RigidbodyInterpolation DefaultInterpolation = RigidbodyInterpolation.Interpolate;
         readonly CollisionDetectionMode DefaultDetectionMode = CollisionDetectionMode.Continuous;
 
+        [Header("Active Ragdoll")]
+        public ConfigurableJoint Hip;
+
+        public GameObject Right_UpperArm;
+        public GameObject Right_ForeArm;
+        public GameObject Left_UpperArm;
+        public GameObject Left_ForeArm;
+
+        [Space(5)]
+        [Range(0f, 5000f)]
+        public float DriveSpring;
+        [Range(0f, 1000f)]
+        public float DriveDamper;
+
+        [Space(5)]
+        [Range(0f, 5000f)]
+        public float AngularDriveSpring;
+        [Range(0f, 1000f)]
+        public float AngularDriveDamper;
+
         private void Start()
         {
             RagdollParts.Clear();
@@ -26,8 +46,8 @@ namespace ControllerExperiment.Ragdoll
 
         private void FixedUpdate()
         {
-            //this.transform.position = TargetDummy.transform.position;
-            //this.transform.rotation = TargetDummy.transform.rotation;
+            UpdateDriveStrength();
+            UpdateAngularDriveStrength();
         }
 
         public void SetupRagdollParts()
@@ -96,6 +116,40 @@ namespace ControllerExperiment.Ragdoll
                     LeftCharacterJoints.Add(joint);
                 }
             }
+        }
+
+        void UpdateDriveStrength()
+        {
+            if (UpdateDrive(Hip.xDrive)) { Hip.xDrive = GetDrive(DriveSpring, DriveDamper, Hip.xDrive.maximumForce); }
+            if (UpdateDrive(Hip.yDrive)) { Hip.yDrive = GetDrive(DriveSpring, DriveDamper, Hip.yDrive.maximumForce); }
+            if (UpdateDrive(Hip.zDrive)) { Hip.zDrive = GetDrive(DriveSpring, DriveDamper, Hip.zDrive.maximumForce); }
+        }
+
+        void UpdateAngularDriveStrength()
+        {
+            if (UpdateDrive(Hip.angularXDrive)) { Hip.angularXDrive = GetDrive(AngularDriveSpring, AngularDriveDamper, Hip.angularXDrive.maximumForce); }
+            if (UpdateDrive(Hip.angularYZDrive)) { Hip.angularYZDrive = GetDrive(AngularDriveSpring, AngularDriveDamper, Hip.angularYZDrive.maximumForce); }
+        }
+
+        bool UpdateDrive(JointDrive drive)
+        {
+            if (!drive.positionSpring.Equals(DriveSpring) || !drive.positionDamper.Equals(DriveDamper))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        JointDrive GetDrive(float spring, float damper, float maxforce)
+        {
+            JointDrive newdrive = new JointDrive();
+            newdrive.positionSpring = spring;
+            newdrive.positionDamper = damper;
+            newdrive.maximumForce = maxforce;
+            return newdrive;
         }
     }
 }
