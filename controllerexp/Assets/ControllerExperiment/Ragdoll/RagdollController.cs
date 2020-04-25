@@ -12,17 +12,19 @@ namespace ControllerExperiment.Ragdoll
         public List<CharacterJoint> RightCharacterJoints = new List<CharacterJoint>();
         public List<CharacterJoint> LeftCharacterJoints = new List<CharacterJoint>();
 
-        [Space(10)]
-        public GameObject TargetDummy;
+        [Header("Active Ragdoll Dummy")]
+        public GameObject Dummy_Character;
+        public GameObject Dummy_Right_UpperArm;
+        public GameObject Dummy_Right_ForeArm;
 
         readonly RigidbodyInterpolation DefaultInterpolation = RigidbodyInterpolation.Interpolate;
         readonly CollisionDetectionMode DefaultDetectionMode = CollisionDetectionMode.Continuous;
 
-        [Header("Active Ragdoll")]
+        [Header("Active Ragdoll Self")]
         public ConfigurableJoint Hip;
 
-        public GameObject Right_UpperArm;
-        public GameObject Right_ForeArm;
+        public ConfigurableJoint Right_UpperArm;
+        public ConfigurableJoint Right_ForeArm;
         public GameObject Left_UpperArm;
         public GameObject Left_ForeArm;
 
@@ -120,15 +122,29 @@ namespace ControllerExperiment.Ragdoll
 
         void UpdateDriveStrength()
         {
+            //this.transform.position = Dummy_Character.transform.position;
+            //this.transform.rotation = Dummy_Character.transform.rotation;
+
             if (UpdateDrive(Hip.xDrive)) { Hip.xDrive = GetDrive(DriveSpring, DriveDamper, Hip.xDrive.maximumForce); }
             if (UpdateDrive(Hip.yDrive)) { Hip.yDrive = GetDrive(DriveSpring, DriveDamper, Hip.yDrive.maximumForce); }
             if (UpdateDrive(Hip.zDrive)) { Hip.zDrive = GetDrive(DriveSpring, DriveDamper, Hip.zDrive.maximumForce); }
+
+            Right_UpperArm.targetPosition = Dummy_Right_UpperArm.transform.localPosition;
+            if (UpdateDrive(Right_UpperArm.xDrive)) { Right_UpperArm.xDrive = GetDrive(DriveSpring, DriveDamper, Right_UpperArm.xDrive.maximumForce); }
+            if (UpdateDrive(Right_UpperArm.yDrive)) { Right_UpperArm.yDrive = GetDrive(DriveSpring, DriveDamper, Right_UpperArm.yDrive.maximumForce); }
+            if (UpdateDrive(Right_UpperArm.zDrive)) { Right_UpperArm.zDrive = GetDrive(DriveSpring, DriveDamper, Right_UpperArm.zDrive.maximumForce); }
         }
 
         void UpdateAngularDriveStrength()
         {
             if (UpdateDrive(Hip.angularXDrive)) { Hip.angularXDrive = GetDrive(AngularDriveSpring, AngularDriveDamper, Hip.angularXDrive.maximumForce); }
             if (UpdateDrive(Hip.angularYZDrive)) { Hip.angularYZDrive = GetDrive(AngularDriveSpring, AngularDriveDamper, Hip.angularYZDrive.maximumForce); }
+
+            
+
+            Right_UpperArm.targetRotation = Dummy_Right_UpperArm.transform.localRotation;
+            if (UpdateDrive(Right_UpperArm.angularXDrive)) { Right_UpperArm.angularXDrive = GetDrive(AngularDriveSpring, AngularDriveDamper, Right_UpperArm.angularXDrive.maximumForce); }
+            if (UpdateDrive(Right_UpperArm.angularYZDrive)) { Right_UpperArm.angularYZDrive = GetDrive(AngularDriveSpring, AngularDriveDamper, Right_UpperArm.angularYZDrive.maximumForce); }
         }
 
         bool UpdateDrive(JointDrive drive)
@@ -150,6 +166,11 @@ namespace ControllerExperiment.Ragdoll
             newdrive.positionDamper = damper;
             newdrive.maximumForce = maxforce;
             return newdrive;
+        }
+
+        void UpdateActiveRagdollParts()
+        {
+
         }
     }
 }
