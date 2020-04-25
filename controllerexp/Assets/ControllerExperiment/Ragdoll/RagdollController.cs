@@ -9,14 +9,19 @@ namespace ControllerExperiment.Ragdoll
         public List<GameObject> RagdollParts = new List<GameObject>();
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
 
+        readonly RigidbodyInterpolation DefaultInterpolation = RigidbodyInterpolation.Interpolate;
+        readonly CollisionDetectionMode DefaultDetectionMode = CollisionDetectionMode.Continuous;
+
         private void Start()
         {
             RagdollParts.Clear();
-            GetRagdollParts();
+            SetupRagdollParts();
         }
 
-        public void GetRagdollParts()
+        public void SetupRagdollParts()
         {
+            RagdollParts.Clear();
+
             foreach (Transform child in this.transform)
             {
                 Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
@@ -28,6 +33,8 @@ namespace ControllerExperiment.Ragdoll
                     {
                         if (!RagdollParts.Contains(c.gameObject))
                         {
+                            c.attachedRigidbody.interpolation = DefaultInterpolation;
+                            c.attachedRigidbody.collisionDetectionMode = DefaultDetectionMode;
                             RagdollParts.Add(c.gameObject);
                         }
                     }

@@ -14,10 +14,14 @@ namespace ControllerExperiment.Ragdoll
 
             RagdollController r = (RagdollController)target;
 
-            if (GUILayout.Button("Get Ragdoll Parts"))
+            GUILayout.Space(10);
+
+            if (GUILayout.Button("Setup Ragdoll Parts"))
             {
-                r.GetRagdollParts();
+                r.SetupRagdollParts();
             }
+
+            GUILayout.Space(5);
 
             if (GUILayout.Button("Get Character Joints"))
             {
