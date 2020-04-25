@@ -6,10 +6,14 @@ namespace ControllerExperiment.Ragdoll
 {
     public class RagdollController : MonoBehaviour
     {
+        [Header("Character Parts")]
         public List<GameObject> RagdollParts = new List<GameObject>();
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
         public List<CharacterJoint> RightCharacterJoints = new List<CharacterJoint>();
         public List<CharacterJoint> LeftCharacterJoints = new List<CharacterJoint>();
+
+        [Space(10)]
+        public GameObject TargetDummy;
 
         readonly RigidbodyInterpolation DefaultInterpolation = RigidbodyInterpolation.Interpolate;
         readonly CollisionDetectionMode DefaultDetectionMode = CollisionDetectionMode.Continuous;
@@ -18,6 +22,12 @@ namespace ControllerExperiment.Ragdoll
         {
             RagdollParts.Clear();
             SetupRagdollParts();
+        }
+
+        private void FixedUpdate()
+        {
+            //this.transform.position = TargetDummy.transform.position;
+            //this.transform.rotation = TargetDummy.transform.rotation;
         }
 
         public void SetupRagdollParts()
