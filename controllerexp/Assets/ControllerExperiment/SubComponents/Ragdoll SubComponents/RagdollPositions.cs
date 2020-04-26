@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment.SubComponents
 {
-    public class CharacterJointFinder : SubComponent
+    public class RagdollPositions : SubComponent
     {
         [Header("Attributes")]
         public RigidbodyInterpolation interpolate;
@@ -13,6 +13,13 @@ namespace ControllerExperiment.SubComponents
 
         [Header("Debug")]
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
+        [Space(5)]
+        public GameObject TargetMirror;
+
+        private void Start()
+        {
+            SetCharacterJointAttributes();
+        }
 
         public void FindCharacterJoints()
         {
@@ -36,6 +43,7 @@ namespace ControllerExperiment.SubComponents
             foreach(CharacterJoint j in CharacterJoints)
             {
                 Rigidbody body = j.GetComponent<Rigidbody>();
+
                 body.interpolation = interpolate;
                 body.collisionDetectionMode = collision;
                 j.enableCollision = ConnectedBodiesCollision;
