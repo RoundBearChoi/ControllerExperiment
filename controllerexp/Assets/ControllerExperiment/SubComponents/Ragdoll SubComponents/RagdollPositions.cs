@@ -17,7 +17,7 @@ namespace ControllerExperiment.SubComponents
         [Space(5)]
         public GameObject TargetRootMirror;
         public List<ConfigurableJoint> ConfigurableJoints = new List<ConfigurableJoint>();
-        public Dictionary<ConfigurableJoint, GameObject> TargetMirrorDic = new Dictionary<ConfigurableJoint, GameObject>();
+        public Dictionary<GameObject, GameObject> TargetMirrorDic = new Dictionary<GameObject, GameObject>();
 
         private void Start()
         {
@@ -69,7 +69,7 @@ namespace ControllerExperiment.SubComponents
 
             foreach(ConfigurableJoint j in myConfigurables)
             {
-                TargetMirrorDic.Add(j, null);
+                TargetMirrorDic.Add(j.gameObject, null);
                 ConfigurableJoints.Add(j);
             }
 
@@ -79,7 +79,7 @@ namespace ControllerExperiment.SubComponents
                 {
                     if (t.gameObject.name.Equals(c.gameObject.name))
                     {
-                        TargetMirrorDic[c] = t.gameObject;
+                        TargetMirrorDic[c.gameObject] = t.gameObject;
                     }
                 }
             }
@@ -92,9 +92,9 @@ namespace ControllerExperiment.SubComponents
 
             foreach(ConfigurableJoint j in ConfigurableJoints)
             {
-                if (TargetMirrorDic.ContainsKey(j))
+                if (TargetMirrorDic.ContainsKey(j.gameObject))
                 {
-                    j.targetRotation = TargetMirrorDic[j].transform.localRotation;
+                    j.targetRotation = TargetMirrorDic[j.gameObject].transform.localRotation;
                 }
             }
         }
