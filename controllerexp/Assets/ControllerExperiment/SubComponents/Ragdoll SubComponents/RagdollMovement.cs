@@ -7,6 +7,9 @@ namespace ControllerExperiment.SubComponents
     public class RagdollMovement : SubComponent
     {
         [Header("Attributes")]
+        public float DriveSpring;
+        public float DriveDamper;
+        public float DriveMaxForce;
         public RigidbodyInterpolation interpolate;
         public CollisionDetectionMode collision;
         public bool ConnectedBodiesCollision;
@@ -71,6 +74,13 @@ namespace ControllerExperiment.SubComponents
             {
                 TargetMirrorDic.Add(j.gameObject, null);
                 ConfigurableJoints.Add(j);
+
+                //temporary..
+                CharacterJoint charjoint = j.gameObject.GetComponent<CharacterJoint>();
+                if (charjoint != null)
+                {
+                    Destroy(charjoint);
+                }
             }
 
             foreach(Transform t in all)
@@ -92,11 +102,46 @@ namespace ControllerExperiment.SubComponents
 
             foreach(ConfigurableJoint j in ConfigurableJoints)
             {
+                UpdateDrive(j);
+
                 if (TargetMirrorDic.ContainsKey(j.gameObject))
                 {
                     j.targetRotation = TargetMirrorDic[j.gameObject].transform.localRotation;
                 }
             }
+        }
+
+        void UpdateDrive(ConfigurableJoint joint)
+        {
+            if (MustUpdateDrive(joint.xDrive))
+            {
+                joint.xDrive = GetDrive(DriveSpring, DriveDamper, DriveMaxForce);
+                joint.yDrive = GetDrive(DriveSpring, DriveDamper, DriveMaxForce);
+                joint.zDrive = GetDrive(DriveSpring, DriveDamper, DriveMaxForce);
+            }
+        }
+
+        bool MustUpdateDrive(JointDrive drive)
+        {
+            if (!drive.positionSpring.Equals(DriveSpring) ||
+                !drive.positionDamper.Equals(DriveDamper) ||
+                !drive.maximumForce.Equals(DriveMaxForce))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        JointDrive GetDrive(float spring, float damper, float maxforce)
+        {
+            JointDrive newdrive = new JointDrive();
+            newdrive.positionSpring = spring;
+            newdrive.positionDamper = damper;
+            newdrive.maximumForce = maxforce;
+            return newdrive;
         }
 
         void TurnOffMirrorRenderer()

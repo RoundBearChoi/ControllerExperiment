@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d80b3a53be536e49b55897bf99e4930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DriveSpring: 5000
+  DriveDamper: 1000
+  DriveMaxForce: 1000
   interpolate: 1
   collision: 1
   ConnectedBodiesCollision: 1
