@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1672046661}
   - component: {fileID: 2774208265028014520}
   m_Layer: 0
-  m_Name: RagdollPositions
+  m_Name: RagdollMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

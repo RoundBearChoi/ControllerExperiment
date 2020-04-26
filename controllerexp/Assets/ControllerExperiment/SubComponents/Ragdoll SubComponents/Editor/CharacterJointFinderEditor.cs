@@ -5,14 +5,14 @@ using UnityEditor;
 
 namespace ControllerExperiment.SubComponents
 {
-    [CustomEditor(typeof(RagdollPositions))]
+    [CustomEditor(typeof(RagdollMovement))]
     public class CharacterJointFinderEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            RagdollPositions f = (RagdollPositions)target;
+            RagdollMovement f = (RagdollMovement)target;
 
             GUILayout.Space(10);
 

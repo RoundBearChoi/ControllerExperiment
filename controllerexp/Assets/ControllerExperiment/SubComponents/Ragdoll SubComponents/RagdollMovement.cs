@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment.SubComponents
 {
-    public class RagdollPositions : SubComponent
+    public class RagdollMovement : SubComponent
     {
         [Header("Attributes")]
         public RigidbodyInterpolation interpolate;

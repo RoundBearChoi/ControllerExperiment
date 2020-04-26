@@ -433,11 +433,6 @@ PrefabInstance:
       propertyPath: TargetRootMirror
       value: 
       objectReference: {fileID: 7462872126079083498}
-    - target: {fileID: 2774208265028014520, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
-        type: 3}
-      propertyPath: MirrorRendererOn
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
         type: 3}
       propertyPath: m_LocalPosition.x
