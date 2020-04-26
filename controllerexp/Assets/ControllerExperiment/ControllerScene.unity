@@ -328,6 +328,75 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1001 &935460109
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978851450121066473, guid: 60fc2214c32f253409cb4d8b8a615ea1,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Controller - Amy Clean Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60fc2214c32f253409cb4d8b8a615ea1, type: 3}
 --- !u!1 &1913627592
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,75 +721,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c0b8e875c42ea042a68cfe2cafbf877, type: 3}
---- !u!1001 &4581823183330728078
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7978851450121066473, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_Name
-      value: Player Controller - Amy Clean
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 60fc2214c32f253409cb4d8b8a615ea1, type: 3}
 --- !u!1001 &8350939007168925355
 PrefabInstance:
   m_ObjectHideFlags: 0
