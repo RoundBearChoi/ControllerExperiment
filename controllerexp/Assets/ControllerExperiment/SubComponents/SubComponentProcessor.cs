@@ -6,17 +6,24 @@ namespace ControllerExperiment.SubComponents
 {
     public class SubComponentProcessor : MonoBehaviour
     {
-        public ControllerEntity owner;
+        private ControllerEntity m_owner;
+
+        public ControllerEntity owner
+        {
+            get
+            {
+                if (m_owner == null)
+                {
+                    m_owner = this.gameObject.GetComponentInParent<ControllerEntity>();
+                }
+                return m_owner;
+            }
+        }
 
         public Dictionary<int, Process> ProcDic = new Dictionary<int, Process>();
         public delegate void Process();
 
         public Dictionary<int, SetEntity> SetFloatDic = new Dictionary<int, SetEntity>();
         public delegate void SetEntity(float f);
-
-        private void Awake()
-        {
-            owner = this.gameObject.GetComponentInParent<ControllerEntity>();
-        }
     }
 }

@@ -6,12 +6,18 @@ namespace ControllerExperiment.SubComponents
 {
     public abstract class SubComponent : MonoBehaviour
     {
-        [Header("Found on Awake")]
-        public SubComponentProcessor processor;
+        private SubComponentProcessor m_processor = null;
 
-        private void Awake()
+        public SubComponentProcessor processor
         {
-            processor = this.gameObject.GetComponentInParent<SubComponentProcessor>();
+            get
+            {
+                if (m_processor == null)
+                {
+                    m_processor = this.gameObject.GetComponentInParent<SubComponentProcessor>();
+                }
+                return m_processor;
+            }
         }
 
         public virtual void OnUpdate()
