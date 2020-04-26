@@ -12,7 +12,7 @@ namespace ControllerExperiment
         public Rigidbody rbody;
         public CapsuleCollider capCollider;
         public StateProcessor stateProcessor;
-        public SubComponentProcessor ComponentProcessor;
+        public SubComponentProcessor PlayerComponents;
 
         [Header("Attributes")]
         public float JumpForce;
@@ -32,7 +32,7 @@ namespace ControllerExperiment
             stateProcessor.TransitionTo(typeof(CheckGround));
 
             //subcomponents
-            ComponentProcessor = this.gameObject.GetComponentInChildren<SubComponentProcessor>();
+            PlayerComponents = this.gameObject.GetComponentInChildren<SubComponentProcessor>();
         }
 
         private void OnCollisionStay(Collision col)

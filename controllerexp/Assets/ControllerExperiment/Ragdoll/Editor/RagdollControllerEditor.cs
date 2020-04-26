@@ -5,14 +5,14 @@ using UnityEditor;
 
 namespace ControllerExperiment.Ragdoll
 {
-    [CustomEditor(typeof(RagdollController))]
+    [CustomEditor(typeof(RagdollController_Old))]
     public class RagdollControllerEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            RagdollController r = (RagdollController)target;
+            RagdollController_Old r = (RagdollController_Old)target;
 
             GUILayout.Space(10);
 

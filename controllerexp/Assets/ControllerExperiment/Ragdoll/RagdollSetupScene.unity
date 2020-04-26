@@ -121,75 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &51258559
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4750218014315572184, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_Name
-      value: Amy With Configurable Joint
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d3c755aa4b16cad43b8eee5dfd5c5a32, type: 3}
 --- !u!1 &226723669
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,3 +495,72 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1001 &4355732804013951510
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051815192747984241, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_Name
+      value: Amy With Ragdoll Controller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}

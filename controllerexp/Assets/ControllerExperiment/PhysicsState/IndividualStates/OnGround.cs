@@ -11,13 +11,13 @@ namespace ControllerExperiment.PhysicsState
 
         public override void OnEnter()
         {
-            control.ComponentProcessor.SetFloatDic[SetFunction.TARGETWALKSPEED](GroundSpeed);
+            control.PlayerComponents.SetFloatDic[SetFunction.TARGETWALKSPEED](GroundSpeed);
         }
 
         public override void ProcStateFixedUpdate()
         {
-            control.ComponentProcessor.ProcDic[PlayerFunction.WALK_TARGETDIRECTION]();
-            control.ComponentProcessor.ProcDic[PlayerFunction.ROTATE_TARGETANGLE]();
+            control.PlayerComponents.ProcDic[PlayerFunction.WALK_TARGETDIRECTION]();
+            control.PlayerComponents.ProcDic[PlayerFunction.ROTATE_TARGETANGLE]();
             control.CancelVerticalVelocity();
 
             CheckJump();
@@ -25,7 +25,7 @@ namespace ControllerExperiment.PhysicsState
 
         void CheckJump()
         {
-            control.ComponentProcessor.ProcDic[PlayerFunction.SET_TARGETWALKDIRECTION]();
+            control.PlayerComponents.ProcDic[PlayerFunction.SET_TARGETWALKDIRECTION]();
 
             if (control.JumpButtonPressed)
             {
