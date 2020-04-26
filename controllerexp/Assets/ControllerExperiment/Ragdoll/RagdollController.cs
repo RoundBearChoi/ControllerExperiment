@@ -7,12 +7,9 @@ namespace ControllerExperiment.Ragdoll
 {
     public class RagdollController : ControllerEntity
     {
-        [Header("Found on Awake")]
-        public SubComponentProcessor RagdollComponents;
-
-        private void Awake()
+        private void FixedUpdate()
         {
-            RagdollComponents = this.gameObject.GetComponentInChildren<SubComponentProcessor>();
+            subcomponentProcessor.ProcDic[RagdollProcess.UPDATE_RAGDOLL_POSITIONS]();
         }
     }
 }

@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.PhysicsState;
-using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment
 {
     public class PlayerController : ControllerEntity
     {
-        [Header("Found on Awake")]
+        [HideInInspector]
         public CapsuleCollider capCollider;
-        public StateProcessor stateProcessor;
-        public SubComponentProcessor PlayerComponents;
 
         [Header("Attributes")]
         public float JumpForce;
@@ -20,17 +17,12 @@ namespace ControllerExperiment
         public bool IsGrounded;
         public bool JumpButtonPressed;
 
-        private void Awake()
+        private void Start()
         {
-            rbody = this.gameObject.GetComponent<Rigidbody>();
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
             //init physics state
-            stateProcessor = this.gameObject.GetComponentInChildren<StateProcessor>();
             stateProcessor.TransitionTo(typeof(CheckGround));
-
-            //subcomponents
-            PlayerComponents = this.gameObject.GetComponentInChildren<SubComponentProcessor>();
         }
 
         private void OnCollisionStay(Collision col)

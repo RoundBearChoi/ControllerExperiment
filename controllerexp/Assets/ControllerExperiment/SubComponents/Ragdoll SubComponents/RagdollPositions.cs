@@ -19,8 +19,11 @@ namespace ControllerExperiment.SubComponents
 
         private void Start()
         {
+            processor.ProcDic.Add(RagdollProcess.UPDATE_RAGDOLL_POSITIONS, UpdateRagdollPositions);
+
             FindCharacterJoints();
             SetCharacterJointAttributes();
+            FindConfigurableJointMirrors();
         }
 
         public void FindCharacterJoints()
@@ -74,6 +77,11 @@ namespace ControllerExperiment.SubComponents
                     }
                 }
             }
+        }
+
+        void UpdateRagdollPositions()
+        {
+
         }
     }
 }
