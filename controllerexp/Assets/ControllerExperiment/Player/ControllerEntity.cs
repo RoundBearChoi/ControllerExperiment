@@ -6,6 +6,7 @@ namespace ControllerExperiment
 {
     public abstract class ControllerEntity : MonoBehaviour
     {
+        [HideInInspector]
         public Rigidbody rbody;
     }
 }

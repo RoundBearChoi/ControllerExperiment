@@ -5,7 +5,7 @@ using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment.Ragdoll
 {
-    public class RagdollController : MonoBehaviour
+    public class RagdollController : ControllerEntity
     {
         [Header("Found on Awake")]
         public SubComponentProcessor RagdollComponents;
