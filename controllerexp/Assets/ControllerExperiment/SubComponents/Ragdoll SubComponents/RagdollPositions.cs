@@ -14,10 +14,12 @@ namespace ControllerExperiment.SubComponents
         [Header("Debug")]
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
         [Space(5)]
-        public GameObject TargetMirror;
+        public GameObject TargetRootMirror;
+        public Dictionary<ConfigurableJoint, GameObject> TargetConfigurables = new Dictionary<ConfigurableJoint, GameObject>();
 
         private void Start()
         {
+            FindCharacterJoints();
             SetCharacterJointAttributes();
         }
 
@@ -47,6 +49,30 @@ namespace ControllerExperiment.SubComponents
                 body.interpolation = interpolate;
                 body.collisionDetectionMode = collision;
                 j.enableCollision = ConnectedBodiesCollision;
+            }
+        }
+
+        public void FindConfigurableJointMirrors()
+        {
+            TargetConfigurables.Clear();
+
+            ConfigurableJoint[] myConfigurables = processor.owner.gameObject.GetComponentsInChildren<ConfigurableJoint>();
+            Transform[] all = TargetRootMirror.gameObject.GetComponentsInChildren<Transform>();
+
+            foreach(ConfigurableJoint j in myConfigurables)
+            {
+                TargetConfigurables.Add(j, null);
+            }
+
+            foreach(Transform t in all)
+            {
+                foreach(ConfigurableJoint c in myConfigurables)
+                {
+                    if (t.gameObject.name.Equals(c.gameObject.name))
+                    {
+                        TargetConfigurables[c] = t.gameObject;
+                    }
+                }
             }
         }
     }

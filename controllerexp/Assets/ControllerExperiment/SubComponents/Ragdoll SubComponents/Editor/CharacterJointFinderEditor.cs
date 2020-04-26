@@ -27,6 +27,13 @@ namespace ControllerExperiment.SubComponents
             {
                 f.SetCharacterJointAttributes();
             }
+
+            GUILayout.Space(5);
+
+            if (GUILayout.Button("Find Configurable Joint Mirror Objects"))
+            {
+                f.FindConfigurableJointMirrors();
+            }
         }
     }
 }
