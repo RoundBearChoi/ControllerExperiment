@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857ec8766c0ea2f499720a14bb1370ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!114 &3147132791761486774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310f6157568ffef49b0c950efbdb087d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rbody: {fileID: 0}
   RagdollComponents: {fileID: 0}
 --- !u!1001 &4355732803964022441
 PrefabInstance:
@@ -63,10 +65,95 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 236154297981750178, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.0012461953
+      objectReference: {fileID: 0}
+    - target: {fileID: 236154297981750178, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.24065755
+      objectReference: {fileID: 0}
+    - target: {fileID: 236154297981750178, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0010470003
+      objectReference: {fileID: 0}
+    - target: {fileID: 559128737411221786, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.0012477003
+      objectReference: {fileID: 0}
+    - target: {fileID: 559128737411221786, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.24070089
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484686434364619789, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.005764019
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484686434364619789, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.18067253
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484686434364619789, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0023581246
+      objectReference: {fileID: 0}
     - target: {fileID: 4750218014315572184, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
       propertyPath: m_Name
       value: Amy With Ragdoll Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805263645603602750, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.0000000023283064
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805263645603602750, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.18975192
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805263645603602750, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100271876972570332, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.07557004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100271876972570332, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.04826266
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100271876972570332, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0030053614
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584485961583686578, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.07557004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584485961583686578, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.04826278
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584485961583686578, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0030053547
       objectReference: {fileID: 0}
     - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
@@ -76,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.128
       objectReference: {fileID: 0}
     - target: {fileID: 8626490901925337547, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
