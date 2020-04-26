@@ -10,12 +10,14 @@ namespace ControllerExperiment.SubComponents
         public RigidbodyInterpolation interpolate;
         public CollisionDetectionMode collision;
         public bool ConnectedBodiesCollision;
+        public bool MirrorRendererOn;
 
         [Header("Debug")]
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
         [Space(5)]
         public GameObject TargetRootMirror;
-        public Dictionary<ConfigurableJoint, GameObject> TargetConfigurables = new Dictionary<ConfigurableJoint, GameObject>();
+        public List<ConfigurableJoint> ConfigurableJoints = new List<ConfigurableJoint>();
+        public Dictionary<ConfigurableJoint, GameObject> TargetMirrorDic = new Dictionary<ConfigurableJoint, GameObject>();
 
         private void Start()
         {
@@ -24,6 +26,8 @@ namespace ControllerExperiment.SubComponents
             FindCharacterJoints();
             SetCharacterJointAttributes();
             FindConfigurableJointMirrors();
+
+            TurnOffMirrorRenderer();
         }
 
         public void FindCharacterJoints()
@@ -57,14 +61,16 @@ namespace ControllerExperiment.SubComponents
 
         public void FindConfigurableJointMirrors()
         {
-            TargetConfigurables.Clear();
+            TargetMirrorDic.Clear();
+            ConfigurableJoints.Clear();
 
             ConfigurableJoint[] myConfigurables = processor.owner.gameObject.GetComponentsInChildren<ConfigurableJoint>();
             Transform[] all = TargetRootMirror.gameObject.GetComponentsInChildren<Transform>();
 
             foreach(ConfigurableJoint j in myConfigurables)
             {
-                TargetConfigurables.Add(j, null);
+                TargetMirrorDic.Add(j, null);
+                ConfigurableJoints.Add(j);
             }
 
             foreach(Transform t in all)
@@ -73,7 +79,7 @@ namespace ControllerExperiment.SubComponents
                 {
                     if (t.gameObject.name.Equals(c.gameObject.name))
                     {
-                        TargetConfigurables[c] = t.gameObject;
+                        TargetMirrorDic[c] = t.gameObject;
                     }
                 }
             }
@@ -81,7 +87,29 @@ namespace ControllerExperiment.SubComponents
 
         void UpdateRagdollPositions()
         {
+            processor.owner.rbody.MovePosition(TargetRootMirror.transform.position);
+            processor.owner.rbody.MoveRotation(TargetRootMirror.transform.rotation);
 
+            foreach(ConfigurableJoint j in ConfigurableJoints)
+            {
+                if (TargetMirrorDic.ContainsKey(j))
+                {
+                    j.targetRotation = TargetMirrorDic[j].transform.localRotation;
+                }
+            }
+        }
+
+        void TurnOffMirrorRenderer()
+        {
+            if (TargetRootMirror != null)
+            {
+                Renderer[] arr = TargetRootMirror.GetComponentsInChildren<Renderer>();
+
+                foreach (Renderer r in arr)
+                {
+                    r.enabled = MirrorRendererOn;
+                }
+            }
         }
     }
 }
