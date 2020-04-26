@@ -6,10 +6,9 @@ using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : ControllerEntity
     {
         [Header("Found on Awake")]
-        public Rigidbody rbody;
         public CapsuleCollider capCollider;
         public StateProcessor stateProcessor;
         public SubComponentProcessor PlayerComponents;
@@ -18,7 +17,6 @@ namespace ControllerExperiment
         public float JumpForce;
 
         [Header("Debug")]
-        public float TargetAngle;
         public bool IsGrounded;
         public bool JumpButtonPressed;
 

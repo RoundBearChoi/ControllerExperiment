@@ -26,7 +26,8 @@ namespace ControllerExperiment
                 {
                     Debug.DrawLine(hit.point, control.transform.position, Color.red);
                     targetDirection = hit.point - control.transform.position;
-                    control.TargetAngle = AngleCalculator.GetAngle(targetDirection.x, targetDirection.z);
+                    float targetAngle = AngleCalculator.GetAngle(targetDirection.x, targetDirection.z);
+                    control.PlayerComponents.SetFloatDic[SetFloat.TARGET_ROTATIONANGLE](targetAngle);
                 }
             }
         }

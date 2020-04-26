@@ -11,7 +11,7 @@ namespace ControllerExperiment.PhysicsState
 
         public override void OnEnter()
         {
-            control.PlayerComponents.SetFloatDic[SetFunction.TARGETWALKSPEED](GroundSpeed);
+            control.PlayerComponents.SetFloatDic[SetFloat.TARGET_WALKSPEED](GroundSpeed);
         }
 
         public override void ProcStateFixedUpdate()

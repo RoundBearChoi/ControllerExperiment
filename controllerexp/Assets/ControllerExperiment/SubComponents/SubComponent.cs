@@ -2,49 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment
-{
-    public enum BoolData
-    {
-        NONE,
-    }
-
-    public enum ListData
-    {
-        NONE,
-    }
-
-    public enum PlayerFunction
-    {
-        NONE,
-
-        SET_TARGETWALKDIRECTION,
-
-        WALK_TARGETDIRECTION,
-
-        CANCEL_HORIZONTAL_VELOCITY,
-        CANCEL_HORIZONTAL_ANGULAR_VELOCITY,
-
-        ROTATE_TARGETANGLE,
-    }
-
-    public enum SetFunction
-    {
-        NONE,
-        TARGETWALKSPEED,
-    }
-}
-
 namespace ControllerExperiment.SubComponents
 {
     public abstract class SubComponent : MonoBehaviour
     {
         [Header("Found on Awake")]
-        public PlayerController control;
+        public SubComponentProcessor processor;
 
         private void Awake()
         {
-            control = this.gameObject.GetComponentInParent<PlayerController>();
+            processor = this.gameObject.GetComponentInParent<SubComponentProcessor>();
         }
 
         public virtual void OnUpdate()

@@ -16,11 +16,11 @@ namespace ControllerExperiment.SubComponents
 
         private void Start()
         {
-            control.PlayerComponents.ProcDic.Add(PlayerFunction.SET_TARGETWALKDIRECTION, SetTargetWalkDir);
-            control.PlayerComponents.SetFloatDic.Add(SetFunction.TARGETWALKSPEED, SetWalkSpeed);
-            control.PlayerComponents.ProcDic.Add(PlayerFunction.WALK_TARGETDIRECTION, WalkToTargetDir);
+            processor.ProcDic.Add(PlayerFunction.SET_TARGETWALKDIRECTION, SetTargetWalkDir);
+            processor.SetFloatDic.Add(SetFloat.TARGET_WALKSPEED, SetWalkSpeed);
+            processor.ProcDic.Add(PlayerFunction.WALK_TARGETDIRECTION, WalkToTargetDir);
 
-            control.PlayerComponents.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
+            processor.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
         }
 
         void SetTargetWalkDir()
@@ -29,22 +29,22 @@ namespace ControllerExperiment.SubComponents
 
             if (Input.GetKey(KeyCode.W))
             {
-                TargetWalkDir += control.transform.forward;
+                TargetWalkDir += processor.owner.transform.forward;
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                TargetWalkDir -= control.transform.right;
+                TargetWalkDir -= processor.owner.transform.right;
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                TargetWalkDir -= control.transform.forward;
+                TargetWalkDir -= processor.owner.transform.forward;
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                TargetWalkDir += control.transform.right;
+                TargetWalkDir += processor.owner.transform.right;
             }
 
             if (Vector3.SqrMagnitude(TargetWalkDir) > 0.1f)
@@ -64,26 +64,27 @@ namespace ControllerExperiment.SubComponents
                     TargetWalkDir.Normalize();
                 }
 
-                Debug.DrawLine(control.rbody.position, control.rbody.position + TargetWalkDir, Color.yellow, 0.25f);
+                Debug.DrawLine(processor.owner.rbody.position, processor.owner.rbody.position + TargetWalkDir, Color.yellow, 0.25f);
             }
         }
 
         void CancelHorizontalVelocity()
         {
-            control.rbody.AddForce(Vector3.right * -control.rbody.velocity.x, ForceMode.VelocityChange);
-            control.rbody.AddForce(Vector3.forward * -control.rbody.velocity.z, ForceMode.VelocityChange);
+            Rigidbody ownerRigidBody = processor.owner.rbody;
+            ownerRigidBody.AddForce(Vector3.right * -ownerRigidBody.velocity.x, ForceMode.VelocityChange);
+            ownerRigidBody.AddForce(Vector3.forward * -ownerRigidBody.velocity.z, ForceMode.VelocityChange);
         }
 
         void WalkToTargetDir()
         {
             CancelHorizontalVelocity();
             MoveForce = TargetWalkDir.normalized * Speed;
-            control.rbody.AddForce(MoveForce, ForceMode.VelocityChange);
+            processor.owner.rbody.AddForce(MoveForce, ForceMode.VelocityChange);
         }
 
         Vector3 GetGroundNormal()
         {
-            Ray ray = new Ray(control.rbody.position, Vector3.down);
+            Ray ray = new Ray(processor.owner.rbody.position, Vector3.down);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 2f, DefaultLayerMask))

@@ -10,20 +10,25 @@ namespace ControllerExperiment.SubComponents
         public AnimationCurve TorqueMultiplier;
         public float MaxTorque;
 
+        [Header("Debug")]
+        public float TargetAngle;
+
         float Angle;
         float AngleDifference;
         float Torque;
 
         private void Start()
         {
-            control.PlayerComponents.ProcDic.Add(PlayerFunction.ROTATE_TARGETANGLE, RotateToTargetAngle);
-            control.PlayerComponents.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY, CancelHorizontalAngularVelocity);
+            processor.ProcDic.Add(PlayerFunction.ROTATE_TARGETANGLE, RotateToTargetAngle);
+            processor.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY, CancelHorizontalAngularVelocity);
+
+            processor.SetFloatDic.Add(SetFloat.TARGET_ROTATIONANGLE, SetTargetAngle);
         }
 
         void RotateToTargetAngle()
         {
-            Angle = AngleCalculator.GetAngle(control.transform.forward.x, control.transform.forward.z);
-            AngleDifference = (control.TargetAngle - Angle);
+            Angle = AngleCalculator.GetAngle(processor.owner.transform.forward.x, processor.owner.transform.forward.z);
+            AngleDifference = (TargetAngle - Angle);
 
             if (Mathf.Abs(AngleDifference) > 180f)
             {
@@ -37,16 +42,22 @@ namespace ControllerExperiment.SubComponents
                 }
             }
 
-            control.rbody.maxAngularVelocity = MaxTorque;
+            processor.owner.rbody.maxAngularVelocity = MaxTorque;
 
             Torque = AngleDifference * TorqueMultiplier.Evaluate(Mathf.Abs(AngleDifference) / 180f) * 20f;
-            control.rbody.AddTorque(Vector3.up * Torque, ForceMode.VelocityChange);
+            processor.owner.rbody.AddTorque(Vector3.up * Torque, ForceMode.VelocityChange);
             CancelHorizontalAngularVelocity();
         }
 
         void CancelHorizontalAngularVelocity()
         {
-            control.rbody.AddTorque(Vector3.up * -control.rbody.angularVelocity.y, ForceMode.VelocityChange);
+            Rigidbody ownerRigidBody = processor.owner.rbody;
+            ownerRigidBody.AddTorque(Vector3.up * -ownerRigidBody.angularVelocity.y, ForceMode.VelocityChange);
+        }
+
+        void SetTargetAngle(float target)
+        {
+            TargetAngle = target;
         }
     }
 }
