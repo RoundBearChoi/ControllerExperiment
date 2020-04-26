@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment.PhysicsState
 {
@@ -10,7 +11,7 @@ namespace ControllerExperiment.PhysicsState
         {
             if (control.rbody.velocity.y > 0f)
             {
-                control.PlayerComponents.ProcDic[PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
+                control.PlayerComponents.ProcDic[PlayerProcess.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
                 control.stateProcessor.TransitionTo(typeof(JumpingUp));
             }
         }

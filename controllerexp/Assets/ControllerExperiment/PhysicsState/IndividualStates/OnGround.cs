@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment.PhysicsState
 {
@@ -11,13 +12,13 @@ namespace ControllerExperiment.PhysicsState
 
         public override void OnEnter()
         {
-            control.PlayerComponents.SetFloatDic[SetFloat.TARGET_WALKSPEED](GroundSpeed);
+            control.PlayerComponents.SetFloatDic[SetPlayerFloat.TARGET_WALKSPEED](GroundSpeed);
         }
 
         public override void ProcStateFixedUpdate()
         {
-            control.PlayerComponents.ProcDic[PlayerFunction.WALK_TARGETDIRECTION]();
-            control.PlayerComponents.ProcDic[PlayerFunction.ROTATE_TARGETANGLE]();
+            control.PlayerComponents.ProcDic[PlayerProcess.WALK_TO_TARGET_DIRECTION]();
+            control.PlayerComponents.ProcDic[PlayerProcess.ROTATE_TO_TARGET_ANGLE]();
             control.CancelVerticalVelocity();
 
             CheckJump();
@@ -25,7 +26,7 @@ namespace ControllerExperiment.PhysicsState
 
         void CheckJump()
         {
-            control.PlayerComponents.ProcDic[PlayerFunction.SET_TARGETWALKDIRECTION]();
+            control.PlayerComponents.ProcDic[PlayerProcess.SET_WALK_DIRECTION]();
 
             if (control.JumpButtonPressed)
             {

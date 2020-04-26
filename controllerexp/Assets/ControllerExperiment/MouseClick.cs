@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment
 {
@@ -27,7 +28,7 @@ namespace ControllerExperiment
                     Debug.DrawLine(hit.point, control.transform.position, Color.red);
                     targetDirection = hit.point - control.transform.position;
                     float targetAngle = AngleCalculator.GetAngle(targetDirection.x, targetDirection.z);
-                    control.PlayerComponents.SetFloatDic[SetFloat.TARGET_ROTATIONANGLE](targetAngle);
+                    control.PlayerComponents.SetFloatDic[SetPlayerFloat.TARGET_ROTATION_ANGLE](targetAngle);
                 }
             }
         }
