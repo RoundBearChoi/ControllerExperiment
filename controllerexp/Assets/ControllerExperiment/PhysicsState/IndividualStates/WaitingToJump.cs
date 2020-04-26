@@ -10,7 +10,7 @@ namespace ControllerExperiment.PhysicsState
         {
             if (control.rbody.velocity.y > 0f)
             {
-                control.ProcDic[PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
+                control.ComponentProcessor.ProcDic[PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
                 control.stateProcessor.TransitionTo(typeof(JumpingUp));
             }
         }

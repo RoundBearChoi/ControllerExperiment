@@ -33,7 +33,10 @@ namespace ControllerExperiment
         NONE,
         TARGETWALKSPEED,
     }
+}
 
+namespace ControllerExperiment.SubComponents
+{
     public abstract class SubComponent : MonoBehaviour
     {
         [Header("Found on Awake")]

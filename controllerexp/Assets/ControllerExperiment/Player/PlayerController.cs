@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.PhysicsState;
+using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment
 {
@@ -11,6 +12,7 @@ namespace ControllerExperiment
         public Rigidbody rbody;
         public CapsuleCollider capCollider;
         public StateProcessor stateProcessor;
+        public SubComponentProcessor ComponentProcessor;
 
         [Header("Attributes")]
         public float JumpForce;
@@ -20,12 +22,6 @@ namespace ControllerExperiment
         public bool IsGrounded;
         public bool JumpButtonPressed;
 
-        public Dictionary<PlayerFunction, ProcDel> ProcDic = new Dictionary<PlayerFunction, ProcDel>();
-        public delegate void ProcDel();
-
-        public Dictionary<SetFunction, SetPlayer> SetFloatDic = new Dictionary<SetFunction, SetPlayer>();
-        public delegate void SetPlayer(float f);
-
         private void Awake()
         {
             rbody = this.gameObject.GetComponent<Rigidbody>();
@@ -34,6 +30,9 @@ namespace ControllerExperiment
             //init physics state
             stateProcessor = this.gameObject.GetComponentInChildren<StateProcessor>();
             stateProcessor.TransitionTo(typeof(CheckGround));
+
+            //subcomponents
+            ComponentProcessor = this.gameObject.GetComponentInChildren<SubComponentProcessor>();
         }
 
         private void OnCollisionStay(Collision col)

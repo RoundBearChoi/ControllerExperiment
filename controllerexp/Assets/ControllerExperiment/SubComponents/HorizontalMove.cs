@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment
+namespace ControllerExperiment.SubComponents
 {
     public class HorizontalMove : SubComponent
     {
@@ -16,11 +16,11 @@ namespace ControllerExperiment
 
         private void Start()
         {
-            control.ProcDic.Add(PlayerFunction.SET_TARGETWALKDIRECTION, SetTargetWalkDir);
-            control.SetFloatDic.Add(SetFunction.TARGETWALKSPEED, SetWalkSpeed);
-            control.ProcDic.Add(PlayerFunction.WALK_TARGETDIRECTION, WalkToTargetDir);
+            control.ComponentProcessor.ProcDic.Add(PlayerFunction.SET_TARGETWALKDIRECTION, SetTargetWalkDir);
+            control.ComponentProcessor.SetFloatDic.Add(SetFunction.TARGETWALKSPEED, SetWalkSpeed);
+            control.ComponentProcessor.ProcDic.Add(PlayerFunction.WALK_TARGETDIRECTION, WalkToTargetDir);
 
-            control.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
+            control.ComponentProcessor.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
         }
 
         void SetTargetWalkDir()

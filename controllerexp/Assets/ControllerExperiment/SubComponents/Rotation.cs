@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment
+namespace ControllerExperiment.SubComponents
 {
     public class Rotation : SubComponent
     {
@@ -16,8 +16,8 @@ namespace ControllerExperiment
 
         private void Start()
         {
-            control.ProcDic.Add(PlayerFunction.ROTATE_TARGETANGLE, RotateToTargetAngle);
-            control.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY, CancelHorizontalAngularVelocity);
+            control.ComponentProcessor.ProcDic.Add(PlayerFunction.ROTATE_TARGETANGLE, RotateToTargetAngle);
+            control.ComponentProcessor.ProcDic.Add(PlayerFunction.CANCEL_HORIZONTAL_ANGULAR_VELOCITY, CancelHorizontalAngularVelocity);
         }
 
         void RotateToTargetAngle()
