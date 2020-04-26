@@ -5,20 +5,27 @@ using UnityEditor;
 
 namespace ControllerExperiment.SubComponents
 {
-    [CustomEditor(typeof(JointFinder))]
-    public class PartFinderEditor : Editor
+    [CustomEditor(typeof(CharacterJointFinder))]
+    public class CharacterJointFinderEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            JointFinder f = (JointFinder)target;
+            CharacterJointFinder f = (CharacterJointFinder)target;
 
             GUILayout.Space(10);
 
             if (GUILayout.Button("Find Character Joints"))
             {
                 f.FindCharacterJoints();
+            }
+
+            GUILayout.Space(5);
+
+            if (GUILayout.Button("Set Character Joint Attributes"))
+            {
+                f.SetCharacterJointAttributes();
             }
         }
     }
