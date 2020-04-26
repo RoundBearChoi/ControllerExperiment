@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1672046661}
   - component: {fileID: 1672046662}
   m_Layer: 0
-  m_Name: PartFinder
+  m_Name: JointFinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ Transform:
   m_Children:
   - {fileID: 1672046661}
   m_Father: {fileID: 5460007813183747938}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &372875070
 MonoBehaviour:
@@ -214,6 +214,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amy With Ragdoll Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 4750218014315572184, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 4776119112497483634, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
       propertyPath: m_EnableProjection

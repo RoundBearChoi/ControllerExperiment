@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment.SubComponents
 {
-    public class PartFinder : SubComponent
+    public class JointFinder : SubComponent
     {
         [Header("Debug")]
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();

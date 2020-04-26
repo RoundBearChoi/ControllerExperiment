@@ -5,14 +5,14 @@ using UnityEditor;
 
 namespace ControllerExperiment.SubComponents
 {
-    [CustomEditor(typeof(PartFinder))]
+    [CustomEditor(typeof(JointFinder))]
     public class PartFinderEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            PartFinder f = (PartFinder)target;
+            JointFinder f = (JointFinder)target;
 
             GUILayout.Space(10);
 
