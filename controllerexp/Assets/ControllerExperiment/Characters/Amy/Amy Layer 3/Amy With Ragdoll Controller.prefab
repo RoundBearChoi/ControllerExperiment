@@ -122,7 +122,7 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LinearLimit:
-    limit: 0.02
+    limit: 0.05
     bounciness: 0
     contactDistance: 0.01
   m_AngularXLimitSpring:
@@ -151,17 +151,17 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 10
+    positionSpring: 300
     positionDamper: 5
     maximumForce: 3.4028233e+38
   m_YDrive:
     serializedVersion: 3
-    positionSpring: 10
+    positionSpring: 300
     positionDamper: 5
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 10
+    positionSpring: 300
     positionDamper: 5
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}

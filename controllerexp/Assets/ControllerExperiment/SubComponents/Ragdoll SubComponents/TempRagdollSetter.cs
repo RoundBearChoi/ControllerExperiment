@@ -48,7 +48,7 @@ namespace ControllerExperiment
                 //Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.red);
 
                 Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.yellow);
-                //myJoint.targetPosition = MirrorTargetPosition;
+                myJoint.targetPosition = MirrorTargetPosition;
             }
         }
 
