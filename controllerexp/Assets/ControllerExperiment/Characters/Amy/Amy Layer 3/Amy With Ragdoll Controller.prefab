@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af653094da6f4ab577d1ea9efb5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KinematicMovement: 0
+  DoNotSync: 0
   mirrorJoint: {fileID: 0}
 --- !u!153 &1310277763
 ConfigurableJoint:
@@ -238,22 +238,22 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: -70
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 70
+    limit: 90
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 18.262085
+    limit: 10
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 64.89378
+    limit: 10
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af653094da6f4ab577d1ea9efb5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KinematicMovement: 0
+  DoNotSync: 0
   mirrorJoint: {fileID: 0}
 --- !u!153 &186269236
 ConfigurableJoint:
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af653094da6f4ab577d1ea9efb5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KinematicMovement: 0
+  DoNotSync: 0
   mirrorJoint: {fileID: 0}
 --- !u!153 &2044496327
 ConfigurableJoint:
@@ -456,22 +456,22 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LowAngularXLimit:
-    limit: -70
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_HighAngularXLimit:
-    limit: 70
+    limit: 90
     bounciness: 0
     contactDistance: 0
   m_AngularYZLimitSpring:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 18.262085
+    limit: 10
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 64.89378
+    limit: 10
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af653094da6f4ab577d1ea9efb5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KinematicMovement: 0
+  DoNotSync: 1
   mirrorJoint: {fileID: 0}
 --- !u!114 &3147132791761486774
 MonoBehaviour:
@@ -781,7 +781,7 @@ PrefabInstance:
     - target: {fileID: 4926611146960357251, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
       propertyPath: m_Radius
-      value: 0.09905729
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 4926611146960357251, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
@@ -817,6 +817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_EnableCollision
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278188623174508329, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 5584485961583686578, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
