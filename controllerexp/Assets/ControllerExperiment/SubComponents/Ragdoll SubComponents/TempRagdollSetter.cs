@@ -45,7 +45,7 @@ namespace ControllerExperiment
 
         Quaternion GetTargetRotation(Quaternion currentRotation, Quaternion anchorRotation)
         {
-            return Quaternion.identity * (Quaternion.Inverse(currentRotation) * anchorRotation);
+            return Quaternion.Inverse(currentRotation) * anchorRotation;
         }
 
         Vector3 GetMyWorldTargetPosition()
