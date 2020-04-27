@@ -41,19 +41,24 @@ namespace ControllerExperiment
             {
                 if (!DoNotSync)
                 {
-                    Vector3 MirrorTargetPosition = mirrorJoint.transform.position - MirrorAnchorPosition;
+                    Vector3 MirrorTargetPosition = GetTargetPosition(mirrorJoint.transform.position, MirrorAnchorPosition);
                     myJoint.targetPosition = MirrorTargetPosition;
                     Debug.DrawLine(this.transform.root.gameObject.transform.transform.position, GetMyWorldTargetPosition(), Color.yellow);
 
-                    Quaternion MirrorTargetRotation = GetTargetRotation(myJoint, mirrorJoint.transform.rotation, MirrorAnchorRotation);
+                    Quaternion MirrorTargetRotation = GetTargetRotation(mirrorJoint.transform.rotation, MirrorAnchorRotation);
                     myJoint.targetRotation = MirrorTargetRotation;
                 }
             }
         }
 
-        Quaternion GetTargetRotation(ConfigurableJoint joint, Quaternion currentRotation, Quaternion originalRotation)
+        Vector3 GetTargetPosition(Vector3 currentPosition, Vector3 anchorPosition)
         {
-            return Quaternion.identity * (originalRotation * Quaternion.Inverse(currentRotation));
+            return anchorPosition - currentPosition;
+        }
+
+        Quaternion GetTargetRotation(Quaternion currentRotation, Quaternion anchorRotation)
+        {
+            return Quaternion.identity * (Quaternion.Inverse(currentRotation) * anchorRotation);
         }
 
         Vector3 GetMyWorldTargetPosition()
