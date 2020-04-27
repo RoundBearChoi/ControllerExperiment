@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public class TempRagdollTransformSetter : MonoBehaviour
+    public class TempRagdollSetter : MonoBehaviour
     {
         public bool KinematicMovement;
         public bool DoNotSync;
@@ -30,11 +30,11 @@ namespace ControllerExperiment
             {
                 if (!DoNotSync)
                 {
-                    Quaternion targetRotation = Quaternion.Lerp(myJoint.transform.rotation, targetJoint.transform.rotation, Time.deltaTime * RotationSyncSpeed);
-                    myRigidBody.MoveRotation(targetRotation);
-
                     Vector3 targetPosition = Vector3.Lerp(myJoint.transform.position, GetMyAnchorPosition(), Time.deltaTime * PositionSyncSpeed);
                     myRigidBody.MovePosition(targetPosition);
+
+                    Quaternion targetRotation = Quaternion.Lerp(myJoint.transform.rotation, targetJoint.transform.rotation, Time.deltaTime * RotationSyncSpeed);
+                    myRigidBody.MoveRotation(targetRotation);
 
                     Debug.DrawLine(Vector3.zero, GetMyAnchorPosition(), Color.red, 0.5f);
                 }
