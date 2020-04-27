@@ -7,9 +7,8 @@ namespace ControllerExperiment
     public class TempRagdollSetter : MonoBehaviour
     {
         public bool KinematicMovement;
-        public bool DoNotSync;
         
-        public GameObject targetJoint;
+        public GameObject mirrorJoint;
         public float PositionSyncSpeed;
         public float RotationSyncSpeed;
 
@@ -30,16 +29,13 @@ namespace ControllerExperiment
             {
                 myRigidBody.useGravity = false;
 
-                if (!DoNotSync)
-                {
-                    Vector3 targetPosition = Vector3.Lerp(myJoint.transform.position, GetMyAnchorPosition(), Time.deltaTime * PositionSyncSpeed);
-                    myRigidBody.MovePosition(targetPosition);
+                Vector3 targetPosition = Vector3.Lerp(myJoint.transform.position, GetMyAnchorPosition(), Time.deltaTime * PositionSyncSpeed);
+                myRigidBody.MovePosition(targetPosition);
 
-                    Quaternion targetRotation = Quaternion.Lerp(myJoint.transform.rotation, targetJoint.transform.rotation, Time.deltaTime * RotationSyncSpeed);
-                    myRigidBody.MoveRotation(targetRotation);
+                Quaternion targetRotation = Quaternion.Lerp(myJoint.transform.rotation, mirrorJoint.transform.rotation, Time.deltaTime * RotationSyncSpeed);
+                myRigidBody.MoveRotation(targetRotation);
 
-                    Debug.DrawLine(Vector3.zero, GetMyAnchorPosition(), Color.yellow, 0.5f);
-                }
+                Debug.DrawLine(Vector3.zero, GetMyAnchorPosition(), Color.yellow, 0.5f);
             }
             else
             {

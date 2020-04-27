@@ -205,9 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af653094da6f4ab577d1ea9efb5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KinematicMovement: 1
-  DoNotSync: 0
-  targetJoint: {fileID: 0}
+  KinematicMovement: 0
+  mirrorJoint: {fileID: 0}
   PositionSyncSpeed: 5
   RotationSyncSpeed: 5
 --- !u!153 &1310277763
@@ -412,9 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af653094da6f4ab577d1ea9efb5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KinematicMovement: 1
-  DoNotSync: 0
-  targetJoint: {fileID: 0}
+  KinematicMovement: 0
+  mirrorJoint: {fileID: 0}
   PositionSyncSpeed: 5
   RotationSyncSpeed: 5
 --- !u!153 &2044496327
