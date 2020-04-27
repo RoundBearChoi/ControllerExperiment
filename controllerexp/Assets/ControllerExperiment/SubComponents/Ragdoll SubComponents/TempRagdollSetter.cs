@@ -6,12 +6,8 @@ namespace ControllerExperiment
 {
     public class TempRagdollSetter : MonoBehaviour
     {
-        bool KinematicMovement;
-
         public bool DoNotSync;
         public GameObject mirrorJoint;
-        //public float PositionSyncSpeed;
-        //public float RotationSyncSpeed;
 
         Rigidbody myRigidBody;
         ConfigurableJoint myJoint;
@@ -31,23 +27,14 @@ namespace ControllerExperiment
 
         private void FixedUpdate()
         {
-            myRigidBody.isKinematic = KinematicMovement;
-
-            if (KinematicMovement)
+            if (!DoNotSync)
             {
-                //testing..
-            }
-            else
-            {
-                if (!DoNotSync)
-                {
-                    Vector3 MirrorTargetPosition = GetTargetPosition(mirrorJoint.transform.position, MirrorAnchorPosition);
-                    myJoint.targetPosition = MirrorTargetPosition;
-                    Debug.DrawLine(this.transform.root.gameObject.transform.transform.position, GetMyWorldTargetPosition(), Color.yellow);
+                Vector3 MirrorTargetPosition = GetTargetPosition(mirrorJoint.transform.position, MirrorAnchorPosition);
+                myJoint.targetPosition = MirrorTargetPosition;
+                Debug.DrawLine(this.transform.root.gameObject.transform.transform.position, GetMyWorldTargetPosition(), Color.yellow);
 
-                    Quaternion MirrorTargetRotation = GetTargetRotation(mirrorJoint.transform.rotation, MirrorAnchorRotation);
-                    myJoint.targetRotation = MirrorTargetRotation;
-                }
+                Quaternion MirrorTargetRotation = GetTargetRotation(mirrorJoint.transform.rotation, MirrorAnchorRotation);
+                myJoint.targetRotation = MirrorTargetRotation;
             }
         }
 
