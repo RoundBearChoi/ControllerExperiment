@@ -107,7 +107,7 @@ ConfigurableJoint:
   m_GameObject: {fileID: 3380932514410258362}
   m_ConnectedBody: {fileID: 5783236341549367358}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: -0.25}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.07557003, y: -0.04826278, z: 0.0030053535}
   serializedVersion: 2
@@ -216,7 +216,7 @@ ConfigurableJoint:
   m_GameObject: {fileID: 3865702907898514512}
   m_ConnectedBody: {fileID: 1713015723456762892}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0.5}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.0012461953, y: 0.24065755, z: 0.0010470003}
   serializedVersion: 2
@@ -325,7 +325,7 @@ ConfigurableJoint:
   m_GameObject: {fileID: 5814008074615820401}
   m_ConnectedBody: {fileID: 5783236341549367358}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0.25}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: -0.07557003, y: -0.04826266, z: 0.0030053626}
   serializedVersion: 2
@@ -434,7 +434,7 @@ ConfigurableJoint:
   m_GameObject: {fileID: 8642045705808441060}
   m_ConnectedBody: {fileID: 9113562193747591549}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: -0.5}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: -0.0012477003, y: 0.24070089, z: -0.001449164}
   serializedVersion: 2
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af653094da6f4ab577d1ea9efb5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoNotSync: 1
+  DoNotSync: 0
   mirrorJoint: {fileID: 0}
 --- !u!114 &3147132791761486774
 MonoBehaviour:
@@ -556,6 +556,14 @@ PrefabInstance:
     - target: {fileID: 1241609850, guid: d3c755aa4b16cad43b8eee5dfd5c5a32, type: 3}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241609850, guid: d3c755aa4b16cad43b8eee5dfd5c5a32, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241609850, guid: d3c755aa4b16cad43b8eee5dfd5c5a32, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 236154297981750178, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
@@ -781,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 4926611146960357251, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
       propertyPath: m_Radius
-      value: 0.07
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4926611146960357251, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
@@ -821,7 +829,7 @@ PrefabInstance:
     - target: {fileID: 5278188623174508329, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}
       propertyPath: m_Radius
-      value: 0.07
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5584485961583686578, guid: d3c755aa4b16cad43b8eee5dfd5c5a32,
         type: 3}

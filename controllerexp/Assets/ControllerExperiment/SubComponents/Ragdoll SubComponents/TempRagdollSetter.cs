@@ -43,7 +43,7 @@ namespace ControllerExperiment
                 {
                     Vector3 MirrorTargetPosition = mirrorJoint.transform.position - MirrorAnchorPosition;
                     myJoint.targetPosition = MirrorTargetPosition;
-                    Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.yellow);
+                    Debug.DrawLine(this.transform.root.gameObject.transform.transform.position, GetMyWorldTargetPosition(), Color.yellow);
 
                     Quaternion MirrorTargetRotation = GetTargetRotation(myJoint, mirrorJoint.transform.rotation, MirrorAnchorRotation);
                     myJoint.targetRotation = MirrorTargetRotation;
