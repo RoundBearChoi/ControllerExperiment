@@ -23,13 +23,13 @@ namespace ControllerExperiment.SubComponents
                 f.FindCharacterJoints();
             }
 
-            GUILayout.Space(5);
+            /*GUILayout.Space(5);
 
             GUI.backgroundColor = Color.red;
             if (GUILayout.Button("Remove Character Joints", GetButtonStyle(Color.white)))
             {
                 f.RemoveCharacterJoints();
-            }
+            }*/
         }
 
         GUIStyle GetButtonStyle(Color fontColor)

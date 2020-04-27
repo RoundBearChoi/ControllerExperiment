@@ -29,7 +29,7 @@ namespace ControllerExperiment.SubComponents
             CharacterJoints.Clear();
         }
 
-        public void RemoveCharacterJoints()
+        /*public void RemoveCharacterJoints()
         {
             ClearList();
 
@@ -39,6 +39,6 @@ namespace ControllerExperiment.SubComponents
             {
                 DestroyImmediate(joints[i]);
             }
-        }
+        }*/
     }
 }
