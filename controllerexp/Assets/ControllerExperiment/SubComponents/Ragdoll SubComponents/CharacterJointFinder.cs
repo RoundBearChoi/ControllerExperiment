@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace ControllerExperiment.SubComponents
 {
-    public class JointFinder : SubComponent
+    public class CharacterJointFinder : SubComponent
     {
         [Header("Debug")]
         public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
 
         public void FindCharacterJoints()
         {
-            CharacterJoints.Clear();
+            ClearList();
 
             CharacterJoint[] joints = processor.owner.gameObject.GetComponentsInChildren<CharacterJoint>();
 
@@ -20,9 +20,24 @@ namespace ControllerExperiment.SubComponents
                 if (!CharacterJoints.Contains(j))
                 {
                     CharacterJoints.Add(j);
-                    j.enableProjection = true;
-                    j.enableCollision = true;
                 }
+            }
+        }
+
+        void ClearList()
+        {
+            CharacterJoints.Clear();
+        }
+
+        public void RemoveCharacterJoints()
+        {
+            ClearList();
+
+            CharacterJoint[] joints = processor.owner.gameObject.GetComponentsInChildren<CharacterJoint>();
+
+            for (int i = 0; i < joints.Length; i++)
+            {
+                DestroyImmediate(joints[i]);
             }
         }
     }
