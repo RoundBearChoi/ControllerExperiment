@@ -122,9 +122,9 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_LinearLimit:
-    limit: 0
+    limit: 0.02
     bounciness: 0
-    contactDistance: 0
+    contactDistance: 0.01
   m_AngularXLimitSpring:
     spring: 0
     damper: 0
@@ -209,6 +209,8 @@ MonoBehaviour:
   mirrorJoint: {fileID: 0}
   PositionSyncSpeed: 5
   RotationSyncSpeed: 5
+  MirrorAnchorPosition: {x: 0, y: 0, z: 0}
+  MirrorTargetPosition: {x: 0, y: 0, z: 0}
 --- !u!153 &1310277763
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -415,6 +417,8 @@ MonoBehaviour:
   mirrorJoint: {fileID: 0}
   PositionSyncSpeed: 5
   RotationSyncSpeed: 5
+  MirrorAnchorPosition: {x: 0, y: 0, z: 0}
+  MirrorTargetPosition: {x: 0, y: 0, z: 0}
 --- !u!153 &2044496327
 ConfigurableJoint:
   m_ObjectHideFlags: 0

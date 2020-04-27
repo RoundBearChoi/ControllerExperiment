@@ -15,10 +15,15 @@ namespace ControllerExperiment
         Rigidbody myRigidBody;
         ConfigurableJoint myJoint;
 
+        public Vector3 MirrorAnchorPosition;
+        public Vector3 MirrorTargetPosition;
+
         private void Start()
         {
             myRigidBody = this.gameObject.GetComponent<Rigidbody>();
             myJoint = this.gameObject.GetComponent<ConfigurableJoint>();
+
+            MirrorAnchorPosition = mirrorJoint.transform.position;
         }
 
         private void FixedUpdate()
@@ -39,7 +44,11 @@ namespace ControllerExperiment
             }
             else
             {
-                Debug.DrawLine(Vector3.zero, GetMyTargetPosition(), Color.red, 0.5f);
+                MirrorTargetPosition = mirrorJoint.transform.position - MirrorAnchorPosition;
+                //Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.red);
+
+                Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.yellow);
+                //myJoint.targetPosition = MirrorTargetPosition;
             }
         }
 
@@ -57,7 +66,7 @@ namespace ControllerExperiment
             }
         }
 
-        Vector3 GetMyTargetPosition()
+        Vector3 GetMyWorldTargetPosition()
         {
             if (myJoint.connectedBody == null)
             {
