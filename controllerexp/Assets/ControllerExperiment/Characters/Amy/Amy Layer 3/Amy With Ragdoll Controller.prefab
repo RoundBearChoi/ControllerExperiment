@@ -169,13 +169,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 10
-    positionDamper: 5
+    positionSpring: 15
+    positionDamper: 2
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 10
-    positionDamper: 5
+    positionSpring: 15
+    positionDamper: 2
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
     serializedVersion: 3
@@ -207,10 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KinematicMovement: 0
   mirrorJoint: {fileID: 0}
-  PositionSyncSpeed: 5
-  RotationSyncSpeed: 5
-  MirrorAnchorPosition: {x: 0, y: 0, z: 0}
-  MirrorTargetPosition: {x: 0, y: 0, z: 0}
 --- !u!153 &1310277763
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -415,10 +411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KinematicMovement: 0
   mirrorJoint: {fileID: 0}
-  PositionSyncSpeed: 5
-  RotationSyncSpeed: 5
-  MirrorAnchorPosition: {x: 0, y: 0, z: 0}
-  MirrorTargetPosition: {x: 0, y: 0, z: 0}
 --- !u!153 &2044496327
 ConfigurableJoint:
   m_ObjectHideFlags: 0

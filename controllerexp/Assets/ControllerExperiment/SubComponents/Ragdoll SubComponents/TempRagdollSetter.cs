@@ -9,14 +9,15 @@ namespace ControllerExperiment
         public bool KinematicMovement;
         
         public GameObject mirrorJoint;
-        public float PositionSyncSpeed;
-        public float RotationSyncSpeed;
+        //public float PositionSyncSpeed;
+        //public float RotationSyncSpeed;
 
         Rigidbody myRigidBody;
         ConfigurableJoint myJoint;
 
-        public Vector3 MirrorAnchorPosition;
-        public Vector3 MirrorTargetPosition;
+        //starting point (anchor for the joints)
+        Vector3 MirrorAnchorPosition;
+        Quaternion MirrorAnchorRotation;
 
         private void Start()
         {
@@ -24,6 +25,7 @@ namespace ControllerExperiment
             myJoint = this.gameObject.GetComponent<ConfigurableJoint>();
 
             MirrorAnchorPosition = mirrorJoint.transform.position;
+            MirrorAnchorRotation = mirrorJoint.transform.rotation;
         }
 
         private void FixedUpdate()
@@ -32,38 +34,22 @@ namespace ControllerExperiment
 
             if (KinematicMovement)
             {
-                myRigidBody.useGravity = false;
-
-                Vector3 targetPosition = Vector3.Lerp(myJoint.transform.position, GetMyAnchorPosition(), Time.deltaTime * PositionSyncSpeed);
-                myRigidBody.MovePosition(targetPosition);
-
-                Quaternion targetRotation = Quaternion.Lerp(myJoint.transform.rotation, mirrorJoint.transform.rotation, Time.deltaTime * RotationSyncSpeed);
-                myRigidBody.MoveRotation(targetRotation);
-
-                Debug.DrawLine(Vector3.zero, GetMyAnchorPosition(), Color.yellow, 0.5f);
+                //testing..
             }
             else
             {
-                MirrorTargetPosition = mirrorJoint.transform.position - MirrorAnchorPosition;
-                //Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.red);
-
-                Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.yellow);
+                Vector3 MirrorTargetPosition = mirrorJoint.transform.position - MirrorAnchorPosition;
                 myJoint.targetPosition = MirrorTargetPosition;
+                Debug.DrawLine(Vector3.zero, GetMyWorldTargetPosition(), Color.yellow);
+
+                Quaternion MirrorTargetRotation = GetTargetRotation(myJoint, mirrorJoint.transform.rotation, MirrorAnchorRotation);
+                myJoint.targetRotation = MirrorTargetRotation;
             }
         }
 
-        Vector3 GetMyAnchorPosition()
+        Quaternion GetTargetRotation(ConfigurableJoint joint, Quaternion currentRotation, Quaternion originalRotation)
         {
-            if (myJoint.connectedBody == null)
-            {
-                return Vector3.zero;
-            }
-            else
-            {
-                Vector3 myAnchor = myJoint.connectedBody.position + myJoint.connectedAnchor;
-
-                return myAnchor;
-            }
+            return Quaternion.identity * (originalRotation * Quaternion.Inverse(currentRotation));
         }
 
         Vector3 GetMyWorldTargetPosition()
