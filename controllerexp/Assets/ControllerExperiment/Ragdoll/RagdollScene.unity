@@ -517,10 +517,18 @@ PrefabInstance:
       propertyPath: targetJoint
       value: 
       objectReference: {fileID: 1349090116}
+    - target: {fileID: 186269237, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}
+      propertyPath: KinematicMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1737406193, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}
       propertyPath: targetJoint
       value: 
       objectReference: {fileID: 455629092}
+    - target: {fileID: 1737406193, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}
+      propertyPath: KinematicMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -28,6 +28,8 @@ namespace ControllerExperiment
 
             if (KinematicMovement)
             {
+                myRigidBody.useGravity = false;
+
                 if (!DoNotSync)
                 {
                     Vector3 targetPosition = Vector3.Lerp(myJoint.transform.position, GetMyAnchorPosition(), Time.deltaTime * PositionSyncSpeed);
@@ -36,12 +38,12 @@ namespace ControllerExperiment
                     Quaternion targetRotation = Quaternion.Lerp(myJoint.transform.rotation, targetJoint.transform.rotation, Time.deltaTime * RotationSyncSpeed);
                     myRigidBody.MoveRotation(targetRotation);
 
-                    Debug.DrawLine(Vector3.zero, GetMyAnchorPosition(), Color.red, 0.5f);
+                    Debug.DrawLine(Vector3.zero, GetMyAnchorPosition(), Color.yellow, 0.5f);
                 }
             }
             else
             {
-                // still testing
+                Debug.DrawLine(Vector3.zero, GetMyTargetPosition(), Color.red, 0.5f);
             }
         }
 
@@ -56,6 +58,20 @@ namespace ControllerExperiment
                 Vector3 myAnchor = myJoint.connectedBody.position + myJoint.connectedAnchor;
 
                 return myAnchor;
+            }
+        }
+
+        Vector3 GetMyTargetPosition()
+        {
+            if (myJoint.connectedBody == null)
+            {
+                return Vector3.zero;
+            }
+            else
+            {
+                Vector3 myTargetPosition = myRigidBody.position + myJoint.targetPosition;
+
+                return myTargetPosition;
             }
         }
     }
