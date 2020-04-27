@@ -401,6 +401,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 449377989}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1797416594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4993781326730173831, guid: 9bd3c51fd91c1e04bb908966119f7812,
+    type: 3}
+  m_PrefabInstance: {fileID: 449377989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1868475143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5001903764484391106, guid: 9bd3c51fd91c1e04bb908966119f7812,
@@ -543,6 +549,10 @@ PrefabInstance:
       propertyPath: mirrorJoint
       value: 
       objectReference: {fileID: 1349090116}
+    - target: {fileID: 1065835071, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}
+      propertyPath: mirrorJoint
+      value: 
+      objectReference: {fileID: 1797416594}
     - target: {fileID: 1310277767, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}
       propertyPath: mirrorJoint
       value: 
