@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!54 &106899195 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7747373317828292419, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+    type: 3}
+  m_PrefabInstance: {fileID: 4355732804013951510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &226723669
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +407,107 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 449377989}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1186821764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3687785961223558405, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+    type: 3}
+  m_PrefabInstance: {fileID: 4355732804013951510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &1186821768
+ConfigurableJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186821764}
+  m_ConnectedBody: {fileID: 106899195}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0.005661211, y: 0.29792655, z: 0.017774742}
+  serializedVersion: 2
+  m_SecondaryAxis: {x: 0, y: 1, z: 0}
+  m_XMotion: 1
+  m_YMotion: 1
+  m_ZMotion: 1
+  m_AngularXMotion: 1
+  m_AngularYMotion: 1
+  m_AngularZMotion: 1
+  m_LinearLimitSpring:
+    spring: 0
+    damper: 0
+  m_LinearLimit:
+    limit: 0.01
+    bounciness: 0
+    contactDistance: 0.001
+  m_AngularXLimitSpring:
+    spring: 0
+    damper: 0
+  m_LowAngularXLimit:
+    limit: -7.801049
+    bounciness: 0
+    contactDistance: 0
+  m_HighAngularXLimit:
+    limit: 156.93927
+    bounciness: 0
+    contactDistance: 0
+  m_AngularYZLimitSpring:
+    spring: 0
+    damper: 0
+  m_AngularYLimit:
+    limit: 65.55258
+    bounciness: 0
+    contactDistance: 0
+  m_AngularZLimit:
+    limit: 55.659466
+    bounciness: 0
+    contactDistance: 0
+  m_TargetPosition: {x: 0, y: 0, z: 0}
+  m_TargetVelocity: {x: 0, y: 0, z: 0}
+  m_XDrive:
+    serializedVersion: 3
+    positionSpring: 10
+    positionDamper: 2
+    maximumForce: 3.4028233e+38
+  m_YDrive:
+    serializedVersion: 3
+    positionSpring: 10
+    positionDamper: 2
+    maximumForce: 3.4028233e+38
+  m_ZDrive:
+    serializedVersion: 3
+    positionSpring: 10
+    positionDamper: 2
+    maximumForce: 3.4028233e+38
+  m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
+  m_RotationDriveMode: 0
+  m_AngularXDrive:
+    serializedVersion: 3
+    positionSpring: 1.8
+    positionDamper: 0.25
+    maximumForce: 3.4028233e+38
+  m_AngularYZDrive:
+    serializedVersion: 3
+    positionSpring: 1.8
+    positionDamper: 0.25
+    maximumForce: 3.4028233e+38
+  m_SlerpDrive:
+    serializedVersion: 3
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+  m_ProjectionMode: 1
+  m_ProjectionDistance: 0.01
+  m_ProjectionAngle: 180
+  m_ConfiguredInWorldSpace: 0
+  m_SwapBodies: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1332336601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 596278885253568175, guid: 9bd3c51fd91c1e04bb908966119f7812,
@@ -605,6 +712,16 @@ PrefabInstance:
       propertyPath: mirrorJoint
       value: 
       objectReference: {fileID: 1332336601}
+    - target: {fileID: 1974997019058226461, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974997019058226461, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5460007813183747938, guid: 5bf70dc72e835ab4e8c91a7d099aa398,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -665,5 +782,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amy With Ragdoll Controller
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7244879793009742527, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5bf70dc72e835ab4e8c91a7d099aa398, type: 3}
