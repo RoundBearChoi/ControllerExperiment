@@ -8,6 +8,7 @@ namespace ControllerExperiment.PhysicsState
     {
         [Header("Debug")]
         public List<PhysicsState> AllStates = new List<PhysicsState>();
+        [Space(10)]
         public PhysicsState Current = null;
 
         private void Awake()
