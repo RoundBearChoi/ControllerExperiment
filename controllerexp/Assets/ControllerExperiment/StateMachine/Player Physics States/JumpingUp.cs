@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.PhysicsState
+namespace ControllerExperiment.States
 {
-    public class JumpingUp : PhysicsState
+    public class JumpingUp : BaseState
     {
         public override void ProcStateFixedUpdate()
         {
-            if (control.rbody.velocity.y < 0f)
+            if (owner.rbody.velocity.y < 0f)
             {
-                control.stateProcessor.TransitionTo(typeof(FreeFall));
+                owner.stateProcessor.TransitionTo(typeof(FreeFall));
             }
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.SubComponents;
-using ControllerExperiment.PhysicsState;
+using ControllerExperiment.States;
 
 namespace ControllerExperiment
 {

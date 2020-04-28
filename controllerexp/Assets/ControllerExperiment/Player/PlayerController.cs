@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ControllerExperiment.PhysicsState;
+using ControllerExperiment.States;
 using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment
@@ -35,7 +35,7 @@ namespace ControllerExperiment
      
                 if (dir.y > 0f)
                 {
-                    IsGrounded = true;
+                    subComponentProcessor.SetBoolDic[SetPlayerBool.SET_GROUND_STATUS](true);
 
                     Vector3 contactDir = p.point - curve;
                     float angle = Vector3.Angle(contactDir, Vector3.up);
@@ -57,6 +57,7 @@ namespace ControllerExperiment
         private void Update()
         {
             stateProcessor.UpdateState();
+            subComponentProcessor.UpdateSubComponents();
 
             JumpButtonPressed = Input.GetKey(KeyCode.Space);
         }
@@ -66,15 +67,7 @@ namespace ControllerExperiment
             stateProcessor.FixedUpdateState();
             subComponentProcessor.FixedUpdateSubComponents();
 
-            IsGrounded = false;
-        }
-
-        public void CancelVerticalVelocity()
-        {
-            if (rbody.velocity.y > 0f)
-            {
-                rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
-            }
+            subComponentProcessor.SetBoolDic[SetPlayerBool.SET_GROUND_STATUS](false);
         }
     }
 }

@@ -3,35 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.SubComponents;
 
-namespace ControllerExperiment.PhysicsState
+namespace ControllerExperiment.States
 {
-    public class OnGround : PhysicsState
+    public class OnGround : BaseState
     {
         [Header("Debug")]
         public float GroundSpeed = 3.5f;
 
         public override void OnEnter()
         {
-            control.subComponentProcessor.SetFloatDic[SetPlayerFloat.TARGET_WALKSPEED](GroundSpeed);
+            owner.subComponentProcessor.SetFloatDic[SetPlayerFloat.TARGET_WALKSPEED](GroundSpeed);
         }
 
         public override void ProcStateFixedUpdate()
         {
-            control.subComponentProcessor.ProcDic[PlayerProcess.WALK_TO_TARGET_DIRECTION]();
-            control.subComponentProcessor.ProcDic[PlayerProcess.ROTATE_TO_TARGET_ANGLE]();
-            control.CancelVerticalVelocity();
+            owner.subComponentProcessor.ProcDic[SetPlayer.WALK_TO_TARGET_DIRECTION]();
+            owner.subComponentProcessor.ProcDic[SetPlayer.ROTATE_TO_TARGET_ANGLE]();
+            owner.subComponentProcessor.ProcDic[SetPlayer.CANCEL_VERTICAL_VELOCITY]();
 
             CheckJump();
         }
 
         void CheckJump()
         {
-            control.subComponentProcessor.ProcDic[PlayerProcess.SET_WALK_DIRECTION]();
+            owner.subComponentProcessor.ProcDic[SetPlayer.SET_WALK_DIRECTION]();
 
-            if (control.JumpButtonPressed)
+            bool JumpIsPressed = owner.subComponentProcessor.GetBoolDic[GetPlayerBool.PRESSED_JUMP]();
+
+            if (JumpIsPressed)
             {
-                control.subComponentProcessor.ProcDic[PlayerProcess.ADD_JUMP_FORCE]();
-                control.stateProcessor.TransitionTo(typeof(WaitingToJump));
+                owner.subComponentProcessor.ProcDic[SetPlayer.ADD_JUMP_FORCE]();
+                owner.stateProcessor.TransitionTo(typeof(WaitingToJump));
             }
         }
     }

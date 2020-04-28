@@ -16,9 +16,9 @@ namespace ControllerExperiment.SubComponents
 
         private void Start()
         {
-            processor.ProcDic.Add(PlayerProcess.SET_WALK_DIRECTION, SetTargetWalkDir);
-            processor.ProcDic.Add(PlayerProcess.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
-            processor.ProcDic.Add(PlayerProcess.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
+            processor.ProcDic.Add(SetPlayer.SET_WALK_DIRECTION, SetTargetWalkDir);
+            processor.ProcDic.Add(SetPlayer.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
+            processor.ProcDic.Add(SetPlayer.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
             processor.SetFloatDic.Add(SetPlayerFloat.TARGET_WALKSPEED, SetWalkSpeed);
         }
 
@@ -26,22 +26,27 @@ namespace ControllerExperiment.SubComponents
         {
             TargetWalkDir = Vector3.zero;
 
-            if (Input.GetKey(KeyCode.W))
+            bool Up = processor.GetBoolDic[GetPlayerBool.PRESSED_UP]();
+            bool Down = processor.GetBoolDic[GetPlayerBool.PRESSED_DOWN]();
+            bool Left = processor.GetBoolDic[GetPlayerBool.PRESSED_LEFT]();
+            bool Right = processor.GetBoolDic[GetPlayerBool.PRESSED_RIGHT]();
+
+            if (Up)
             {
                 TargetWalkDir += processor.owner.transform.forward;
             }
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                TargetWalkDir -= processor.owner.transform.right;
-            }
-
-            if (Input.GetKey(KeyCode.S))
+            if (Down)
             {
                 TargetWalkDir -= processor.owner.transform.forward;
             }
 
-            if (Input.GetKey(KeyCode.D))
+            if (Left)
+            {
+                TargetWalkDir -= processor.owner.transform.right;
+            }
+
+            if (Right)
             {
                 TargetWalkDir += processor.owner.transform.right;
             }

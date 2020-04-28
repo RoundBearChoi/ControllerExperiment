@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.PhysicsState
+namespace ControllerExperiment.States
 {
-    public class RagdollStart : PhysicsState
+    public class RagdollStart : BaseState
     {
         public override void ProcStateFixedUpdate()
         {

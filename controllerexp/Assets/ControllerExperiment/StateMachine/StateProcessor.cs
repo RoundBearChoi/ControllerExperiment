@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.PhysicsState
+namespace ControllerExperiment.States
 {
     public class StateProcessor : MonoBehaviour
     {
         [Header("Debug")]
-        public List<PhysicsState> AllStates = new List<PhysicsState>();
+        public List<BaseState> AllStates = new List<BaseState>();
         [Space(10)]
-        public PhysicsState Current = null;
+        public BaseState Current = null;
 
         private void Awake()
         {
@@ -28,7 +28,7 @@ namespace ControllerExperiment.PhysicsState
             obj.name = type.Name;
             obj.AddComponent(type);
 
-            PhysicsState newState = obj.GetComponent<PhysicsState>();
+            BaseState newState = obj.GetComponent<BaseState>();
             
             if (!AllStates.Contains(newState))
             {
@@ -40,14 +40,14 @@ namespace ControllerExperiment.PhysicsState
 
         public void TransitionTo(System.Type type)
         {
-            if (!type.IsSubclassOf(typeof(PhysicsState)))
+            if (!type.IsSubclassOf(typeof(BaseState)))
             {
                 Debug.LogError(type.Name + " is not a PhysicsState..");
             }
 
             //Debug.Log("Attempting transition to " + type.Name + "..");
 
-            PhysicsState s = GetState(type);
+            BaseState s = GetState(type);
 
             if (s == null)
             {
@@ -62,9 +62,9 @@ namespace ControllerExperiment.PhysicsState
             }
         }
 
-        PhysicsState GetState(System.Type type)
+        BaseState GetState(System.Type type)
         {
-            foreach(PhysicsState s in AllStates)
+            foreach(BaseState s in AllStates)
             {
                 if (s.GetType() == type)
                 {

@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.SubComponents;
 
-namespace ControllerExperiment.PhysicsState
+namespace ControllerExperiment.States
 {
-    public class Landing : PhysicsState
+    public class Landing : BaseState
     {
         public override void OnEnter()
         {
-            control.subComponentProcessor.ProcDic[PlayerProcess.CANCEL_HORIZONTAL_VELOCITY]();
-            control.subComponentProcessor.ProcDic[PlayerProcess.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
+            owner.subComponentProcessor.ProcDic[SetPlayer.CANCEL_HORIZONTAL_VELOCITY]();
+            owner.subComponentProcessor.ProcDic[SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
         }
 
         public override void ProcStateFixedUpdate()
         {
-            control.stateProcessor.TransitionTo(typeof(OnGround));
+            owner.stateProcessor.TransitionTo(typeof(OnGround));
         }
     }
 }

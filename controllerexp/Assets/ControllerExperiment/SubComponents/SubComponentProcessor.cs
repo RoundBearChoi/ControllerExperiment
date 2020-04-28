@@ -23,8 +23,14 @@ namespace ControllerExperiment.SubComponents
         public Dictionary<int, Process> ProcDic = new Dictionary<int, Process>();
         public delegate void Process();
 
-        public Dictionary<int, SetEntity> SetFloatDic = new Dictionary<int, SetEntity>();
-        public delegate void SetEntity(float f);
+        public Dictionary<int, SetEntityFloat> SetFloatDic = new Dictionary<int, SetEntityFloat>();
+        public delegate void SetEntityFloat(float f);
+
+        public Dictionary<int, SetEntityBool> SetBoolDic = new Dictionary<int, SetEntityBool>();
+        public delegate void SetEntityBool(bool b);
+
+        public Dictionary<int, GetBool> GetBoolDic = new Dictionary<int, GetBool>();
+        public delegate bool GetBool();
 
         [Header("Debug")]
         public List<SubComponent> SubComponents = new List<SubComponent>();
@@ -38,28 +44,47 @@ namespace ControllerExperiment.SubComponents
             foreach(SubComponent s in arr)
             {
                 SubComponents.Add(s);
-                System.Reflection.MethodInfo info = s.GetType().GetMethod("OnFixedUpdate");
-                if (info.DeclaringType == typeof(SubComponent))
-                {
-                    s.DoFixedUpdate = false;
-                }
-                else
-                {
-                    //Debug.Log(s.name + " overrides OnFixedUpdate");
-                    s.DoFixedUpdate = true;
-                }
+
+                // check whether the subcomponent needs to be updated/fixedupdated
+                System.Type inheritee = s.GetType();
+                s.DoFixedUpdate = IsOverridden(inheritee, "OnFixedUpdate");
+                s.DoUpdate = IsOverridden(inheritee, "OnUpdate");
             }
         }
 
         public void FixedUpdateSubComponents()
         {
-            // only update if overriden
             foreach(SubComponent s in SubComponents)
             {
                 if (s.DoFixedUpdate)
                 {
                     s.OnFixedUpdate();
                 }
+            }
+        }
+
+        public void UpdateSubComponents()
+        {
+            foreach (SubComponent s in SubComponents)
+            {
+                if (s.DoUpdate)
+                {
+                    s.OnUpdate();
+                }
+            }
+        }
+
+        bool IsOverridden(System.Type t, string methodName)
+        {
+            System.Reflection.MethodInfo info = t.GetMethod(methodName);
+
+            if (info.DeclaringType == typeof(SubComponent))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

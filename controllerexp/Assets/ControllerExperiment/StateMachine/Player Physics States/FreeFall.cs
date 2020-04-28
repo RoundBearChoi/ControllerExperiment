@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ControllerExperiment.SubComponents;
 
-namespace ControllerExperiment.PhysicsState
+namespace ControllerExperiment.States
 {
-    public class FreeFall : PhysicsState
+    public class FreeFall : BaseState
     {
         public override void ProcStateFixedUpdate()
         {
-            if (control.IsGrounded)
+            bool isGrounded = owner.subComponentProcessor.GetBoolDic[GetPlayerBool.IS_GROUNDED]();
+
+            if (isGrounded)
             {
-                control.stateProcessor.TransitionTo(typeof(Landing));
+                owner.stateProcessor.TransitionTo(typeof(Landing));
             }
         }
     }

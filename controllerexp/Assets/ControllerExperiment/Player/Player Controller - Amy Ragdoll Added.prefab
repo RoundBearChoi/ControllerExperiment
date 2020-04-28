@@ -770,10 +770,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5445128290063306646, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
+        type: 3}
+      propertyPath: m_Name
+      value: States
+      objectReference: {fileID: 0}
     - target: {fileID: 5445128290371679107, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445128291390472742, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
+        type: 3}
+      propertyPath: m_Name
+      value: SubComponents
       objectReference: {fileID: 0}
     - target: {fileID: 5850023041813883343, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
@@ -788,17 +798,17 @@ PrefabInstance:
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.53
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.9
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 11.68
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}

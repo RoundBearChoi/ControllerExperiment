@@ -8,6 +8,7 @@ namespace ControllerExperiment.SubComponents
     {
         [Header("SubComponent Debug")]
         public bool DoFixedUpdate;
+        public bool DoUpdate;
 
         private SubComponentProcessor m_processor = null;
 
