@@ -10,7 +10,7 @@ namespace ControllerExperiment.SubComponents
         public string DummyRootName;
 
         [Header("Ragdoll Animation Debug")]
-        public List<TempRagdollSetter> RagdollPartSetters = new List<TempRagdollSetter>();
+        public List<RagdollAnimator> RagdollPartSetters = new List<RagdollAnimator>();
 
         GameObject Dummy;
 
@@ -23,7 +23,7 @@ namespace ControllerExperiment.SubComponents
 
         public override void OnFixedUpdate()
         {
-            foreach (TempRagdollSetter setter in RagdollPartSetters)
+            foreach (RagdollAnimator setter in RagdollPartSetters)
             {
                 setter.CopyDummyAnimation();
             }
@@ -33,9 +33,9 @@ namespace ControllerExperiment.SubComponents
         {
             RagdollPartSetters.Clear();
 
-            TempRagdollSetter[] arr = processor.owner.GetComponentsInChildren<TempRagdollSetter>();
+            RagdollAnimator[] arr = processor.owner.GetComponentsInChildren<RagdollAnimator>();
 
-            foreach(TempRagdollSetter setter in arr)
+            foreach(RagdollAnimator setter in arr)
             {
                 RagdollPartSetters.Add(setter);
             }
@@ -53,7 +53,7 @@ namespace ControllerExperiment.SubComponents
 
         void SetMirrorParts()
         {
-            foreach(TempRagdollSetter setter in RagdollPartSetters)
+            foreach(RagdollAnimator setter in RagdollPartSetters)
             {
                 Transform[] arr = Dummy.GetComponentsInChildren<Transform>();
                 foreach(Transform t in arr)

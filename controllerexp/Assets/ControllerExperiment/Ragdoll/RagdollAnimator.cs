@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public class TempRagdollSetter : MonoBehaviour
+    public class RagdollAnimator : MonoBehaviour
     {
         public bool DoNotSync;
         public Rigidbody myRigidBody
@@ -31,9 +31,7 @@ namespace ControllerExperiment
             }
         }
 
-        GameObject mirrorJoint;
-        
-
+        GameObject dummyJoint; 
         ConfigurableJoint m_myJoint;
         Rigidbody m_myRigidBody;
 
@@ -45,11 +43,11 @@ namespace ControllerExperiment
         {
             if (!DoNotSync)
             {
-                Vector3 MirrorTargetPosition = GetTargetPosition(mirrorJoint.transform.position, MirrorAnchorPosition);
+                Vector3 MirrorTargetPosition = GetTargetPosition(dummyJoint.transform.position, MirrorAnchorPosition);
                 myJoint.targetPosition = MirrorTargetPosition;
                 Debug.DrawLine(this.transform.root.gameObject.transform.transform.position, GetMyWorldTargetPosition(), Color.yellow);
 
-                Quaternion MirrorTargetRotation = GetTargetRotation(mirrorJoint.transform.rotation, MirrorAnchorRotation);
+                Quaternion MirrorTargetRotation = GetTargetRotation(dummyJoint.transform.rotation, MirrorAnchorRotation);
                 myJoint.targetRotation = MirrorTargetRotation;
             }
         }
@@ -80,13 +78,13 @@ namespace ControllerExperiment
 
         public void SetMirrorJoint(GameObject mirror)
         {
-            mirrorJoint = mirror;
+            dummyJoint = mirror;
         }
 
         public void SetAnchors()
         {
-            MirrorAnchorPosition = mirrorJoint.transform.position;
-            MirrorAnchorRotation = mirrorJoint.transform.rotation;
+            MirrorAnchorPosition = dummyJoint.transform.position;
+            MirrorAnchorRotation = dummyJoint.transform.rotation;
         }
     }
 }
