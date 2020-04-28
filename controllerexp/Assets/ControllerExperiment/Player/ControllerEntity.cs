@@ -12,7 +12,6 @@ namespace ControllerExperiment
         SubComponentProcessor m_SubComponentProcessor = null;
         StateProcessor m_stateProcessor = null;
         
-
         public Rigidbody rbody
         {
             get
