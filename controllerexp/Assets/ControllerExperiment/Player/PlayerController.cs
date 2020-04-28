@@ -11,16 +11,26 @@ namespace ControllerExperiment
         [HideInInspector]
         public CapsuleCollider capCollider;
 
-        [Header("Debug")]
-        public bool IsGrounded;
-        public bool JumpButtonPressed;
-
         private void Start()
         {
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
             //init physics state
             stateProcessor.TransitionTo(typeof(CheckGround));
+        }
+
+        private void Update()
+        {
+            stateProcessor.UpdateState();
+            subComponentProcessor.UpdateSubComponents();
+        }
+
+        private void FixedUpdate()
+        {
+            stateProcessor.FixedUpdateState();
+            subComponentProcessor.FixedUpdateSubComponents();
+
+            subComponentProcessor.SetBoolDic[SetPlayerBool.SET_GROUND_STATUS](false);
         }
 
         private void OnCollisionStay(Collision col)
@@ -52,22 +62,6 @@ namespace ControllerExperiment
             }
 
             //Debug.Log("colliding grounds: " + CollidingGrounds.ToString());
-        }
-
-        private void Update()
-        {
-            stateProcessor.UpdateState();
-            subComponentProcessor.UpdateSubComponents();
-
-            JumpButtonPressed = Input.GetKey(KeyCode.Space);
-        }
-
-        private void FixedUpdate()
-        {
-            stateProcessor.FixedUpdateState();
-            subComponentProcessor.FixedUpdateSubComponents();
-
-            subComponentProcessor.SetBoolDic[SetPlayerBool.SET_GROUND_STATUS](false);
         }
     }
 }
