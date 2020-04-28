@@ -11,9 +11,6 @@ namespace ControllerExperiment
         [HideInInspector]
         public CapsuleCollider capCollider;
 
-        [Header("Attributes")]
-        public float JumpForce;
-
         [Header("Debug")]
         public bool IsGrounded;
         public bool JumpButtonPressed;
@@ -21,7 +18,6 @@ namespace ControllerExperiment
         private void Start()
         {
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
-            subComponentProcessor.ProcDic.Add(PlayerProcess.ADD_JUMP_FORCE, AddJumpForce);
 
             //init physics state
             stateProcessor.TransitionTo(typeof(CheckGround));
@@ -79,12 +75,6 @@ namespace ControllerExperiment
             {
                 rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
             }
-        }
-
-        void AddJumpForce()
-        {
-            rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
-            rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
         }
     }
 }

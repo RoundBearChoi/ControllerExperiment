@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1104336226459916248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8756317265246172004}
+  - component: {fileID: 8342514335570418401}
+  m_Layer: 2
+  m_Name: Jump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8756317265246172004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104336226459916248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5445128291390472743}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8342514335570418401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104336226459916248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785baf8d0bf7eea44989606efee63dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoFixedUpdate: 0
+  JumpForce: 6
 --- !u!1 &5445128290063306646
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf560feaad0286543a7b87072f0fa791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
+  DoFixedUpdate: 0
   TorqueMultiplier:
     serializedVersion: 2
     m_Curve:
@@ -193,6 +238,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   MaxTorque: 50
+  TargetAngle: 0
 --- !u!1 &5445128291192536607
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fc997d717161843ad31810cddf9aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
+  DoFixedUpdate: 0
   TargetWalkDir: {x: 0, y: 0, z: 0}
   Speed: 0
   MoveForce: {x: 0, y: 0, z: 0}
@@ -271,6 +317,7 @@ Transform:
   m_Children:
   - {fileID: 5445128291192536592}
   - {fileID: 5445128290480772959}
+  - {fileID: 8756317265246172004}
   m_Father: {fileID: 8680944031603900422}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -286,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857ec8766c0ea2f499720a14bb1370ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SubComponents: []
 --- !u!1 &5850023041813883343
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +349,7 @@ GameObject:
   - component: {fileID: 7451075630724152064}
   - component: {fileID: 2223016682137546787}
   m_Layer: 2
-  m_Name: Base Player Controller 1
+  m_Name: Base Player Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,11 +461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c0e65ce05f3274cb41a588c9927e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbody: {fileID: 0}
+  m_rbody: {fileID: 0}
+  m_SubComponentProcessor: {fileID: 0}
+  m_stateProcessor: {fileID: 0}
   capCollider: {fileID: 0}
-  stateProcessor: {fileID: 0}
-  ComponentProcessor: {fileID: 0}
-  JumpForce: 6
-  TargetAngle: 0
   IsGrounded: 0
   JumpButtonPressed: 0
