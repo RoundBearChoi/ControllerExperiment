@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.Ragdoll
+namespace ControllerExperiment
 {
     public class RagdollController_Old : MonoBehaviour
     {

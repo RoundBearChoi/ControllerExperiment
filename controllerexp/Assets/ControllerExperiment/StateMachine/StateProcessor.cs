@@ -35,6 +35,11 @@ namespace ControllerExperiment.States
                 AllStates.Add(newState);
             }
 
+            // check if OnEnter is overridden
+            System.Type child = newState.GetType();
+            newState.Do_OnEnter = OverrideCheck.IsOverridden(child, typeof(BaseState), "OnEnter");
+            newState.Do_UpdateState = OverrideCheck.IsOverridden(child, typeof(BaseState), "ProcStateUpdate");
+
             TransitionTo(newState.GetType());
         }
 
@@ -57,8 +62,13 @@ namespace ControllerExperiment.States
             else
             {
                 Debug.Log("Transitioned to: " + type.Name);
+
                 Current = s;
-                Current.OnEnter();
+
+                if (Current.Do_OnEnter)
+                {
+                    Current.OnEnter();
+                }
             }
         }
 
@@ -82,7 +92,10 @@ namespace ControllerExperiment.States
 
         public void UpdateState()
         {
-            Current.ProcStateUpdate();
+            if (Current.Do_UpdateState)
+            {
+                Current.ProcStateUpdate();
+            }
         }
     }
 }

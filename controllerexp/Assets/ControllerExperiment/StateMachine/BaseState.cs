@@ -6,6 +6,10 @@ namespace ControllerExperiment.States
 {
     public abstract class BaseState: MonoBehaviour
     {
+        [Header("State Properties")]
+        public bool Do_OnEnter;
+        public bool Do_UpdateState;
+
         public ControllerEntity owner
         {
             get
@@ -24,12 +28,12 @@ namespace ControllerExperiment.States
 
         public virtual void OnEnter()
         {
-            // called once on beginning of every transition (optional)
+            throw new System.NotImplementedException();
         }
 
         public virtual void ProcStateUpdate()
         {
-            // called every frame (optional)
+            throw new System.NotImplementedException();
         }
     }
 }

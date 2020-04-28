@@ -136,17 +136,7 @@ MonoBehaviour:
   DoFixedUpdate: 0
   DoUpdate: 0
   DummyRootName: Amy Animation Dummy
-  RagdollPartSetters:
-  - {fileID: 740505920}
-  - {fileID: 1888071087}
-  - {fileID: 1782076398}
-  - {fileID: 762399138}
-  - {fileID: 103705920}
-  - {fileID: 220273718}
-  - {fileID: 505251208}
-  - {fileID: 2060435467}
-  - {fileID: 1329038414}
-  - {fileID: 870132841}
+  RagdollAnimators: []
 --- !u!153 &740505922
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -270,6 +260,7 @@ MonoBehaviour:
   m_rbody: {fileID: 0}
   m_SubComponentProcessor: {fileID: 0}
   m_stateProcessor: {fileID: 0}
+  m_DesiredState: 0
 --- !u!153 &870132844
 ConfigurableJoint:
   m_ObjectHideFlags: 0

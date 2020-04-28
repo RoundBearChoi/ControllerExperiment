@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.States
+namespace ControllerExperiment.States.Player
 {
     public class JumpingUp : BaseState
     {

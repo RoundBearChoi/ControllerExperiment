@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace ControllerExperiment.Ragdoll
+namespace ControllerExperiment
 {
     [CustomEditor(typeof(RagdollController))]
     public class RagdollControllerEditor : Editor
@@ -14,19 +14,19 @@ namespace ControllerExperiment.Ragdoll
 
             RagdollController r = (RagdollController)target;
 
-            GUILayout.Space(10);
-
-            if (GUILayout.Button("f1"))
-            {
-                //r.SetupRagdollParts();
-            }
-
-            GUILayout.Space(5);
-
-            if (GUILayout.Button("f2"))
-            {
-                //r.SetupCharacterJoints();
-            }
+            //GUILayout.Space(10);
+            //
+            //if (GUILayout.Button("f1"))
+            //{
+            //
+            //}
+            //
+            //GUILayout.Space(5);
+            //
+            //if (GUILayout.Button("f2"))
+            //{
+            //
+            //}
         }
     }
 }

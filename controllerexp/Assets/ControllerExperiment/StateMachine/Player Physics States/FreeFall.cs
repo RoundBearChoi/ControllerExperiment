@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.SubComponents;
 
-namespace ControllerExperiment.States
+namespace ControllerExperiment.States.Player
 {
     public class FreeFall : BaseState
     {

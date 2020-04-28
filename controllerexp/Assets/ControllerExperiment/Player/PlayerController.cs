@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ControllerExperiment.States;
+using ControllerExperiment.States.Player;
 using ControllerExperiment.SubComponents;
 
 namespace ControllerExperiment

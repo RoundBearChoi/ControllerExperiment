@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace ControllerExperiment.SubComponents
+namespace ControllerExperiment.SubComponents.Ragdoll
 {
     [CustomEditor(typeof(RagdollAnimation))]
     public class RagdollAnimationEditor : Editor

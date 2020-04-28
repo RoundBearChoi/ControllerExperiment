@@ -32,6 +32,9 @@ namespace ControllerExperiment.SubComponents
         public Dictionary<int, GetBool> GetBoolDic = new Dictionary<int, GetBool>();
         public delegate bool GetBool();
 
+        public Dictionary<int, GetInt> GetIntDic = new Dictionary<int, GetInt>();
+        public delegate int GetInt();
+
         [Header("Debug")]
         public List<SubComponent> SubComponents = new List<SubComponent>();
 
@@ -46,9 +49,9 @@ namespace ControllerExperiment.SubComponents
                 SubComponents.Add(s);
 
                 // check whether the subcomponent needs to be updated/fixedupdated
-                System.Type inheritee = s.GetType();
-                s.DoFixedUpdate = IsOverridden(inheritee, "OnFixedUpdate");
-                s.DoUpdate = IsOverridden(inheritee, "OnUpdate");
+                System.Type child = s.GetType();
+                s.DoFixedUpdate = OverrideCheck.IsOverridden(child, typeof(SubComponent), "OnFixedUpdate");
+                s.DoUpdate = OverrideCheck.IsOverridden(child, typeof(SubComponent), "OnUpdate");
             }
         }
 
@@ -74,18 +77,6 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
-        bool IsOverridden(System.Type t, string methodName)
-        {
-            System.Reflection.MethodInfo info = t.GetMethod(methodName);
-
-            if (info.DeclaringType == typeof(SubComponent))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        
     }
 }
