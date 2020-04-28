@@ -11,7 +11,7 @@ namespace ControllerExperiment.Ragdoll
         private void Start()
         {
             stateProcessor.TransitionTo(typeof(RagdollStart));
-            scProcessor.ProcDic[RagdollProcess.SET_RAGDOLL_DUMMY]();
+            subComponentProcessor.ProcDic[RagdollProcess.SET_RAGDOLL_DUMMY]();
         }
 
         private void Update()
@@ -22,7 +22,7 @@ namespace ControllerExperiment.Ragdoll
         private void FixedUpdate()
         {
             stateProcessor.FixedUpdateState();
-            scProcessor.FixedUpdateSubComponents();
+            subComponentProcessor.FixedUpdateSubComponents();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ControllerExperiment
             }
         }
 
-        public SubComponentProcessor scProcessor
+        public SubComponentProcessor subComponentProcessor
         {
             get
             {

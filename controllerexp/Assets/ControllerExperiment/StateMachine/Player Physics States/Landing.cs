@@ -9,8 +9,8 @@ namespace ControllerExperiment.PhysicsState
     {
         public override void OnEnter()
         {
-            control.scProcessor.ProcDic[PlayerProcess.CANCEL_HORIZONTAL_VELOCITY]();
-            control.scProcessor.ProcDic[PlayerProcess.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
+            control.subComponentProcessor.ProcDic[PlayerProcess.CANCEL_HORIZONTAL_VELOCITY]();
+            control.subComponentProcessor.ProcDic[PlayerProcess.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
         }
 
         public override void ProcStateFixedUpdate()

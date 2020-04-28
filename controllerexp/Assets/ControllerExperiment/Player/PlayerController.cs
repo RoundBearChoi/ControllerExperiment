@@ -21,6 +21,7 @@ namespace ControllerExperiment
         private void Start()
         {
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
+            subComponentProcessor.ProcDic.Add(PlayerProcess.ADD_JUMP_FORCE, AddJumpForce);
 
             //init physics state
             stateProcessor.TransitionTo(typeof(CheckGround));
@@ -67,7 +68,7 @@ namespace ControllerExperiment
         private void FixedUpdate()
         {
             stateProcessor.FixedUpdateState();
-            scProcessor.FixedUpdateSubComponents();
+            subComponentProcessor.FixedUpdateSubComponents();
 
             IsGrounded = false;
         }
@@ -80,7 +81,7 @@ namespace ControllerExperiment
             }
         }
 
-        public void AddJumpForce()
+        void AddJumpForce()
         {
             rbody.AddForce(Vector3.up * -rbody.velocity.y, ForceMode.VelocityChange);
             rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);

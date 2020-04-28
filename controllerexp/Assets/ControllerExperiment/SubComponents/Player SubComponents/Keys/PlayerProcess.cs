@@ -12,5 +12,6 @@ namespace ControllerExperiment.SubComponents
         public static int CANCEL_HORIZONTAL_VELOCITY => GetKey("CANCEL_HORIZONTAL_VELOCITY");
         public static int CANCEL_HORIZONTAL_ANGULAR_VELOCITY => GetKey("CANCEL_HORIZONTAL_ANGULAR_VELOCITY");
         public static int ROTATE_TO_TARGET_ANGLE => GetKey("ROTATE_TO_TARGET_ANGLE");
+        public static int ADD_JUMP_FORCE => GetKey("ADD_JUMP_FORCE");
     }
 }
