@@ -17,22 +17,22 @@ namespace ControllerExperiment.States
 
         public override void ProcStateFixedUpdate()
         {
-            owner.subComponentProcessor.ProcDic[SetPlayer.WALK_TO_TARGET_DIRECTION]();
-            owner.subComponentProcessor.ProcDic[SetPlayer.ROTATE_TO_TARGET_ANGLE]();
-            owner.subComponentProcessor.ProcDic[SetPlayer.CANCEL_VERTICAL_VELOCITY]();
+            owner.subComponentProcessor.SetDic[SetPlayer.WALK_TO_TARGET_DIRECTION]();
+            owner.subComponentProcessor.SetDic[SetPlayer.ROTATE_TO_TARGET_ANGLE]();
+            owner.subComponentProcessor.SetDic[SetPlayer.CANCEL_VERTICAL_VELOCITY]();
 
             CheckJump();
         }
 
         void CheckJump()
         {
-            owner.subComponentProcessor.ProcDic[SetPlayer.SET_WALK_DIRECTION]();
+            owner.subComponentProcessor.SetDic[SetPlayer.SET_WALK_DIRECTION]();
 
             bool JumpIsPressed = owner.subComponentProcessor.GetBoolDic[GetPlayerBool.PRESSED_JUMP]();
 
             if (JumpIsPressed)
             {
-                owner.subComponentProcessor.ProcDic[SetPlayer.ADD_JUMP_FORCE]();
+                owner.subComponentProcessor.SetDic[SetPlayer.ADD_JUMP_FORCE]();
                 owner.stateProcessor.TransitionTo(typeof(WaitingToJump));
             }
         }

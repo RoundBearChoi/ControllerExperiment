@@ -11,7 +11,7 @@ namespace ControllerExperiment.Ragdoll
         private void Start()
         {
             stateProcessor.TransitionTo(typeof(RagdollStart));
-            subComponentProcessor.ProcDic[RagdollProcess.SET_RAGDOLL_DUMMY]();
+            subComponentProcessor.SetDic[SetRagdoll.SET_RAGDOLL_DUMMY]();
         }
 
         private void Update()

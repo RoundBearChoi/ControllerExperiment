@@ -12,16 +12,18 @@ namespace ControllerExperiment.SubComponents
         [Header("Ragdoll Animation Debug")]
         public List<RagdollAnimator> RagdollPartSetters = new List<RagdollAnimator>();
 
-        GameObject Dummy;
+        GameObject Dummy = null;
 
         private void Start()
         {
-            processor.ProcDic.Add(RagdollProcess.SET_RAGDOLL_DUMMY, SetDummy);
+            processor.SetDic.Add(SetRagdoll.SET_RAGDOLL_DUMMY, SetDummy);
+            processor.SetDic.Add(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
+            processor.GetBoolDic.Add(GetRagdollBool.DUMMY_IS_SET, DummyHasBeenFound);
 
             FindRagdollSetters();
         }
 
-        public override void OnFixedUpdate()
+        void CopyAnimation()
         {
             foreach (RagdollAnimator setter in RagdollPartSetters)
             {
@@ -64,6 +66,18 @@ namespace ControllerExperiment.SubComponents
                         setter.SetAnchors(); //must set anchors on start
                     }
                 }
+            }
+        }
+
+        bool DummyHasBeenFound()
+        {
+            if (Dummy != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

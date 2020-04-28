@@ -20,7 +20,7 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
-        public Dictionary<int, Process> ProcDic = new Dictionary<int, Process>();
+        public Dictionary<int, Process> SetDic = new Dictionary<int, Process>();
         public delegate void Process();
 
         public Dictionary<int, SetEntityFloat> SetFloatDic = new Dictionary<int, SetEntityFloat>();

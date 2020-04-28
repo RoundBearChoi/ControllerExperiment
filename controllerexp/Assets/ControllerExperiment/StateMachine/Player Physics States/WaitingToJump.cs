@@ -11,7 +11,7 @@ namespace ControllerExperiment.States
         {
             if (owner.rbody.velocity.y > 0f)
             {
-                owner.subComponentProcessor.ProcDic[SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
+                owner.subComponentProcessor.SetDic[SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
                 owner.stateProcessor.TransitionTo(typeof(JumpingUp));
             }
         }

@@ -16,9 +16,9 @@ namespace ControllerExperiment.SubComponents
 
         private void Start()
         {
-            processor.ProcDic.Add(SetPlayer.SET_WALK_DIRECTION, SetTargetWalkDir);
-            processor.ProcDic.Add(SetPlayer.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
-            processor.ProcDic.Add(SetPlayer.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
+            processor.SetDic.Add(SetPlayer.SET_WALK_DIRECTION, SetTargetWalkDir);
+            processor.SetDic.Add(SetPlayer.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
+            processor.SetDic.Add(SetPlayer.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
             processor.SetFloatDic.Add(SetPlayerFloat.TARGET_WALKSPEED, SetWalkSpeed);
         }
 

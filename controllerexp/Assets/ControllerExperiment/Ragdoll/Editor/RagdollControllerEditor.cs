@@ -5,27 +5,27 @@ using UnityEditor;
 
 namespace ControllerExperiment.Ragdoll
 {
-    [CustomEditor(typeof(RagdollController_Old))]
+    [CustomEditor(typeof(RagdollController))]
     public class RagdollControllerEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            RagdollController_Old r = (RagdollController_Old)target;
+            RagdollController r = (RagdollController)target;
 
             GUILayout.Space(10);
 
-            if (GUILayout.Button("Setup Ragdoll Parts"))
+            if (GUILayout.Button("f1"))
             {
-                r.SetupRagdollParts();
+                //r.SetupRagdollParts();
             }
 
             GUILayout.Space(5);
 
-            if (GUILayout.Button("Setup Character Joints"))
+            if (GUILayout.Button("f2"))
             {
-                r.SetupCharacterJoints();
+                //r.SetupCharacterJoints();
             }
         }
     }

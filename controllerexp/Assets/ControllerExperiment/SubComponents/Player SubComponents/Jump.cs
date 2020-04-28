@@ -10,8 +10,8 @@ namespace ControllerExperiment.SubComponents
 
         private void Start()
         {
-            processor.ProcDic.Add(SetPlayer.ADD_JUMP_FORCE, AddJumpForce);
-            processor.ProcDic.Add(SetPlayer.CANCEL_VERTICAL_VELOCITY, CancelVerticalVelocity);
+            processor.SetDic.Add(SetPlayer.ADD_JUMP_FORCE, AddJumpForce);
+            processor.SetDic.Add(SetPlayer.CANCEL_VERTICAL_VELOCITY, CancelVerticalVelocity);
         }
 
         void AddJumpForce()

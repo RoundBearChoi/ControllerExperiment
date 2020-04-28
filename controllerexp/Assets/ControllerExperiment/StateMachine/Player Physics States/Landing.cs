@@ -9,8 +9,8 @@ namespace ControllerExperiment.States
     {
         public override void OnEnter()
         {
-            owner.subComponentProcessor.ProcDic[SetPlayer.CANCEL_HORIZONTAL_VELOCITY]();
-            owner.subComponentProcessor.ProcDic[SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
+            owner.subComponentProcessor.SetDic[SetPlayer.CANCEL_HORIZONTAL_VELOCITY]();
+            owner.subComponentProcessor.SetDic[SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY]();
         }
 
         public override void ProcStateFixedUpdate()
