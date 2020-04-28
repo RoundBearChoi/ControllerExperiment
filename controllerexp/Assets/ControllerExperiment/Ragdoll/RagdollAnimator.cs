@@ -36,19 +36,22 @@ namespace ControllerExperiment
         Rigidbody m_myRigidBody;
 
         //starting point (anchor for the joints)
-        Vector3 MirrorAnchorPosition;
-        Quaternion MirrorAnchorRotation;
+        Vector3 MirrorAnchorPosition = new Vector3();
+        Quaternion MirrorAnchorRotation = new Quaternion();
 
         public void CopyDummyAnimation()
         {
             if (!DoNotSync)
             {
-                Vector3 MirrorTargetPosition = GetTargetPosition(dummyJoint.transform.position, MirrorAnchorPosition);
-                myJoint.targetPosition = MirrorTargetPosition;
-                Debug.DrawLine(this.transform.root.gameObject.transform.transform.position, GetMyWorldTargetPosition(), Color.yellow);
+                if (dummyJoint != null)
+                {
+                    Vector3 MirrorTargetPosition = GetTargetPosition(dummyJoint.transform.position, MirrorAnchorPosition);
+                    myJoint.targetPosition = MirrorTargetPosition;
+                    Debug.DrawLine(this.transform.root.gameObject.transform.transform.position, GetMyWorldTargetPosition(), Color.yellow);
 
-                Quaternion MirrorTargetRotation = GetTargetRotation(dummyJoint.transform.rotation, MirrorAnchorRotation);
-                myJoint.targetRotation = MirrorTargetRotation;
+                    Quaternion MirrorTargetRotation = GetTargetRotation(dummyJoint.transform.rotation, MirrorAnchorRotation);
+                    myJoint.targetRotation = MirrorTargetRotation;
+                }
             }
         }
 
