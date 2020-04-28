@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.SubComponents
+namespace ControllerExperiment.SubComponents.Player
 {
     public class SetPlayer : SubComponentKey
     {
