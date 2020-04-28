@@ -6,6 +6,9 @@ namespace ControllerExperiment.SubComponents
 {
     public abstract class SubComponent : MonoBehaviour
     {
+        [Header("SubComponent Debug")]
+        public bool DoFixedUpdate;
+
         private SubComponentProcessor m_processor = null;
 
         public SubComponentProcessor processor

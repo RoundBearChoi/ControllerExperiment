@@ -67,6 +67,7 @@ namespace ControllerExperiment
         private void FixedUpdate()
         {
             stateProcessor.FixedUpdateState();
+            scProcessor.FixedUpdateSubComponents();
 
             IsGrounded = false;
         }

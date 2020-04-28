@@ -11,5 +11,10 @@ namespace ControllerExperiment.Ragdoll
         {
             scProcessor.ProcDic[RagdollProcess.SET_RAGDOLL_DUMMY]();
         }
+
+        private void FixedUpdate()
+        {
+            scProcessor.FixedUpdateSubComponents();
+        }
     }
 }

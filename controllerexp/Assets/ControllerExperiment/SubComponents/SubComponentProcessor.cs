@@ -38,6 +38,27 @@ namespace ControllerExperiment.SubComponents
             foreach(SubComponent s in arr)
             {
                 SubComponents.Add(s);
+                System.Reflection.MethodInfo info = s.GetType().GetMethod("OnFixedUpdate");
+                if (info.DeclaringType == typeof(SubComponent))
+                {
+                    s.DoFixedUpdate = false;
+                }
+                else
+                {
+                    //Debug.Log(s.name + " overrides OnFixedUpdate");
+                    s.DoFixedUpdate = true;
+                }
+            }
+        }
+
+        public void FixedUpdateSubComponents()
+        {
+            foreach(SubComponent s in SubComponents)
+            {
+                if (s.DoFixedUpdate)
+                {
+                    s.OnFixedUpdate();
+                }
             }
         }
     }

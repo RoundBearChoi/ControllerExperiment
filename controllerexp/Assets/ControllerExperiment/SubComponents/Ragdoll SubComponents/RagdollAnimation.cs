@@ -9,7 +9,7 @@ namespace ControllerExperiment.SubComponents
         [Header("Attributes")]
         public string DummyRootName;
 
-        [Header("Debug")]
+        [Header("Ragdoll Animation Debug")]
         public List<TempRagdollSetter> RagdollPartSetters = new List<TempRagdollSetter>();
 
         GameObject Dummy;
@@ -19,6 +19,11 @@ namespace ControllerExperiment.SubComponents
             processor.ProcDic.Add(RagdollProcess.SET_RAGDOLL_DUMMY, SetDummy);
 
             FindRagdollSetters();
+        }
+
+        public override void OnFixedUpdate()
+        {
+
         }
 
         public void FindRagdollSetters()
