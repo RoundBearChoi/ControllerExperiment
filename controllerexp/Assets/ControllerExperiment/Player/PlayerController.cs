@@ -18,7 +18,7 @@ namespace ControllerExperiment
         public bool IsGrounded;
         public bool JumpButtonPressed;
 
-        private void Awake()
+        private void Start()
         {
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
 

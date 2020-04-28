@@ -7,23 +7,39 @@ namespace ControllerExperiment
     public class TempRagdollSetter : MonoBehaviour
     {
         public bool DoNotSync;
-        public GameObject mirrorJoint;
+        public Rigidbody myRigidBody
+        {
+            get
+            {
+                if (m_myRigidBody == null)
+                {
+                    m_myRigidBody = this.gameObject.GetComponent<Rigidbody>();
+                }
+                return m_myRigidBody;
+            }
+        }
 
-        Rigidbody myRigidBody;
-        ConfigurableJoint myJoint;
+        public ConfigurableJoint myJoint
+        {
+            get
+            {
+                if (m_myJoint == null)
+                {
+                    m_myJoint = this.gameObject.GetComponent<ConfigurableJoint>();
+                }
+                return m_myJoint;
+            }
+        }
+
+        GameObject mirrorJoint;
+        
+
+        ConfigurableJoint m_myJoint;
+        Rigidbody m_myRigidBody;
 
         //starting point (anchor for the joints)
         Vector3 MirrorAnchorPosition;
         Quaternion MirrorAnchorRotation;
-
-        private void Start()
-        {
-            myRigidBody = this.gameObject.GetComponent<Rigidbody>();
-            myJoint = this.gameObject.GetComponent<ConfigurableJoint>();
-
-            MirrorAnchorPosition = mirrorJoint.transform.position;
-            MirrorAnchorRotation = mirrorJoint.transform.rotation;
-        }
 
         private void FixedUpdate()
         {
@@ -60,6 +76,17 @@ namespace ControllerExperiment
 
                 return myTargetPosition;
             }
+        }
+
+        public void SetMirrorJoint(GameObject mirror)
+        {
+            mirrorJoint = mirror;
+        }
+
+        public void SetAnchors()
+        {
+            MirrorAnchorPosition = mirrorJoint.transform.position;
+            MirrorAnchorRotation = mirrorJoint.transform.rotation;
         }
     }
 }

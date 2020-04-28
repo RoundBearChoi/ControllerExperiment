@@ -8,9 +8,10 @@ namespace ControllerExperiment
 {
     public abstract class ControllerEntity : MonoBehaviour
     {
-        Rigidbody m_rbody = null;
-        SubComponentProcessor m_SubComponentProcessor = null;
-        StateProcessor m_stateProcessor = null;
+        [Header("Entity Parts")]
+        [SerializeField] Rigidbody m_rbody = null;
+        [SerializeField] SubComponentProcessor m_SubComponentProcessor = null;
+        [SerializeField] StateProcessor m_stateProcessor = null;
         
         public Rigidbody rbody
         {

@@ -7,6 +7,9 @@ namespace ControllerExperiment.Ragdoll
 {
     public class RagdollController : ControllerEntity
     {
-
+        private void Start()
+        {
+            scProcessor.ProcDic[RagdollProcess.SET_RAGDOLL_DUMMY]();
+        }
     }
 }

@@ -87,6 +87,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a092a37d17bb19c40a971abef1ac0f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DummyRootName: Amy Animation Dummy
+  RagdollPartSetters:
+  - {fileID: 740505920}
+  - {fileID: 1888071087}
+  - {fileID: 1782076398}
+  - {fileID: 762399138}
+  - {fileID: 103705920}
+  - {fileID: 220273718}
+  - {fileID: 505251208}
+  - {fileID: 2060435467}
+  - {fileID: 1329038414}
+  - {fileID: 870132841}
 --- !u!153 &740505922
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -195,7 +207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!114 &120214419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310f6157568ffef49b0c950efbdb087d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_rbody: {fileID: 0}
+  m_SubComponentProcessor: {fileID: 0}
+  m_stateProcessor: {fileID: 0}
 --- !u!153 &870132844
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -316,7 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &762399141
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -425,7 +438,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &1782076396
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -534,7 +546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &220273720
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -643,7 +654,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &505251211
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -752,7 +762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &103705918
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -861,7 +870,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &1329038416
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -970,7 +978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &1888071090
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -1079,7 +1086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!153 &2060435470
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -1188,7 +1194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotSync: 0
-  mirrorJoint: {fileID: 0}
 --- !u!1001 &8332413321852284080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1196,6 +1201,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1241609850, guid: d3c755aa4b16cad43b8eee5dfd5c5a32, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1292741028, guid: d3c755aa4b16cad43b8eee5dfd5c5a32, type: 3}
       propertyPath: m_ProjectionMode
       value: 0
