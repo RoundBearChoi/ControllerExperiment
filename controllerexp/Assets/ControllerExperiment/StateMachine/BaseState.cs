@@ -24,12 +24,12 @@ namespace ControllerExperiment.States
 
         public virtual void OnEnter()
         {
-
+            // called once on beginning of every transition (optional)
         }
 
         public virtual void ProcStateUpdate()
         {
-
+            // called every frame (optional)
         }
     }
 }
