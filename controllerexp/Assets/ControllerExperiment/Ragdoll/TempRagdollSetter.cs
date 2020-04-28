@@ -41,7 +41,7 @@ namespace ControllerExperiment
         Vector3 MirrorAnchorPosition;
         Quaternion MirrorAnchorRotation;
 
-        private void FixedUpdate()
+        public void CopyDummyAnimation()
         {
             if (!DoNotSync)
             {

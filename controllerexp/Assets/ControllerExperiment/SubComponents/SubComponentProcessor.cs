@@ -53,6 +53,7 @@ namespace ControllerExperiment.SubComponents
 
         public void FixedUpdateSubComponents()
         {
+            // only update if overriden
             foreach(SubComponent s in SubComponents)
             {
                 if (s.DoFixedUpdate)

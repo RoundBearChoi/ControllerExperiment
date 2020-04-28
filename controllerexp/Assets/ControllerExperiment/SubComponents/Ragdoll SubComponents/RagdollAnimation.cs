@@ -23,7 +23,10 @@ namespace ControllerExperiment.SubComponents
 
         public override void OnFixedUpdate()
         {
-
+            foreach (TempRagdollSetter setter in RagdollPartSetters)
+            {
+                setter.CopyDummyAnimation();
+            }
         }
 
         public void FindRagdollSetters()
