@@ -16,7 +16,7 @@ namespace ControllerExperiment.States.Ragdoll
         {
             owner.subComponentProcessor.SetDic[SetRagdoll.COPY_DUMMY_ANIMATION]();
 
-            SelectedRagdoll t = (SelectedRagdoll)owner.subComponentProcessor.GetIntDic[GetRagdollInt.DESIRED_RAGDOLL_STATE]();
+            SelectedRagdoll t = (SelectedRagdoll)owner.subComponentProcessor.GetInt(GetRagdollInt.DESIRED_RAGDOLL_STATE);
 
             if (t == SelectedRagdoll.LIFELESS_RAGDOLL)
             {

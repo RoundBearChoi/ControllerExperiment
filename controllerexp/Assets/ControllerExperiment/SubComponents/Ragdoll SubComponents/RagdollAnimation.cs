@@ -20,7 +20,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             processor.SetDic.Add(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
             processor.SetDic.Add(SetRagdoll.STOP_ANIMATING, StopAnimating);
             processor.SetDic.Add(SetRagdoll.START_ANIMATING, StartAnimating);
-            processor.GetBoolDic.Add(GetRagdollBool.DUMMY_IS_SET, DummyHasBeenFound);
+            processor.DelegateGetBool(GetRagdollBool.DUMMY_IS_SET, DummyHasBeenFound);
 
             FindRagdollSetters();
         }

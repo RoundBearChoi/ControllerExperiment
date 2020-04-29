@@ -14,11 +14,11 @@ namespace ControllerExperiment.SubComponents.Player
 
         private void Start()
         {
-            processor.GetBoolDic.Add(GetPlayerBool.PRESSED_UP, Pressed_Up);
-            processor.GetBoolDic.Add(GetPlayerBool.PRESSED_DOWN, Pressed_Down);
-            processor.GetBoolDic.Add(GetPlayerBool.PRESSED_LEFT, Pressed_Left);
-            processor.GetBoolDic.Add(GetPlayerBool.PRESSED_RIGHT, Pressed_Right);
-            processor.GetBoolDic.Add(GetPlayerBool.PRESSED_JUMP, Pressed_Jump);
+            processor.DelegateGetBool(GetPlayerBool.PRESSED_UP, Pressed_Up);
+            processor.DelegateGetBool(GetPlayerBool.PRESSED_DOWN, Pressed_Down);
+            processor.DelegateGetBool(GetPlayerBool.PRESSED_LEFT, Pressed_Left);
+            processor.DelegateGetBool(GetPlayerBool.PRESSED_RIGHT, Pressed_Right);
+            processor.DelegateGetBool(GetPlayerBool.PRESSED_JUMP, Pressed_Jump);
         }
 
         public override void OnUpdate()

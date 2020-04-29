@@ -9,7 +9,7 @@ namespace ControllerExperiment.States.Player
     {
         public override void ProcStateFixedUpdate()
         {
-            bool isGrounded = owner.subComponentProcessor.GetBoolDic[GetPlayerBool.IS_GROUNDED]();
+            bool isGrounded = owner.subComponentProcessor.GetBool(GetPlayerBool.IS_GROUNDED);
 
             if (!isGrounded)
             {

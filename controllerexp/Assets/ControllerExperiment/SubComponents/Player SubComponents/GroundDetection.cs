@@ -11,7 +11,7 @@ namespace ControllerExperiment.SubComponents.Player
 
         private void Start()
         {
-            processor.GetBoolDic.Add(GetPlayerBool.IS_GROUNDED, IsGrounded);
+            processor.DelegateGetBool(GetPlayerBool.IS_GROUNDED, IsGrounded);
             processor.SetBoolDic.Add(SetPlayerBool.SET_GROUND_STATUS, SetGroundStatus);
         }
 

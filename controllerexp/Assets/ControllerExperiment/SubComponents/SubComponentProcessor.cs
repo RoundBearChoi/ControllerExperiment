@@ -29,11 +29,11 @@ namespace ControllerExperiment.SubComponents
         public Dictionary<int, SetEntityBool> SetBoolDic = new Dictionary<int, SetEntityBool>();
         public delegate void SetEntityBool(bool b);
 
-        public Dictionary<int, GetBool> GetBoolDic = new Dictionary<int, GetBool>();
-        public delegate bool GetBool();
+        Dictionary<int, GetBoolDelegate> GetBoolDic = new Dictionary<int, GetBoolDelegate>();
+        public delegate bool GetBoolDelegate();
 
-        public Dictionary<int, GetInt> GetIntDic = new Dictionary<int, GetInt>();
-        public delegate int GetInt();
+        Dictionary<int, GetIntDelegate> GetIntDic = new Dictionary<int, GetIntDelegate>();
+        public delegate int GetIntDelegate();
 
         [Header("Debug")]
         public List<SubComponent> SubComponents = new List<SubComponent>();
@@ -77,6 +77,54 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
-        
+        public bool GetBool(int key)
+        {
+            if (GetBoolDic.ContainsKey(key))
+            {
+                return GetBoolDic[key]();
+            }
+            else
+            {
+                Debug.LogError("GetBool function not found");
+                return false;
+            }
+        }
+
+        public void DelegateGetBool(int key, GetBoolDelegate del)
+        {
+            if (!GetBoolDic.ContainsKey(key))
+            {
+                GetBoolDic.Add(key, del);
+            }
+            else
+            {
+                Debug.LogError("GetBool function already in dictionary");
+            }
+        }
+
+        public int GetInt(int key)
+        {
+            if (GetIntDic.ContainsKey(key))
+            {
+                return GetIntDic[key]();
+            }
+            else
+            {
+                Debug.LogError("GetInt function not found");
+                return 0;
+            }
+        }
+
+        public void DelegateGetInt(int key, GetIntDelegate del)
+        {
+            if (!GetIntDic.ContainsKey(key))
+            {
+                GetIntDic.Add(key, del);
+            }
+            else
+            {
+                Debug.LogError("GetInt function already in dictionary");
+            }
+        }
     }
 }
