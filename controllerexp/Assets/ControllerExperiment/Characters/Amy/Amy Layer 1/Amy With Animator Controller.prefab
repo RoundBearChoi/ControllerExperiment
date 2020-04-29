@@ -9,7 +9,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740951415936923857}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: e17b5db0b368f104aa0f8a71562a1403, type: 3}
   m_Controller: {fileID: 9100000, guid: 410b2369e512656469746699255fe9cc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -84,7 +84,7 @@ PrefabInstance:
     - target: {fileID: 4200930567153083012, guid: fa121c1ded5c1a04e8ea9a98eeb94753,
         type: 3}
       propertyPath: m_Name
-      value: Amy Clean Prefab
+      value: Amy With Animator Controller
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa121c1ded5c1a04e8ea9a98eeb94753, type: 3}
