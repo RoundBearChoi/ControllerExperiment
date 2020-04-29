@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.States.Player;
-using ControllerExperiment.SubComponents;
+using ControllerExperiment.SubComponents.Player;
 
 namespace ControllerExperiment
 {
@@ -30,7 +30,7 @@ namespace ControllerExperiment
             stateProcessor.FixedUpdateState();
             subComponentProcessor.FixedUpdateSubComponents();
 
-            subComponentProcessor.SetBoolDic[SetPlayerBool.SET_GROUND_STATUS](false);
+            subComponentProcessor.SetBool(PlayerBool.IS_GROUNDED, false);
         }
 
         private void OnCollisionStay(Collision col)
@@ -45,7 +45,7 @@ namespace ControllerExperiment
      
                 if (dir.y > 0f)
                 {
-                    subComponentProcessor.SetBoolDic[SetPlayerBool.SET_GROUND_STATUS](true);
+                    subComponentProcessor.SetBool(PlayerBool.IS_GROUNDED, true);
 
                     Vector3 contactDir = p.point - curve;
                     float angle = Vector3.Angle(contactDir, Vector3.up);

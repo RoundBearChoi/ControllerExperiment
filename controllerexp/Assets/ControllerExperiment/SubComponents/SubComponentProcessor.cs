@@ -26,7 +26,7 @@ namespace ControllerExperiment.SubComponents
         public Dictionary<int, SetEntityFloat> SetFloatDic = new Dictionary<int, SetEntityFloat>();
         public delegate void SetEntityFloat(float f);
 
-        public Dictionary<int, SetEntityBool> SetBoolDic = new Dictionary<int, SetEntityBool>();
+        Dictionary<int, SetEntityBool> SetBoolDic = new Dictionary<int, SetEntityBool>();
         public delegate void SetEntityBool(bool b);
 
         Dictionary<int, GetBoolDelegate> GetBoolDic = new Dictionary<int, GetBoolDelegate>();
@@ -77,6 +77,23 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
+        public void SetBool(int key, bool b)
+        {
+            if (SetBoolDic.ContainsKey(key))
+            {
+                SetBoolDic[key](b);
+            }
+            else
+            {
+                Debug.LogError("SetBool function not found");
+            }
+        }
+
+        public void DelegateSetBool(int key, SetEntityBool del)
+        {
+            SetBoolDic.Add(key, del);
+        }
+
         public bool GetBool(int key)
         {
             if (GetBoolDic.ContainsKey(key))
@@ -92,14 +109,7 @@ namespace ControllerExperiment.SubComponents
 
         public void DelegateGetBool(int key, GetBoolDelegate del)
         {
-            if (!GetBoolDic.ContainsKey(key))
-            {
-                GetBoolDic.Add(key, del);
-            }
-            else
-            {
-                Debug.LogError("GetBool function already in dictionary");
-            }
+            GetBoolDic.Add(key, del);
         }
 
         public int GetInt(int key)
@@ -117,14 +127,7 @@ namespace ControllerExperiment.SubComponents
 
         public void DelegateGetInt(int key, GetIntDelegate del)
         {
-            if (!GetIntDic.ContainsKey(key))
-            {
-                GetIntDic.Add(key, del);
-            }
-            else
-            {
-                Debug.LogError("GetInt function already in dictionary");
-            }
+            GetIntDic.Add(key, del);
         }
     }
 }

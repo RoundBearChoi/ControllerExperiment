@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment.SubComponents.Player
 {
-    public class GetPlayerBool : SubComponentKey
+    public class PlayerBool : SubComponentKey
     {
         public static int IS_GROUNDED => GetKey("IS_GROUNDED");
 

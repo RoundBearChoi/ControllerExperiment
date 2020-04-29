@@ -28,7 +28,7 @@ namespace ControllerExperiment.States.Player
         {
             owner.subComponentProcessor.SetDic[SetPlayer.SET_WALK_DIRECTION]();
 
-            bool JumpIsPressed = owner.subComponentProcessor.GetBool(GetPlayerBool.PRESSED_JUMP);
+            bool JumpIsPressed = owner.subComponentProcessor.GetBool(PlayerBool.PRESSED_JUMP);
 
             if (JumpIsPressed)
             {

@@ -26,10 +26,10 @@ namespace ControllerExperiment.SubComponents.Player
         {
             TargetWalkDir = Vector3.zero;
 
-            bool Up = processor.GetBool(GetPlayerBool.PRESSED_UP);
-            bool Down = processor.GetBool(GetPlayerBool.PRESSED_DOWN);
-            bool Left = processor.GetBool(GetPlayerBool.PRESSED_LEFT);
-            bool Right = processor.GetBool(GetPlayerBool.PRESSED_RIGHT);
+            bool Up = processor.GetBool(PlayerBool.PRESSED_UP);
+            bool Down = processor.GetBool(PlayerBool.PRESSED_DOWN);
+            bool Left = processor.GetBool(PlayerBool.PRESSED_LEFT);
+            bool Right = processor.GetBool(PlayerBool.PRESSED_RIGHT);
 
             if (Up)
             {
