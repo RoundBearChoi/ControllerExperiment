@@ -21,7 +21,7 @@ namespace ControllerExperiment.SubComponents.Player
         {
             processor.SetDic.Add(SetPlayer.ROTATE_TO_TARGET_ANGLE, RotateToTargetAngle);
             processor.SetDic.Add(SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY, CancelHorizontalAngularVelocity);
-            processor.SetFloatDic.Add(SetPlayerFloat.TARGET_ROTATION_ANGLE, SetTargetAngle);
+            processor.DelegateSetFloat(SetPlayerFloat.TARGET_ROTATION_ANGLE, SetTargetAngle);
         }
 
         void RotateToTargetAngle()

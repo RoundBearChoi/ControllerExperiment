@@ -23,7 +23,7 @@ namespace ControllerExperiment.SubComponents
         public Dictionary<int, Process> SetDic = new Dictionary<int, Process>();
         public delegate void Process();
 
-        public Dictionary<int, SetEntityFloat> SetFloatDic = new Dictionary<int, SetEntityFloat>();
+        Dictionary<int, SetEntityFloat> SetFloatDic = new Dictionary<int, SetEntityFloat>();
         public delegate void SetEntityFloat(float f);
 
         Dictionary<int, SetEntityBool> SetBoolDic = new Dictionary<int, SetEntityBool>();
@@ -75,6 +75,23 @@ namespace ControllerExperiment.SubComponents
                     s.OnUpdate();
                 }
             }
+        }
+
+        public void SetFloat(int key, float f)
+        {
+            if (SetFloatDic.ContainsKey(key))
+            {
+                SetFloatDic[key](f);
+            }
+            else
+            {
+                Debug.LogError("SetFloat function not found");
+            }
+        }
+
+        public void DelegateSetFloat(int key, SetEntityFloat del)
+        {
+            SetFloatDic.Add(key, del);
         }
 
         public void SetBool(int key, bool b)

@@ -19,7 +19,7 @@ namespace ControllerExperiment.SubComponents.Player
             processor.SetDic.Add(SetPlayer.SET_WALK_DIRECTION, SetTargetWalkDir);
             processor.SetDic.Add(SetPlayer.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
             processor.SetDic.Add(SetPlayer.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
-            processor.SetFloatDic.Add(SetPlayerFloat.TARGET_WALKSPEED, SetWalkSpeed);
+            processor.DelegateSetFloat(SetPlayerFloat.TARGET_WALKSPEED, SetWalkSpeed);
         }
 
         void SetTargetWalkDir()

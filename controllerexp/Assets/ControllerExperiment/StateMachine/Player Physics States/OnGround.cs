@@ -12,7 +12,7 @@ namespace ControllerExperiment.States.Player
 
         public override void OnEnter()
         {
-            owner.subComponentProcessor.SetFloatDic[SetPlayerFloat.TARGET_WALKSPEED](GroundSpeed);
+            owner.subComponentProcessor.SetFloat(SetPlayerFloat.TARGET_WALKSPEED, GroundSpeed);
         }
 
         public override void ProcStateFixedUpdate()
