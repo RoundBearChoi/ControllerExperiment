@@ -23,7 +23,7 @@ namespace ControllerExperiment.States
             throw new System.NotImplementedException();
         }
 
-        public ControllerEntity owner
+        protected ControllerEntity owner
         {
             get
             {
@@ -37,7 +37,7 @@ namespace ControllerExperiment.States
 
         ControllerEntity m_owner = null;
 
-        public SubComponents.SubComponentProcessor subComponentProcessor
+        protected SubComponents.SubComponentProcessor subComponentProcessor
         {
             get
             {

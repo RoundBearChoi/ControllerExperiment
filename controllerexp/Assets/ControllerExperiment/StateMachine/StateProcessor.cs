@@ -29,6 +29,19 @@ namespace ControllerExperiment.States
             AllStates.Clear();
         }
 
+        public void FixedUpdateState()
+        {
+            Current.ProcStateFixedUpdate();
+        }
+
+        public void UpdateState()
+        {
+            if (Current.Do_UpdateState)
+            {
+                Current.ProcStateUpdate();
+            }
+        }
+
         void InitState(System.Type type)
         {
             Debug.Log("State initialized: " + type.Name);
@@ -109,19 +122,6 @@ namespace ControllerExperiment.States
             }
 
             return null;
-        }
-
-        public void FixedUpdateState()
-        {
-            Current.ProcStateFixedUpdate();
-        }
-
-        public void UpdateState()
-        {
-            if (Current.Do_UpdateState)
-            {
-                Current.ProcStateUpdate();
-            }
         }
     }
 }

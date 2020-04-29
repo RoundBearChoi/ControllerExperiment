@@ -46,7 +46,7 @@ namespace ControllerExperiment
             }
         }
 
-        public StateProcessor GetStateProcessor(STATE type)
+        protected StateProcessor GetStateProcessor(STATE type)
         {
             if (StateProcessorDic.Count == 0)
             {

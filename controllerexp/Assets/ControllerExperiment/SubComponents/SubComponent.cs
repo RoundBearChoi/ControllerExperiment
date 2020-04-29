@@ -19,7 +19,7 @@ namespace ControllerExperiment.SubComponents
 
         private SubComponentProcessor m_processor = null;
 
-        public SubComponentProcessor processor
+        protected SubComponentProcessor processor
         {
             get
             {
