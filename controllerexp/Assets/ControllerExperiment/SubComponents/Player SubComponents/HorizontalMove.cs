@@ -20,6 +20,7 @@ namespace ControllerExperiment.SubComponents.Player
             processor.DelegateSetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
             processor.DelegateSetEntity(SetPlayer.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
             processor.DelegateSetFloat(PlayerFloat.SET_TARGET_WALK_SPEED, SetWalkSpeed);
+            processor.DelegateGetFloat(PlayerFloat.GET_TARGET_WALK_SPEED, GetWalkDirectionMagnitude);
         }
 
         void SetTargetWalkDir()
@@ -102,6 +103,11 @@ namespace ControllerExperiment.SubComponents.Player
         void SetWalkSpeed(float f)
         {
             Speed = f;
+        }
+
+        float GetWalkDirectionMagnitude()
+        {
+            return TargetWalkDir.sqrMagnitude;
         }
     }
 }

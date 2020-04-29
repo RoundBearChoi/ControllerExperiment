@@ -26,6 +26,9 @@ namespace ControllerExperiment.SubComponents
         Dictionary<int, SetFloatDelegate> SetFloatDic = new Dictionary<int, SetFloatDelegate>();
         public delegate void SetFloatDelegate(float f);
 
+        Dictionary<int, GetFloatDelegate> GetFloatDic = new Dictionary<int, GetFloatDelegate>();
+        public delegate float GetFloatDelegate();
+
         Dictionary<int, SetBoolDelegate> SetBoolDic = new Dictionary<int, SetBoolDelegate>();
         public delegate void SetBoolDelegate(bool b);
 
@@ -109,6 +112,24 @@ namespace ControllerExperiment.SubComponents
         public void DelegateSetFloat(int key, SetFloatDelegate del)
         {
             SetFloatDic.Add(key, del);
+        }
+
+        public float GetFloat(int key)
+        {
+            if (GetFloatDic.ContainsKey(key))
+            {
+                return GetFloatDic[key]();
+            }
+            else
+            {
+                Debug.LogError("GetFloat function not found");
+                return 0f;
+            }
+        }
+
+        public void DelegateGetFloat(int key, GetFloatDelegate del)
+        {
+            GetFloatDic.Add(key, del);
         }
 
         public void SetBool(int key, bool b)
