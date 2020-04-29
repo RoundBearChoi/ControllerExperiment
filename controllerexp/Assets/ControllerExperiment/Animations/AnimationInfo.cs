@@ -11,7 +11,15 @@ namespace ControllerExperiment.Animations
         public static Animator GetAnimator(ControllerEntity owner)
         {
             FindAnimator(owner);
-            return Animators[owner];
+
+            if (Animators.ContainsKey(owner))
+            {
+                return Animators[owner];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         static void FindAnimator(ControllerEntity owner)
@@ -20,12 +28,10 @@ namespace ControllerExperiment.Animations
             {
                 Animator animator = owner.GetComponentInChildren<Animator>();
 
-                if (animator == null)
+                if (animator != null)
                 {
-                    Debug.LogError("animator not found");
+                    Animators.Add(owner, animator);
                 }
-
-                Animators.Add(owner, animator);
             }
         }
     }

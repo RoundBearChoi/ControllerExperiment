@@ -10,6 +10,11 @@ namespace ControllerExperiment.Animations
         {
             Animator animator = AnimationInfo.GetAnimator(entity);
 
+            if (animator == null)
+            {
+                return;
+            }
+
             if (!IsPlaying(animator, animationName))
             {
                 animator.Play(animationName, 0, normalizedTime);
@@ -19,6 +24,7 @@ namespace ControllerExperiment.Animations
         static bool IsPlaying(Animator animator, string animationName)
         {
             AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+
             if (info.IsName(animationName))
             {
                 return true;

@@ -1,11 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1134465048
+--- !u!1001 &7578520146346640474
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7076086524373784322}
+    m_TransformParent: {fileID: 1248807103897632164}
     m_Modifications:
     - target: {fileID: 740951415936923857, guid: 792f53859c9ed334c8eade10752c3339,
         type: 3}
@@ -84,18 +84,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 792f53859c9ed334c8eade10752c3339, type: 3}
---- !u!1001 &1894792435682645764
+--- !u!1001 &7578520146545819042
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5445128290063306646, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerPhysicsState
-      objectReference: {fileID: 0}
     - target: {fileID: 5445128290371679107, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_Enabled
@@ -104,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 5850023041813883343, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_Name
-      value: Player Controller - Amy Animator Added
+      value: Player Controller - Amy & Animator Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8672002196094780234, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
@@ -114,17 +109,17 @@ PrefabInstance:
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
@@ -168,9 +163,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bf1289cd41834644bc4933e6d8fd4eb, type: 3}
---- !u!4 &7076086524373784322 stripped
+--- !u!4 &1248807103897632164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
     type: 3}
-  m_PrefabInstance: {fileID: 1894792435682645764}
+  m_PrefabInstance: {fileID: 7578520146545819042}
   m_PrefabAsset: {fileID: 0}
