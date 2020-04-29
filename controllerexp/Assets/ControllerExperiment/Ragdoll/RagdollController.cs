@@ -20,8 +20,8 @@ namespace ControllerExperiment
         private void Start()
         {
             stateProcessor.TransitionTo(typeof(RagdollStart));
-            subComponentProcessor.SetDic[SetRagdoll.SET_RAGDOLL_DUMMY]();
-            subComponentProcessor.DelegateGetInt(GetRagdollInt.DESIRED_RAGDOLL_STATE, GetDesiredState);
+            subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);
+            subComponentProcessor.DelegateGetInt(RagdollInt.DESIRED_RAGDOLL_STATE, GetDesiredState);
         }
 
         private void Update()

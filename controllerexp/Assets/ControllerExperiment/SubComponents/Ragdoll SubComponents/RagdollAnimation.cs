@@ -16,11 +16,11 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         private void Start()
         {
-            processor.SetDic.Add(SetRagdoll.SET_RAGDOLL_DUMMY, SetDummy);
-            processor.SetDic.Add(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
-            processor.SetDic.Add(SetRagdoll.STOP_ANIMATING, StopAnimating);
-            processor.SetDic.Add(SetRagdoll.START_ANIMATING, StartAnimating);
-            processor.DelegateGetBool(GetRagdollBool.DUMMY_IS_SET, DummyHasBeenFound);
+            processor.DelegateSetEntity(SetRagdoll.SET_RAGDOLL_DUMMY, SetDummy);
+            processor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
+            processor.DelegateSetEntity(SetRagdoll.STOP_ANIMATING, StopAnimating);
+            processor.DelegateSetEntity(SetRagdoll.START_ANIMATING, StartAnimating);
+            //processor.DelegateGetBool(RagdollBool.DUMMY_IS_SET, DummyHasBeenFound);
 
             FindRagdollSetters();
         }
@@ -71,17 +71,17 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             }
         }
 
-        bool DummyHasBeenFound()
-        {
-            if (Dummy != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //bool DummyHasBeenFound()
+        //{
+        //    if (Dummy != null)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
         void StopAnimating()
         {

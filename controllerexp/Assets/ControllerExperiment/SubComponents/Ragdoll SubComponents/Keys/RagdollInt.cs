@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace ControllerExperiment.SubComponents.Ragdoll
 {
-    public class GetRagdollBool : SubComponentKey
+    public class RagdollInt : SubComponentKey
     {
         // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
-        public static int DUMMY_IS_SET => GetKey("DUMMY_IS_SET");
+        public static int DESIRED_RAGDOLL_STATE => GetKey("GET_DESIRED_RAGDOLL_STATE");
     }
 }

@@ -12,27 +12,27 @@ namespace ControllerExperiment.States.Player
 
         public override void OnEnter()
         {
-            owner.subComponentProcessor.SetFloat(SetPlayerFloat.TARGET_WALKSPEED, GroundSpeed);
+            owner.subComponentProcessor.SetFloat(PlayerFloat.SET_TARGET_WALK_SPEED, GroundSpeed);
         }
 
         public override void ProcStateFixedUpdate()
         {
-            owner.subComponentProcessor.SetDic[SetPlayer.WALK_TO_TARGET_DIRECTION]();
-            owner.subComponentProcessor.SetDic[SetPlayer.ROTATE_TO_TARGET_ANGLE]();
-            owner.subComponentProcessor.SetDic[SetPlayer.CANCEL_VERTICAL_VELOCITY]();
+            owner.subComponentProcessor.SetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION);
+            owner.subComponentProcessor.SetEntity(SetPlayer.ROTATE_TO_TARGET_ANGLE);
+            owner.subComponentProcessor.SetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY);
 
             CheckJump();
         }
 
         void CheckJump()
         {
-            owner.subComponentProcessor.SetDic[SetPlayer.SET_WALK_DIRECTION]();
+            owner.subComponentProcessor.SetEntity(SetPlayer.SET_WALK_DIRECTION);
 
             bool JumpIsPressed = owner.subComponentProcessor.GetBool(PlayerBool.PRESSED_JUMP);
 
             if (JumpIsPressed)
             {
-                owner.subComponentProcessor.SetDic[SetPlayer.ADD_JUMP_FORCE]();
+                owner.subComponentProcessor.SetEntity(SetPlayer.ADD_JUMP_FORCE);
                 owner.stateProcessor.TransitionTo(typeof(WaitingToJump));
             }
         }

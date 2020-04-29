@@ -20,14 +20,14 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
-        public Dictionary<int, Process> SetDic = new Dictionary<int, Process>();
-        public delegate void Process();
+        Dictionary<int, SetEntityDelegate> SetEntityDic = new Dictionary<int, SetEntityDelegate>();
+        public delegate void SetEntityDelegate();
 
-        Dictionary<int, SetEntityFloat> SetFloatDic = new Dictionary<int, SetEntityFloat>();
-        public delegate void SetEntityFloat(float f);
+        Dictionary<int, SetFloatDelegate> SetFloatDic = new Dictionary<int, SetFloatDelegate>();
+        public delegate void SetFloatDelegate(float f);
 
-        Dictionary<int, SetEntityBool> SetBoolDic = new Dictionary<int, SetEntityBool>();
-        public delegate void SetEntityBool(bool b);
+        Dictionary<int, SetBoolDelegate> SetBoolDic = new Dictionary<int, SetBoolDelegate>();
+        public delegate void SetBoolDelegate(bool b);
 
         Dictionary<int, GetBoolDelegate> GetBoolDic = new Dictionary<int, GetBoolDelegate>();
         public delegate bool GetBoolDelegate();
@@ -77,6 +77,23 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
+        public void SetEntity(int key)
+        {
+            if (SetEntityDic.ContainsKey(key))
+            {
+                SetEntityDic[key]();
+            }
+            else
+            {
+                Debug.LogError("Function not found");
+            }
+        }
+
+        public void DelegateSetEntity(int key, SetEntityDelegate del)
+        {
+            SetEntityDic.Add(key, del);
+        }
+
         public void SetFloat(int key, float f)
         {
             if (SetFloatDic.ContainsKey(key))
@@ -89,7 +106,7 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
-        public void DelegateSetFloat(int key, SetEntityFloat del)
+        public void DelegateSetFloat(int key, SetFloatDelegate del)
         {
             SetFloatDic.Add(key, del);
         }
@@ -106,7 +123,7 @@ namespace ControllerExperiment.SubComponents
             }
         }
 
-        public void DelegateSetBool(int key, SetEntityBool del)
+        public void DelegateSetBool(int key, SetBoolDelegate del)
         {
             SetBoolDic.Add(key, del);
         }
