@@ -47,7 +47,7 @@ namespace ControllerExperiment.States
         {
             if (!type.IsSubclassOf(typeof(BaseState)))
             {
-                Debug.LogError(type.Name + " is not a PhysicsState..");
+                Debug.LogError(type.Name + " is not a state");
             }
 
             //Debug.Log("Attempting transition to " + type.Name + "..");
