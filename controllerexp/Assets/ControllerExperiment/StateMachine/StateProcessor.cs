@@ -2,11 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace ControllerExperiment
+{
+    public enum STATE
+    {
+        NONE,
+        PLAYER_PHYSICS,
+        RAGDOLL,
+    }
+}
+
 namespace ControllerExperiment.States
 {
     public class StateProcessor : MonoBehaviour
     {
-        [Header("Debug")]
+        [Header("State Processor Attributes")]
+        public STATE m_StateType;
+
+        [Header("State Processor Debug")]
         public List<BaseState> AllStates = new List<BaseState>();
         [Space(10)]
         public BaseState Current = null;
@@ -20,6 +33,22 @@ namespace ControllerExperiment.States
         {
             Debug.Log("State initialized: " + type.Name);
 
+            BaseState newState = AttachToGameObj(type);
+
+            newState.stateProcessor = this;
+
+            if (!AllStates.Contains(newState))
+            {
+                AllStates.Add(newState);
+            }
+
+            CheckOverride(newState);
+
+            TransitionTo(newState.GetType());
+        }
+
+        BaseState AttachToGameObj(System.Type type)
+        {
             GameObject obj = new GameObject();
             obj.transform.parent = this.transform;
             obj.transform.localPosition = Vector3.zero;
@@ -29,18 +58,15 @@ namespace ControllerExperiment.States
             obj.AddComponent(type);
 
             BaseState newState = obj.GetComponent<BaseState>();
-            
-            if (!AllStates.Contains(newState))
-            {
-                AllStates.Add(newState);
-            }
 
-            // check if OnEnter is overridden
+            return newState;
+        }
+
+        void CheckOverride(BaseState newState)
+        {
             System.Type child = newState.GetType();
             newState.Do_OnEnter = OverrideCheck.IsOverridden(child, typeof(BaseState), "OnEnter");
             newState.Do_UpdateState = OverrideCheck.IsOverridden(child, typeof(BaseState), "ProcStateUpdate");
-
-            TransitionTo(newState.GetType());
         }
 
         public void TransitionTo(System.Type type)

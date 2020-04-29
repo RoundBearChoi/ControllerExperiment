@@ -9,16 +9,16 @@ namespace ControllerExperiment.States.Ragdoll
     {
         public override void OnEnter()
         {
-            owner.subComponentProcessor.SetEntity(SetRagdoll.STOP_ANIMATING);
+            subComponentProcessor.SetEntity(SetRagdoll.STOP_ANIMATING);
         }
 
         public override void ProcStateFixedUpdate()
         {
-            SelectedRagdoll t = (SelectedRagdoll)owner.subComponentProcessor.GetInt(RagdollInt.DESIRED_RAGDOLL_STATE);
+            SelectedRagdoll t = (SelectedRagdoll)subComponentProcessor.GetInt(RagdollInt.DESIRED_RAGDOLL_STATE);
 
             if (t == SelectedRagdoll.COPY_DUMMY_ANIMATION)
             {
-                owner.stateProcessor.TransitionTo(typeof(CopyDummyAnimation));
+                stateProcessor.TransitionTo(typeof(CopyDummyAnimation));
             }
         }
     }

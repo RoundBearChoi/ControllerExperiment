@@ -16,18 +16,18 @@ namespace ControllerExperiment
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
             //init physics state
-            stateProcessor.TransitionTo(typeof(CheckGround));
+            GetStateProcessor(STATE.PLAYER_PHYSICS).TransitionTo(typeof(CheckGround));
         }
 
         private void Update()
         {
-            stateProcessor.UpdateState();
+            UpdateStateProcessors();
             subComponentProcessor.UpdateSubComponents();
         }
 
         private void FixedUpdate()
         {
-            stateProcessor.FixedUpdateState();
+            FixedUpdateStateProcessors();
             subComponentProcessor.FixedUpdateSubComponents();
 
             subComponentProcessor.SetBool(PlayerBool.IS_GROUNDED, false);

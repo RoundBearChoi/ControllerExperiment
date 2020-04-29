@@ -8,6 +8,15 @@ namespace ControllerExperiment.SubComponents
         public bool DoFixedUpdate;
         public bool DoUpdate;
 
+        public virtual void OnUpdate()
+        {
+            throw new System.NotImplementedException();
+        }
+        public virtual void OnFixedUpdate()
+        {
+            throw new System.NotImplementedException();
+        }
+
         private SubComponentProcessor m_processor = null;
 
         public SubComponentProcessor processor
@@ -20,15 +29,6 @@ namespace ControllerExperiment.SubComponents
                 }
                 return m_processor;
             }
-        }
-
-        public virtual void OnUpdate()
-        {
-            throw new System.NotImplementedException();
-        }
-        public virtual void OnFixedUpdate()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

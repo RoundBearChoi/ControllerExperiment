@@ -9,11 +9,11 @@ namespace ControllerExperiment.States.Player
     {
         public override void ProcStateFixedUpdate()
         {
-            bool isGrounded = owner.subComponentProcessor.GetBool(PlayerBool.IS_GROUNDED);
+            bool isGrounded = subComponentProcessor.GetBool(PlayerBool.IS_GROUNDED);
 
             if (isGrounded)
             {
-                owner.stateProcessor.TransitionTo(typeof(Landing));
+                stateProcessor.TransitionTo(typeof(Landing));
             }
         }
     }

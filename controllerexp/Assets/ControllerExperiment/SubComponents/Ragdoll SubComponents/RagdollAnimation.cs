@@ -20,7 +20,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             processor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
             processor.DelegateSetEntity(SetRagdoll.STOP_ANIMATING, StopAnimating);
             processor.DelegateSetEntity(SetRagdoll.START_ANIMATING, StartAnimating);
-            //processor.DelegateGetBool(RagdollBool.DUMMY_IS_SET, DummyHasBeenFound);
 
             FindRagdollSetters();
         }
@@ -70,18 +69,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
                 }
             }
         }
-
-        //bool DummyHasBeenFound()
-        //{
-        //    if (Dummy != null)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
 
         void StopAnimating()
         {

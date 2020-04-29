@@ -6,7 +6,7 @@ namespace ControllerExperiment.SubComponents.Player
 {
     public class HorizontalMove : SubComponent
     {
-        [Header("Debug")]
+        [Header("Move Debug")]
         public Vector3 TargetWalkDir = new Vector3();
         public float Speed;
         public Vector3 MoveForce = new Vector3();

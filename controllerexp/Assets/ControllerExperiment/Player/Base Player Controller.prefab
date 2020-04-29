@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5445128290063306647}
   - component: {fileID: 5445128290063306664}
   m_Layer: 2
-  m_Name: States
+  m_Name: Player Physics State Processor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70209a827f833924a935269eba54c235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StateType: 1
   AllStates: []
   Current: {fileID: 0}
 --- !u!1 &5445128290371679105
@@ -347,7 +348,7 @@ GameObject:
   - component: {fileID: 5445128291390472743}
   - component: {fileID: 8718546899125359354}
   m_Layer: 2
-  m_Name: SubComponents
+  m_Name: SubComponent Processor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,10 +515,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rbody: {fileID: 0}
   m_SubComponentProcessor: {fileID: 0}
-  m_stateProcessor: {fileID: 0}
+  StateProcessorsList: []
   capCollider: {fileID: 0}
-  IsGrounded: 0
-  JumpButtonPressed: 0
 --- !u!1 &7797556371536090322
 GameObject:
   m_ObjectHideFlags: 0

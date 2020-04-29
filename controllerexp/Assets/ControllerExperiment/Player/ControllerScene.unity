@@ -485,7 +485,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1598068187
 PrefabInstance:
@@ -537,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 468341087919851831, guid: 0725cdb17e5da4343946d2edece36c28,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 468341087919851831, guid: 0725cdb17e5da4343946d2edece36c28,
         type: 3}
@@ -703,80 +703,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2052534737
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182815730922782240, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7978851450121066473, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_Name
-      value: Player Controller - Amy Ragdoll Added
-      objectReference: {fileID: 0}
-    - target: {fileID: 7978851450121066473, guid: 60fc2214c32f253409cb4d8b8a615ea1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 60fc2214c32f253409cb4d8b8a615ea1, type: 3}
 --- !u!1001 &2321536608903897881
 PrefabInstance:
   m_ObjectHideFlags: 0

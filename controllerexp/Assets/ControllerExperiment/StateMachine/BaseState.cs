@@ -6,9 +6,22 @@ namespace ControllerExperiment.States
 {
     public abstract class BaseState: MonoBehaviour
     {
-        [Header("State Properties")]
+        [Header("Base Debug")]
         public bool Do_OnEnter;
         public bool Do_UpdateState;
+        public StateProcessor stateProcessor;
+
+        public abstract void ProcStateFixedUpdate();
+
+        public virtual void OnEnter()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void ProcStateUpdate()
+        {
+            throw new System.NotImplementedException();
+        }
 
         public ControllerEntity owner
         {
@@ -24,16 +37,12 @@ namespace ControllerExperiment.States
 
         ControllerEntity m_owner = null;
 
-        public abstract void ProcStateFixedUpdate();
-
-        public virtual void OnEnter()
+        public SubComponents.SubComponentProcessor subComponentProcessor
         {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual void ProcStateUpdate()
-        {
-            throw new System.NotImplementedException();
+            get
+            {
+                return owner.subComponentProcessor;
+            }
         }
     }
 }

@@ -19,19 +19,21 @@ namespace ControllerExperiment
 
         private void Start()
         {
-            stateProcessor.TransitionTo(typeof(RagdollStart));
+            // init ragdoll state
+            GetStateProcessor(STATE.RAGDOLL).TransitionTo(typeof(RagdollStart));
+
             subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);
             subComponentProcessor.DelegateGetInt(RagdollInt.DESIRED_RAGDOLL_STATE, GetDesiredState);
         }
 
         private void Update()
         {
-            stateProcessor.UpdateState();
+            UpdateStateProcessors();
         }
 
         private void FixedUpdate()
         {
-            stateProcessor.FixedUpdateState();
+            FixedUpdateStateProcessors();
             subComponentProcessor.FixedUpdateSubComponents();
         }
 

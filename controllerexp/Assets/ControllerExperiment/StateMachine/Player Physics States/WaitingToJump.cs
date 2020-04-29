@@ -11,8 +11,8 @@ namespace ControllerExperiment.States.Player
         {
             if (owner.rbody.velocity.y > 0f)
             {
-                owner.subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY);
-                owner.stateProcessor.TransitionTo(typeof(JumpingUp));
+                subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY);
+                stateProcessor.TransitionTo(typeof(JumpingUp));
             }
         }
     }

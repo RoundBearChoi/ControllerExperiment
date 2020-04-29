@@ -8,11 +8,20 @@ namespace ControllerExperiment
 {
     public abstract class ControllerEntity : MonoBehaviour
     {
-        [Header("Entity Parts")]
+        [Header("Controller Entity Debug")]
         [SerializeField] Rigidbody m_rbody = null;
         [SerializeField] SubComponentProcessor m_SubComponentProcessor = null;
-        [SerializeField] StateProcessor m_stateProcessor = null;
-        
+        [Space(5)]
+        [SerializeField] List<StateProcessor> StateProcessorsList = new List<StateProcessor>();
+
+        Dictionary<STATE, StateProcessor> StateProcessorDic = new Dictionary<STATE, StateProcessor>();
+
+        private void Awake()
+        {
+            StateProcessorsList.Clear();
+            StateProcessorDic.Clear();
+        }
+
         public Rigidbody rbody
         {
             get
@@ -37,15 +46,36 @@ namespace ControllerExperiment
             }
         }
 
-        public StateProcessor stateProcessor
+        public StateProcessor GetStateProcessor(STATE type)
         {
-            get
+            if (StateProcessorDic.Count == 0)
             {
-                if (m_stateProcessor == null)
+                StateProcessor[] arr = this.gameObject.GetComponentsInChildren<StateProcessor>();
+
+                StateProcessorsList.AddRange(arr);
+
+                foreach (StateProcessor p in arr)
                 {
-                    m_stateProcessor = this.gameObject.GetComponentInChildren<StateProcessor>();
+                    StateProcessorDic.Add(p.m_StateType, p);
                 }
-                return m_stateProcessor;
+            }
+
+            return StateProcessorDic[type];
+        }
+
+        public void UpdateStateProcessors()
+        {
+            foreach (StateProcessor p in StateProcessorsList)
+            {
+                p.UpdateState();
+            }
+        }
+
+        public void FixedUpdateStateProcessors()
+        {
+            foreach (StateProcessor p in StateProcessorsList)
+            {
+                p.FixedUpdateState();
             }
         }
     }

@@ -38,7 +38,7 @@ namespace ControllerExperiment.SubComponents
         Dictionary<int, GetIntDelegate> GetIntDic = new Dictionary<int, GetIntDelegate>();
         public delegate int GetIntDelegate();
 
-        [Header("Debug")]
+        [Header("SubComponent Processor Debug")]
         public List<SubComponent> SubComponents = new List<SubComponent>();
 
         private void Awake()

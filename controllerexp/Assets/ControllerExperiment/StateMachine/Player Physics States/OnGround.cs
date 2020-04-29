@@ -8,20 +8,20 @@ namespace ControllerExperiment.States.Player
 {
     public class OnGround : BaseState
     {
-        [Header("Debug")]
+        [Header("OnGround Debug")]
         public float GroundSpeed = 3.5f;
 
         public override void OnEnter()
         {
-            owner.subComponentProcessor.SetFloat(PlayerFloat.SET_TARGET_WALK_SPEED, GroundSpeed);
+            subComponentProcessor.SetFloat(PlayerFloat.SET_TARGET_WALK_SPEED, GroundSpeed);
         }
 
         public override void ProcStateFixedUpdate()
         {
-            owner.subComponentProcessor.SetEntity(SetPlayer.SET_WALK_DIRECTION);
-            owner.subComponentProcessor.SetEntity(SetPlayer.ROTATE_TO_TARGET_ANGLE);
-            owner.subComponentProcessor.SetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION);
-            owner.subComponentProcessor.SetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY);
+            subComponentProcessor.SetEntity(SetPlayer.SET_WALK_DIRECTION);
+            subComponentProcessor.SetEntity(SetPlayer.ROTATE_TO_TARGET_ANGLE);
+            subComponentProcessor.SetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION);
+            subComponentProcessor.SetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY);
 
             CheckWalk();
             CheckJump();
@@ -29,18 +29,18 @@ namespace ControllerExperiment.States.Player
 
         void CheckJump()
         {
-            bool JumpIsPressed = owner.subComponentProcessor.GetBool(PlayerBool.PRESSED_JUMP);
+            bool JumpIsPressed = subComponentProcessor.GetBool(PlayerBool.PRESSED_JUMP);
 
             if (JumpIsPressed)
             {
-                owner.subComponentProcessor.SetEntity(SetPlayer.ADD_JUMP_FORCE);
-                owner.stateProcessor.TransitionTo(typeof(WaitingToJump));
+                subComponentProcessor.SetEntity(SetPlayer.ADD_JUMP_FORCE);
+                stateProcessor.TransitionTo(typeof(WaitingToJump));
             }
         }
 
         void CheckWalk()
         {
-            float s = owner.subComponentProcessor.GetFloat(PlayerFloat.GET_TARGET_WALK_SPEED);
+            float s = subComponentProcessor.GetFloat(PlayerFloat.GET_TARGET_WALK_SPEED);
 
             if (s > 0.0001f)
             {

@@ -10,7 +10,7 @@ namespace ControllerExperiment.States.Player
         {
             if (owner.rbody.velocity.y < 0f)
             {
-                owner.stateProcessor.TransitionTo(typeof(FreeFall));
+                stateProcessor.TransitionTo(typeof(FreeFall));
             }
         }
     }

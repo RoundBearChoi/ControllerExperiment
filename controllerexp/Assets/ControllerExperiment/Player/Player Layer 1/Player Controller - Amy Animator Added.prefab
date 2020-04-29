@@ -91,6 +91,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5445128290063306646, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerPhysicsState
+      objectReference: {fileID: 0}
     - target: {fileID: 5445128290371679107, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_Enabled
@@ -109,17 +114,17 @@ PrefabInstance:
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.73
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.06
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 12.73
       objectReference: {fileID: 0}
     - target: {fileID: 8680944031603900422, guid: 8bf1289cd41834644bc4933e6d8fd4eb,
         type: 3}

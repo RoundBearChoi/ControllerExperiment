@@ -10,7 +10,7 @@ namespace ControllerExperiment.SubComponents.Player
         public AnimationCurve TorqueMultiplier;
         public float MaxTorque;
 
-        [Header("Debug")]
+        [Header("Angle Debug")]
         public float TargetAngle;
 
         float Angle;

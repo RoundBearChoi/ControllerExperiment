@@ -9,13 +9,13 @@ namespace ControllerExperiment.States.Player
     {
         public override void OnEnter()
         {
-            owner.subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_VELOCITY);
-            owner.subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY);
+            subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_VELOCITY);
+            subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY);
         }
 
         public override void ProcStateFixedUpdate()
         {
-            owner.stateProcessor.TransitionTo(typeof(OnGround));
+            stateProcessor.TransitionTo(typeof(OnGround));
         }
     }
 }
