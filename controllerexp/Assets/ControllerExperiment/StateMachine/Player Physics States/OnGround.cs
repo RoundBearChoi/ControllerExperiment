@@ -17,6 +17,7 @@ namespace ControllerExperiment.States.Player
 
         public override void ProcStateFixedUpdate()
         {
+            owner.subComponentProcessor.SetEntity(SetPlayer.SET_WALK_DIRECTION);
             owner.subComponentProcessor.SetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION);
             owner.subComponentProcessor.SetEntity(SetPlayer.ROTATE_TO_TARGET_ANGLE);
             owner.subComponentProcessor.SetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY);
@@ -26,8 +27,6 @@ namespace ControllerExperiment.States.Player
 
         void CheckJump()
         {
-            owner.subComponentProcessor.SetEntity(SetPlayer.SET_WALK_DIRECTION);
-
             bool JumpIsPressed = owner.subComponentProcessor.GetBool(PlayerBool.PRESSED_JUMP);
 
             if (JumpIsPressed)
