@@ -14,6 +14,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         [Space(5)]
         public Rigidbody HipRigidbody;
         public ConfigurableJoint HipJoint;
+        public Rigidbody RootPivot;
 
         GameObject Dummy = null;
 
@@ -29,6 +30,8 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         void CopyAnimation()
         {
+            Debug.DrawLine(HipRigidbody.position, RootPivot.position, Color.yellow);
+
             foreach (RagdollMover setter in RagdollMovers)
             {
                 setter.CopyDummyAnimation();
@@ -44,6 +47,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
             HipRigidbody = GetHip(RagdollMovers[0].myJoint);
             HipJoint = HipRigidbody.GetComponent<ConfigurableJoint>();
+            RootPivot = HipJoint.connectedBody;
         }
 
         Rigidbody GetHip(ConfigurableJoint joint)
