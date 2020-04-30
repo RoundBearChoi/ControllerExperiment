@@ -31,7 +31,7 @@ namespace ControllerExperiment
             GetStateProcessor(STATE.RAGDOLL_TRANSFORM).TransitionTo(typeof(RagdollTransformStart));
 
             subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);
-            subComponentProcessor.DelegateGetInt(RagdollInt.DESIRED_RAGDOLL_STATE, GetDesiredState);
+            subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_ANIMATION_STATE, GetSelectedAnimationState);
         }
 
         private void Update()
@@ -45,7 +45,7 @@ namespace ControllerExperiment
             subComponentProcessor.FixedUpdateSubComponents();
         }
 
-        int GetDesiredState()
+        int GetSelectedAnimationState()
         {
             return (int)m_SelectedAnimationState;
         }
