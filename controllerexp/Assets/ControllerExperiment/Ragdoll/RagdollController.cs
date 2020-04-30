@@ -25,15 +25,19 @@ namespace ControllerExperiment
         [Space(5)]
         [SerializeField] RagdollTransformState m_SelectedTransformState;
 
-        private void Start()
+        private IEnumerator Start()
         {
             // must init ragdoll states
             GetStateProcessor(STATE.RAGDOLL_ANIMATION).TransitionTo(typeof(RagdollAnimationStart));
             GetStateProcessor(STATE.RAGDOLL_TRANSFORM).TransitionTo(typeof(RagdollTransformStart));
 
-            subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);
             subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_ANIMATION_STATE, GetSelectedAnimationState);
             subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_TRANSFORM_STATE, GetSelectedTransformState);
+
+            //wait for all functions to be delegated
+            yield return new WaitForEndOfFrame();
+
+            subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);
         }
 
         private void Update()
