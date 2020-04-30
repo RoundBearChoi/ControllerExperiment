@@ -138,5 +138,10 @@ namespace ControllerExperiment.SubComponents.Ragdoll
                 JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
             }
         }
+
+        void AlignRootPivotToRootObj()
+        {
+            RootPivot.MoveRotation(Quaternion.Euler(0, this.transform.root.gameObject.transform.rotation.y, 0f));
+        }
     }
 }
