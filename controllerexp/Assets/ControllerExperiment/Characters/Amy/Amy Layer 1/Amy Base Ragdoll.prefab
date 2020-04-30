@@ -26,8 +26,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.07221026
-  m_Height: 0.24070086
+  m_Radius: 0.065
+  m_Height: 0.22
   m_Direction: 1
   m_Center: {x: 0, y: 0.12035043, z: 0}
 --- !u!144 &6698465452338266797
@@ -101,10 +101,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.067627884
-  m_Height: 0.3381394
+  m_Radius: 0.03
+  m_Height: 0.31
   m_Direction: 1
-  m_Center: {x: 0, y: 0.1690697, z: 0}
+  m_Center: {x: 0, y: 0.16936478, z: 0}
 --- !u!144 &6385485498462831951
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -176,10 +176,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.047437996
-  m_Height: 0.18975198
+  m_Radius: 0.035
+  m_Height: 0.17
   m_Direction: 1
-  m_Center: {x: 0, y: 0.09487599, z: 0}
+  m_Center: {x: 0, y: 0.09486784, z: 0}
 --- !u!144 &358493838462815952
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -251,10 +251,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.10071264
-  m_Height: 0.40285057
+  m_Radius: 0.06
+  m_Height: 0.38
   m_Direction: 1
-  m_Center: {x: 0, y: 0.20142528, z: 0}
+  m_Center: {x: 0, y: 0.19811457, z: 0}
 --- !u!144 &1834242664164650963
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0012461878, y: 0.24065761, z: 0.0010469817}
+  m_ConnectedAnchor: {x: 0.0012461916, y: 0.24065758, z: 0.0010469928}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -327,7 +327,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0.05889587, z: 0}
 --- !u!144 &4812699593681590375
 CharacterJoint:
@@ -401,7 +401,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23538177, y: 0.16555762, z: 0.19965151}
+  m_Size: {x: 0.18, y: 0.16555762, z: 0.19965151}
   m_Center: {x: 0.0007120967, y: 0.0827788, z: 0.011072688}
 --- !u!144 &1056338870139934844
 CharacterJoint:
@@ -474,8 +474,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.04743392
-  m_Height: 0.18973568
+  m_Radius: 0.035
+  m_Height: 0.17
   m_Direction: 1
   m_Center: {x: 0, y: 0.09486784, z: 0}
 --- !u!144 &6375509300514253571
@@ -550,7 +550,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23412678, y: 0.22893518, z: 0.20063573}
+  m_Size: {x: 0.21, y: 0.17, z: 0.21}
   m_Center: {x: 0.016760424, y: 0.066204876, z: 0.016013503}
 --- !u!54 &3027854905919531577
 Rigidbody:
@@ -578,8 +578,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.09905729
-  m_Height: 0.39622915
+  m_Radius: 0.06
+  m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0, y: 0.19811457, z: 0}
 --- !u!144 &2157251120875957611
@@ -593,7 +593,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0012476966, y: 0.24070083, z: -0.001449164}
+  m_ConnectedAnchor: {x: -0.0012476994, y: 0.24070086, z: -0.001449164}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -653,8 +653,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.06774592
-  m_Height: 0.33872956
+  m_Radius: 0.03
+  m_Height: 0.31
   m_Direction: 1
   m_Center: {x: 0, y: 0.16936478, z: 0}
 --- !u!144 &836790752860975083
@@ -668,7 +668,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0.88, y: -0.07, z: -0.97}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000025960617, y: 0.18973571, z: 0.000000014901161}
+  m_ConnectedAnchor: {x: -0.000000032479875, y: 0.18973568, z: 0.000000014901161}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -728,10 +728,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.07219728
-  m_Height: 0.24065758
+  m_Radius: 0.065
+  m_Height: 0.22
   m_Direction: 1
-  m_Center: {x: 0, y: 0.12032879, z: 0}
+  m_Center: {x: 0, y: 0.12035043, z: 0}
 --- !u!144 &6319219389205698499
 CharacterJoint:
   m_ObjectHideFlags: 0
