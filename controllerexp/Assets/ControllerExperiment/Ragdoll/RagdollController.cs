@@ -20,8 +20,9 @@ namespace ControllerExperiment
 
     public class RagdollController : ControllerEntity
     {
-        [Header("Attributes")]
+        [Header("Ragdoll Controller Attributes")]
         [SerializeField] RagdollAnimationState m_SelectedAnimationState;
+        [Space(5)]
         [SerializeField] RagdollTransformState m_SelectedTransformState;
 
         private void Start()
