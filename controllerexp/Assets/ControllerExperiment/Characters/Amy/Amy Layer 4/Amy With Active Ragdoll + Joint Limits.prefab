@@ -37,15 +37,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 103705918, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.00576396
+      value: 0.005764019
       objectReference: {fileID: 0}
     - target: {fileID: 103705918, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.18067242
+      value: 0.1806724
       objectReference: {fileID: 0}
     - target: {fileID: 103705918, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.0023581116
+      value: 0.0023581171
       objectReference: {fileID: 0}
     - target: {fileID: 120214419, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_DesiredState
@@ -245,19 +245,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329038416, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.118402936
+      value: 0.118402995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329038416, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.02039547
       objectReference: {fileID: 0}
     - target: {fileID: 1782076396, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.07556999
+      value: 0.07557005
       objectReference: {fileID: 0}
     - target: {fileID: 1782076396, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.048262775
+      value: -0.04826278
       objectReference: {fileID: 0}
     - target: {fileID: 1782076396, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.0030053493
+      value: 0.003005355
       objectReference: {fileID: 0}
     - target: {fileID: 1782076396, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_AngularXMotion
@@ -353,11 +357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2060435470, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.0056611793
+      value: 0.0056612417
       objectReference: {fileID: 0}
     - target: {fileID: 2060435470, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.29792655
+      value: 0.29792643
       objectReference: {fileID: 0}
     - target: {fileID: 294385449791321467, guid: 64be0704e06336449b61ec19dab68bd8,
         type: 3}
@@ -427,7 +431,7 @@ PrefabInstance:
     - target: {fileID: 8332413320727446804, guid: 64be0704e06336449b61ec19dab68bd8,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.029808283
+      value: -0.029807687
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64be0704e06336449b61ec19dab68bd8, type: 3}
