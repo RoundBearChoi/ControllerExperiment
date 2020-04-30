@@ -5,7 +5,7 @@ using ControllerExperiment.SubComponents.Ragdoll;
 
 namespace ControllerExperiment.States.Ragdoll
 {
-    public class RagdollStart : BaseState
+    public class RagdollAnimationStart : BaseState
     {
         public override void ProcStateFixedUpdate()
         {

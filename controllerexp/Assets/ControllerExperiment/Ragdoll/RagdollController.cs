@@ -19,8 +19,9 @@ namespace ControllerExperiment
 
         private void Start()
         {
-            // init ragdoll state
-            GetStateProcessor(STATE.RAGDOLL).TransitionTo(typeof(RagdollStart));
+            // must init ragdoll states
+            GetStateProcessor(STATE.RAGDOLL_ANIMATION).TransitionTo(typeof(RagdollAnimationStart));
+            GetStateProcessor(STATE.RAGDOLL_TRANSFORM).TransitionTo(typeof(RagdollTransformStart));
 
             subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);
             subComponentProcessor.DelegateGetInt(RagdollInt.DESIRED_RAGDOLL_STATE, GetDesiredState);

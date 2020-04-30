@@ -7,8 +7,11 @@ namespace ControllerExperiment
     public enum STATE
     {
         NONE,
+        
         PLAYER_PHYSICS,
-        RAGDOLL,
+        RAGDOLL_ANIMATION,
+
+        RAGDOLL_TRANSFORM,
     }
 }
 
