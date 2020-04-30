@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.SubComponents.Ragdoll
+namespace ControllerExperiment.Keys.Ragdoll
 {
     public class RagdollBool : SubComponentKey
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ControllerExperiment.SubComponents.Ragdoll;
+using ControllerExperiment.Keys.Ragdoll;
 using ControllerExperiment.States.Ragdoll;
 
 namespace ControllerExperiment
@@ -32,6 +32,7 @@ namespace ControllerExperiment
 
             subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);
             subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_ANIMATION_STATE, GetSelectedAnimationState);
+            subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_TRANSFORM_STATE, GetSelectedTransformState);
         }
 
         private void Update()
@@ -48,6 +49,11 @@ namespace ControllerExperiment
         int GetSelectedAnimationState()
         {
             return (int)m_SelectedAnimationState;
+        }
+
+        int GetSelectedTransformState()
+        {
+            return (int)m_SelectedTransformState;
         }
     }
 }

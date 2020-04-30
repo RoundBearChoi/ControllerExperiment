@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace ControllerExperiment.SubComponents
+namespace ControllerExperiment.Keys
 {
     public abstract class SubComponentKey
     {

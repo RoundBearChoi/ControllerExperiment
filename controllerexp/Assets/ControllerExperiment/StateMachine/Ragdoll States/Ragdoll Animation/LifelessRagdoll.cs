@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ControllerExperiment.SubComponents.Ragdoll;
+using ControllerExperiment.Keys.Ragdoll;
 
 namespace ControllerExperiment.States.Ragdoll
 {

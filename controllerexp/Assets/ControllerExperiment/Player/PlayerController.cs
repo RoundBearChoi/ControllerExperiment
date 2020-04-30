@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.States.Player;
-using ControllerExperiment.SubComponents.Player;
+using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment
 {

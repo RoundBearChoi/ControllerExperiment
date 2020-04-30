@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ControllerExperiment.SubComponents.Player
+namespace ControllerExperiment.Keys.Player
 {
     public class PlayerBool : SubComponentKey
     {
