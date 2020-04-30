@@ -9,7 +9,7 @@ namespace ControllerExperiment
     public abstract class ControllerEntity : MonoBehaviour
     {
         [Header("Controller Entity Debug")]
-        [SerializeField] Rigidbody m_rbody = null;
+        public Rigidbody m_rbody = null;
         [SerializeField] SubComponentProcessor m_SubComponentProcessor = null;
         [Space(5)]
         [SerializeField] List<StateProcessor> StateProcessorsList = new List<StateProcessor>();

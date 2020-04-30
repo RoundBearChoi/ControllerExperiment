@@ -16,15 +16,17 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         public Rigidbody HipRigidbody;
         public ConfigurableJoint HipJoint;
         public Rigidbody RootPivot;
-
-        GameObject Dummy = null;
+        [Space(5)]
+        public GameObject Dummy = null;
 
         private void Start()
         {
             processor.DelegateSetEntity(SetRagdoll.SET_RAGDOLL_DUMMY, SetDummy);
             processor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
+            processor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_WORLD_ROTATION, CopyDummyWorldRotation);
             processor.DelegateSetEntity(SetRagdoll.STOP_ANIMATING, StopAnimating);
             processor.DelegateSetEntity(SetRagdoll.START_ANIMATING, StartAnimating);
+            
 
             FindRagdollSetters();
         }
@@ -37,6 +39,11 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             {
                 setter.CopyDummyAnimation();
             }
+        }
+
+        void CopyDummyWorldRotation()
+        {
+            //RootPivot.MoveRotation(Dummy.transform.rotation);
         }
 
         public void FindRagdollSetters()

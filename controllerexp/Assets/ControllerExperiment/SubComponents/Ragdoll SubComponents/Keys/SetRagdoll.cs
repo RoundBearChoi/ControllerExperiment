@@ -11,5 +11,6 @@ namespace ControllerExperiment.Keys.Ragdoll
         public static int COPY_DUMMY_ANIMATION => GetKey("COPY_DUMMY_ANIMATION");
         public static int STOP_ANIMATING => GetKey("STOP_ANIMATING");
         public static int START_ANIMATING => GetKey("START_ANIMATING");
+        public static int COPY_DUMMY_WORLD_ROTATION => GetKey("COPY_DUMMY_WORLD_ROTATION");
     }
 }
