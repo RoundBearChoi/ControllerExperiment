@@ -93,23 +93,29 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             }
         }
 
+        void JointDefaultSettings(ConfigurableJoint joint)
+        {
+            joint.enableCollision = true;
+            joint.enablePreprocessing = false;
+        }
+
+        void RigidBodyDefaultSettings(Rigidbody rbody)
+        {
+            rbody.interpolation = RigidbodyInterpolation.Interpolate;
+            rbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        }
+
         void StopAnimating()
         {
             foreach(RagdollMover a in RagdollMovers)
             {
                 a.DoNotSync = true;
 
-                a.myJoint.enableCollision = true;
-                a.myJoint.enablePreprocessing = false;
+                JointDefaultSettings(a.myJoint);
+                JointDefaultSettings(HipJoint);
 
-                a.myRigidBody.interpolation = RigidbodyInterpolation.Interpolate;
-                a.myRigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-                
-                HipRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                HipRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-
-                HipJoint.enableCollision = true;
-                HipJoint.enablePreprocessing = false;
+                RigidBodyDefaultSettings(a.myRigidBody);
+                RigidBodyDefaultSettings(HipRigidbody);
 
                 JointUpdater.UpdateAngularDrive(a.myJoint, 0f, 0f);
                 JointUpdater.UpdateTargetRotation(a.myJoint, Vector3.zero);
@@ -122,17 +128,11 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             {
                 a.DoNotSync = false;
 
-                a.myJoint.enableCollision = true;
-                a.myJoint.enablePreprocessing = false;
-                
-                a.myRigidBody.interpolation = RigidbodyInterpolation.Interpolate;
-                a.myRigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+                JointDefaultSettings(a.myJoint);
+                JointDefaultSettings(HipJoint);
 
-                HipRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                HipRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-
-                HipJoint.enableCollision = true;
-                HipJoint.enablePreprocessing = false;
+                RigidBodyDefaultSettings(a.myRigidBody);
+                RigidBodyDefaultSettings(HipRigidbody);
 
                 JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
             }
