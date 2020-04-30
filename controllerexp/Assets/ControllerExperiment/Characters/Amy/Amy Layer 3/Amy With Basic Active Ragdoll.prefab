@@ -150,7 +150,7 @@ MonoBehaviour:
   - {fileID: 870132841}
   HipRigidbody: {fileID: 2274925719083041319}
   HipJoint: {fileID: 8332413320727446804}
-  RootPivot: {fileID: 0}
+  RootPivot: {fileID: 2049825912}
 --- !u!1 &2049825910
 GameObject:
   m_ObjectHideFlags: 0
