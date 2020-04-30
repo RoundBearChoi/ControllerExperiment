@@ -98,6 +98,8 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             foreach(RagdollMover a in RagdollMovers)
             {
                 a.DoNotSync = true;
+                JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
+                JointUpdater.UpdateTargetRotation(a.myJoint, Vector3.zero);
             }
         }
 
@@ -106,6 +108,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             foreach (RagdollMover a in RagdollMovers)
             {
                 a.DoNotSync = false;
+                JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
             }
         }
     }
