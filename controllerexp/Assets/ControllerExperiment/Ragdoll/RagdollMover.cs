@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public class RagdollAnimator : MonoBehaviour
+    public class RagdollMover : MonoBehaviour
     {
         public bool DoNotSync;
         public Rigidbody myRigidBody

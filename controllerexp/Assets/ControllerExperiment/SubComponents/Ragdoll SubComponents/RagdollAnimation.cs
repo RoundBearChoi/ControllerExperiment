@@ -10,7 +10,10 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         public string DummyRootName;
 
         [Header("Ragdoll Animation Debug")]
-        public List<RagdollAnimator> RagdollAnimators = new List<RagdollAnimator>();
+        public List<RagdollMover> RagdollMovers = new List<RagdollMover>();
+        [Space(5)]
+        public Rigidbody HipRigidbody;
+        public ConfigurableJoint HipJoint;
 
         GameObject Dummy = null;
 
@@ -26,7 +29,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         void CopyAnimation()
         {
-            foreach (RagdollAnimator setter in RagdollAnimators)
+            foreach (RagdollMover setter in RagdollMovers)
             {
                 setter.CopyDummyAnimation();
             }
@@ -34,13 +37,29 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         public void FindRagdollSetters()
         {
-            RagdollAnimators.Clear();
+            RagdollMovers.Clear();
 
-            RagdollAnimator[] arr = processor.owner.GetComponentsInChildren<RagdollAnimator>();
+            RagdollMover[] arr = processor.owner.GetComponentsInChildren<RagdollMover>();
+            RagdollMovers.AddRange(arr);
 
-            foreach(RagdollAnimator setter in arr)
+            HipRigidbody = GetHip(RagdollMovers[0].myJoint);
+            HipJoint = HipRigidbody.GetComponent<ConfigurableJoint>();
+        }
+
+        Rigidbody GetHip(ConfigurableJoint joint)
+        {
+            // get parent joint
+            Rigidbody parentRigid = joint.connectedBody;
+            ConfigurableJoint parentJoint = parentRigid.GetComponent<ConfigurableJoint>();
+
+            // if parent joint doesn't have configurable joint, this joint is a hip
+            if (parentJoint == null)
             {
-                RagdollAnimators.Add(setter);
+                return joint.GetComponent<Rigidbody>();
+            }
+            else
+            {
+                return GetHip(parentRigid.GetComponent<ConfigurableJoint>());
             }
         }
 
@@ -56,7 +75,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         void SetMirrorParts()
         {
-            foreach(RagdollAnimator setter in RagdollAnimators)
+            foreach(RagdollMover setter in RagdollMovers)
             {
                 Transform[] arr = Dummy.GetComponentsInChildren<Transform>();
                 foreach(Transform t in arr)
@@ -72,7 +91,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         void StopAnimating()
         {
-            foreach(RagdollAnimator a in RagdollAnimators)
+            foreach(RagdollMover a in RagdollMovers)
             {
                 a.DoNotSync = true;
             }
@@ -80,7 +99,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         void StartAnimating()
         {
-            foreach (RagdollAnimator a in RagdollAnimators)
+            foreach (RagdollMover a in RagdollMovers)
             {
                 a.DoNotSync = false;
             }
