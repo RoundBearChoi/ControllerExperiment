@@ -8,11 +8,11 @@ namespace ControllerExperiment.SubComponents.Player
     public class Rotation : SubComponent
     {
         [Header("Attributes")]
-        public AnimationCurve TorqueMultiplier;
-        public float MaxTorque;
+        [SerializeField] AnimationCurve TorqueMultiplier;
+        [SerializeField] float MaxTorque;
 
         [Header("Angle Debug")]
-        public float TargetAngle;
+        [SerializeField] float TargetAngle;
 
         float Angle;
         float AngleDifference;

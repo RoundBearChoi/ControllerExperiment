@@ -7,7 +7,7 @@ namespace ControllerExperiment.SubComponents
     public class CharacterJointFinder : SubComponent
     {
         [Header("Debug")]
-        public List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
+        [SerializeField] List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();
 
         public void FindCharacterJoints()
         {

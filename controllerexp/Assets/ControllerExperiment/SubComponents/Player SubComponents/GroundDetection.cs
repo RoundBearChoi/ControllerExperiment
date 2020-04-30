@@ -8,7 +8,7 @@ namespace ControllerExperiment.SubComponents.Player
     public class GroundDetection : SubComponent
     {
         [Header("Ground Detection Debug")]
-        public bool m_IsGrounded;
+        [SerializeField] bool m_IsGrounded;
 
         private void Start()
         {

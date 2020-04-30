@@ -8,10 +8,10 @@ namespace ControllerExperiment.SubComponents.Player
     public class HorizontalMove : SubComponent
     {
         [Header("Move Debug")]
-        public Vector3 TargetWalkDir = new Vector3();
-        public float Speed;
-        public Vector3 MoveForce = new Vector3();
-        public Vector3 GroundNormal = new Vector3();
+        [SerializeField] Vector3 TargetWalkDir = new Vector3();
+        [SerializeField] float Speed;
+        [SerializeField] Vector3 MoveForce = new Vector3();
+        [SerializeField] Vector3 GroundNormal = new Vector3();
 
         int DefaultLayerMask = 1 << 0;
 

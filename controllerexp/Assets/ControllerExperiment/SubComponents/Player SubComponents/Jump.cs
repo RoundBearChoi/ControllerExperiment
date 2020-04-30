@@ -7,7 +7,8 @@ namespace ControllerExperiment.SubComponents.Player
 {
     public class Jump : SubComponent
     {
-        public float JumpForce;
+        [Header("Jump Attributes")]
+        [SerializeField] float JumpForce;
 
         private void Start()
         {

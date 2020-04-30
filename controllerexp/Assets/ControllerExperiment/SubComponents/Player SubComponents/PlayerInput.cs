@@ -7,11 +7,12 @@ namespace ControllerExperiment.SubComponents.Player
 {
     public class PlayerInput : SubComponent
     {
-        bool Up;
-        bool Down;
-        bool Left;
-        bool Right;
-        bool Jump;
+        [Header("Player Input Debug")]
+        [SerializeField] bool Up;
+        [SerializeField] bool Down;
+        [SerializeField] bool Left;
+        [SerializeField] bool Right;
+        [SerializeField] bool Jump;
 
         private void Start()
         {
