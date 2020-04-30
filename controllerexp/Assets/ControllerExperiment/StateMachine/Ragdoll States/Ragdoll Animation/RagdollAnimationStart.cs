@@ -9,9 +9,9 @@ namespace ControllerExperiment.States.Ragdoll
     {
         public override void ProcStateFixedUpdate()
         {
-            SelectedRagdoll t = (SelectedRagdoll)subComponentProcessor.GetInt(RagdollInt.DESIRED_RAGDOLL_STATE);
+            RagdollAnimationState t = (RagdollAnimationState)subComponentProcessor.GetInt(RagdollInt.DESIRED_RAGDOLL_STATE);
 
-            if (t == SelectedRagdoll.COPY_DUMMY_ANIMATION)
+            if (t == RagdollAnimationState.COPY_DUMMY_ANIMATION)
             {
                 stateProcessor.TransitionTo(typeof(CopyDummyAnimation));
             }

@@ -6,16 +6,23 @@ using ControllerExperiment.States.Ragdoll;
 
 namespace ControllerExperiment
 {
-    public enum SelectedRagdoll
+    public enum RagdollAnimationState
     {
         COPY_DUMMY_ANIMATION,
         LIFELESS_RAGDOLL,
     }
 
+    public enum RagdollTransformState
+    {
+        FOLLOW_DUMMY_POSITION,
+        DONT_FOLLOW_DUMMY_POSITION,
+    }
+
     public class RagdollController : ControllerEntity
     {
         [Header("Attributes")]
-        public SelectedRagdoll m_DesiredState;
+        public RagdollAnimationState m_SelectedAnimationState;
+        public RagdollTransformState m_SelectedTransformState;
 
         private void Start()
         {
@@ -40,7 +47,7 @@ namespace ControllerExperiment
 
         int GetDesiredState()
         {
-            return (int)m_DesiredState;
+            return (int)m_SelectedAnimationState;
         }
     }
 }
