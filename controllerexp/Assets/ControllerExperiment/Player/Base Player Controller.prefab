@@ -92,6 +92,52 @@ MonoBehaviour:
   DoFixedUpdate: 0
   DoUpdate: 0
   JumpForce: 6
+--- !u!1 &3678050368682081111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540501115479089833}
+  - component: {fileID: 6812424039473180770}
+  m_Layer: 2
+  m_Name: PlayAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540501115479089833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3678050368682081111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5445128291390472743}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6812424039473180770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3678050368682081111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2e4234626d6f64e828c2b50a7d99e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoFixedUpdate: 0
+  DoUpdate: 0
+  TargetAnimationObjectName: Amy With Animator Controller
 --- !u!1 &5445128290063306646
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +416,7 @@ Transform:
   - {fileID: 8756317265246172004}
   - {fileID: 1306569051328572794}
   - {fileID: 6360871162499627771}
+  - {fileID: 540501115479089833}
   m_Father: {fileID: 8680944031603900422}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -562,3 +609,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DoFixedUpdate: 0
   DoUpdate: 0
+  Up: 0
+  Down: 0
+  Left: 0
+  Right: 0
+  Jump: 0

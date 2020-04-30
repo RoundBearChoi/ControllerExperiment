@@ -6,9 +6,9 @@ namespace ControllerExperiment.Animations
 {
     public static class AnimationControl
     {
-        public static void Play(ControllerEntity entity, string animationName, float normalizedTime)
+        public static void Play(string objName, string animationName, float normalizedTime)
         {
-            Animator animator = AnimationInfo.GetAnimator(entity);
+            Animator animator = AnimationInfo.GetAnimator(objName);
 
             if (animator == null)
             {

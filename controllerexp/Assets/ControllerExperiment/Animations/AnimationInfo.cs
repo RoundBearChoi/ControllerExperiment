@@ -6,15 +6,15 @@ namespace ControllerExperiment.Animations
 {
     public static class AnimationInfo
     {
-        static Dictionary<ControllerEntity, Animator> Animators = new Dictionary<ControllerEntity, Animator>();
+        static Dictionary<string, Animator> Animators = new Dictionary<string, Animator>();
         
-        public static Animator GetAnimator(ControllerEntity owner)
+        public static Animator GetAnimator(string objName)
         {
-            FindAnimator(owner);
+            FindAnimator(objName);
 
-            if (Animators.ContainsKey(owner))
+            if (Animators.ContainsKey(objName))
             {
-                return Animators[owner];
+                return Animators[objName];
             }
             else
             {
@@ -22,15 +22,16 @@ namespace ControllerExperiment.Animations
             }
         }
 
-        static void FindAnimator(ControllerEntity owner)
+        static void FindAnimator(string objName)
         {
-            if (!Animators.ContainsKey(owner))
+            if (!Animators.ContainsKey(objName))
             {
-                Animator animator = owner.GetComponentInChildren<Animator>();
+                GameObject obj = GameObject.Find(objName);
+                Animator animator = obj.GetComponent<Animator>();
 
                 if (animator != null)
                 {
-                    Animators.Add(owner, animator);
+                    Animators.Add(objName, animator);
                 }
             }
         }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ControllerExperiment.Keys.Player;
-using ControllerExperiment.Animations;
 
 namespace ControllerExperiment.States.Player
 {
@@ -44,11 +43,11 @@ namespace ControllerExperiment.States.Player
 
             if (s > 0.0001f)
             {
-                AnimationControl.Play(owner, AnimationNames.Walking, 0f);
+                subComponentProcessor.SetEntity(SetPlayer.PLAY_ANIMATION_WALK);
             }
             else
             {
-                AnimationControl.Play(owner, AnimationNames.Idle, 0f);
+                subComponentProcessor.SetEntity(SetPlayer.PLAY_ANIMATION_IDLE);
             }
         }
     }

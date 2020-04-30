@@ -14,5 +14,7 @@ namespace ControllerExperiment.Keys.Player
         public static int ROTATE_TO_TARGET_ANGLE => GetKey("ROTATE_TO_TARGET_ANGLE");
         public static int ADD_JUMP_FORCE => GetKey("ADD_JUMP_FORCE");
         public static int CANCEL_VERTICAL_VELOCITY => GetKey("CANCEL_VERTICAL_VELOCITY");
+        public static int PLAY_ANIMATION_IDLE => GetKey("PLAY_ANIMATION_IDLE");
+        public static int PLAY_ANIMATION_WALK => GetKey("PLAY_ANIMATION_WALK");
     }
 }
