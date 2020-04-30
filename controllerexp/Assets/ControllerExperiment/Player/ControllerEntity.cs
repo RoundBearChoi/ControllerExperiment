@@ -63,7 +63,7 @@ namespace ControllerExperiment
             return StateProcessorDic[type];
         }
 
-        public void UpdateStateProcessors()
+        protected void UpdateStateProcessors()
         {
             foreach (StateProcessor p in StateProcessorsList)
             {
@@ -71,7 +71,7 @@ namespace ControllerExperiment
             }
         }
 
-        public void FixedUpdateStateProcessors()
+        protected void FixedUpdateStateProcessors()
         {
             foreach (StateProcessor p in StateProcessorsList)
             {
