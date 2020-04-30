@@ -98,7 +98,20 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             foreach(RagdollMover a in RagdollMovers)
             {
                 a.DoNotSync = true;
-                JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
+
+                a.myJoint.enableCollision = true;
+                a.myJoint.enablePreprocessing = false;
+
+                a.myRigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+                a.myRigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+                
+                HipRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+                HipRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+                HipJoint.enableCollision = true;
+                HipJoint.enablePreprocessing = false;
+
+                JointUpdater.UpdateAngularDrive(a.myJoint, 0f, 0f);
                 JointUpdater.UpdateTargetRotation(a.myJoint, Vector3.zero);
             }
         }
@@ -108,6 +121,19 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             foreach (RagdollMover a in RagdollMovers)
             {
                 a.DoNotSync = false;
+
+                a.myJoint.enableCollision = true;
+                a.myJoint.enablePreprocessing = false;
+                
+                a.myRigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+                a.myRigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+                HipRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+                HipRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+                HipJoint.enableCollision = true;
+                HipJoint.enablePreprocessing = false;
+
                 JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
             }
         }

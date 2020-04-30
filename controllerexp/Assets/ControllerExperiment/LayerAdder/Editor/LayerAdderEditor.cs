@@ -37,6 +37,7 @@ namespace ControllerExperiment
 
                 Physics.IgnoreLayerCollision(dic["Default"], dic["Default"], false);
                 Physics.IgnoreLayerCollision(dic[RB_Layers.RAGDOLL.ToString()], dic["Default"], false);
+                Physics.IgnoreLayerCollision(dic[RB_Layers.RAGDOLL.ToString()], dic[RB_Layers.RAGDOLL.ToString()], false);
                 Physics.IgnoreLayerCollision(dic["Ignore Raycast"], dic["Default"], false);
 
                 Debug.Log("default collisions set");
