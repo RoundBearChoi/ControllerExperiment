@@ -9,7 +9,7 @@ namespace ControllerExperiment.States.Ragdoll
     {
         public override void ProcStateFixedUpdate()
         {
-            subComponentProcessor.SetEntity(SetRagdoll.COPY_DUMMY_WORLD_ROTATION);
+            subComponentProcessor.SetEntity(SetRagdoll.ROTATE_ENTITY);
         }
     }
 }

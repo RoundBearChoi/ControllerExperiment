@@ -21,8 +21,8 @@ namespace ControllerExperiment
     public class RagdollController : ControllerEntity
     {
         [Header("Attributes")]
-        public RagdollAnimationState m_SelectedAnimationState;
-        public RagdollTransformState m_SelectedTransformState;
+        [SerializeField] RagdollAnimationState m_SelectedAnimationState;
+        [SerializeField] RagdollTransformState m_SelectedTransformState;
 
         private void Start()
         {

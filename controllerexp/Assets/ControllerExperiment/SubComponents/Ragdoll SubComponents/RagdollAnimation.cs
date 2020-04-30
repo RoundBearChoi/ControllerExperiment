@@ -8,25 +8,23 @@ namespace ControllerExperiment.SubComponents.Ragdoll
     public class RagdollAnimation : SubComponent
     {
         [Header("Attributes")]
-        public string DummyRootName;
+        [SerializeField] string DummyRootName;
 
         [Header("Ragdoll Animation Debug")]
-        public List<RagdollMover> RagdollMovers = new List<RagdollMover>();
+        [SerializeField] List<RagdollMover> RagdollMovers = new List<RagdollMover>();
         [Space(5)]
-        public Rigidbody HipRigidbody;
-        public ConfigurableJoint HipJoint;
-        public Rigidbody RootPivot;
+        [SerializeField] Rigidbody HipRigidbody;
+        [SerializeField] ConfigurableJoint HipJoint;
+        [SerializeField] Rigidbody RootPivot;
         [Space(5)]
-        public GameObject Dummy = null;
+        [SerializeField] GameObject Dummy = null;
 
         private void Start()
         {
             processor.DelegateSetEntity(SetRagdoll.SET_RAGDOLL_DUMMY, SetDummy);
             processor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
-            processor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_WORLD_ROTATION, CopyDummyWorldRotation);
             processor.DelegateSetEntity(SetRagdoll.STOP_ANIMATING, StopAnimating);
             processor.DelegateSetEntity(SetRagdoll.START_ANIMATING, StartAnimating);
-            
 
             FindRagdollSetters();
         }
@@ -39,11 +37,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             {
                 setter.CopyDummyAnimation();
             }
-        }
-
-        void CopyDummyWorldRotation()
-        {
-            //RootPivot.MoveRotation(Dummy.transform.rotation);
         }
 
         public void FindRagdollSetters()
