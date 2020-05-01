@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -399,56 +399,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1377860484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1377860486}
-  - component: {fileID: 1377860485}
-  m_Layer: 0
-  m_Name: Bezier
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1377860485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377860484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09c189c31023f54ab2cf99d7a3023a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  RedCube: {fileID: 995488910}
-  GreenCube: {fileID: 1852420256}
-  BlueCube: {fileID: 1668744594}
-  YellowCube: {fileID: 362701111}
-  TargetCube: {fileID: 2016783805}
-  pos: {x: 0, y: 0, z: 0}
---- !u!4 &1377860486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377860484}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29976463, y: -0.0026257038, z: 4.0119386}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668744594
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,8 +597,9 @@ GameObject:
   - component: {fileID: 2016783808}
   - component: {fileID: 2016783807}
   - component: {fileID: 2016783806}
+  - component: {fileID: 2016783810}
   m_Layer: 0
-  m_Name: TargetCube
+  m_Name: Bezier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,6 +679,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2016783810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016783805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09c189c31023f54ab2cf99d7a3023a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  mBezierCurveType: 0
+  RedCube: {fileID: 995488910}
+  GreenCube: {fileID: 1852420256}
+  BlueCube: {fileID: 1668744594}
+  YellowCube: {fileID: 362701111}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &2017035648
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,8 +775,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017035648}
-  m_LocalRotation: {x: -0.15181485, y: 0.75084317, z: -0.18518467, w: -0.61554325}
-  m_LocalPosition: {x: 12.450324, y: 6.2024627, z: 8.294059}
+  m_LocalRotation: {x: -0.09090438, y: 0.71836466, z: -0.095605426, w: -0.6830435}
+  m_LocalPosition: {x: 11.628434, y: 4.155181, z: 5.6871834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

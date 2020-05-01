@@ -4,16 +4,22 @@ using UnityEngine;
 
 namespace ControllerExperiment.Bezier
 {
+	public enum BezierCurveType
+	{ 
+		CUBIC,
+		QUADRATIC,
+	}
+
     public class BezierTest : MonoBehaviour
     {
 		[Range(0f, 1f)]
 		public float time;
 
+		public BezierCurveType mBezierCurveType;
         public GameObject RedCube;
         public GameObject GreenCube;
         public GameObject BlueCube;
 		public GameObject YellowCube;
-		public GameObject TargetCube;
 		public Vector3 pos = new Vector3();
 
 		private IEnumerator Start()
@@ -35,28 +41,57 @@ namespace ControllerExperiment.Bezier
 
 		private void Update()
 		{
-			BezierPathCalculation(out pos,
+			if (mBezierCurveType == BezierCurveType.CUBIC)
+			{
+				BezierPathCalculation(out pos,
 				RedCube.transform.position,
 				GreenCube.transform.position,
 				BlueCube.transform.position,
 				YellowCube.transform.position,
 				time);
 
-			TargetCube.transform.position = pos;
+				this.transform.position = pos;
+			}
+			else if (mBezierCurveType == BezierCurveType.QUADRATIC)
+			{
+				BezierPathCalculation(out pos,
+				RedCube.transform.position,
+				GreenCube.transform.position,
+				BlueCube.transform.position,
+				time);
+
+				this.transform.position = pos;
+			}
+			
 		}
 
+		// Cubic Curve https://www.gamasutra.com/blogs/VivekTank/20180806/323709/How_to_work_with_Bezier_Curve_in_Games_with_Unity.php
 		void BezierPathCalculation(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
 		{
 			float tt = t * t;
 			float ttt = t * tt;
+
 			float u = 1.0f - t;
 			float uu = u * u;
 			float uuu = u * uu;
 
 			result = uuu * p0;
-			result += 3.0f * uu * t * p1;
-			result += 3.0f * u * tt * p2;
+			result += 3f * uu * t * p1;
+			result += 3f * u * tt * p2;
 			result += ttt * p3;
+		}
+
+		// Bezier Curves in Unity: Quadratic Curve https://youtu.be/Xwj8_z9OrFw
+		void BezierPathCalculation(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, float t)
+		{
+			float tt = t * t;
+
+			float u = 1 - t;
+			float uu = u * u;
+
+			result = uu * p0;
+			result += 2f * u * t * p1;
+			result += tt * p2;
 		}
 	}
 }
