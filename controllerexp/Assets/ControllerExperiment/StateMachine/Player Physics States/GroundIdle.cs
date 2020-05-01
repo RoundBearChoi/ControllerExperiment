@@ -23,23 +23,16 @@ namespace ControllerExperiment.States.Player
             //subComponentProcessor.SetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION);
             //subComponentProcessor.SetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY);
 
-            CheckJump();
+            if (JumpCheck.Jump(subComponentProcessor))
+            {
+                subComponentProcessor.SetEntity(SetPlayer.ADD_JUMP_FORCE);
+                stateProcessor.TransitionTo(typeof(WaitingToJump));
+            }
 
             float s = subComponentProcessor.GetFloat(PlayerFloat.GET_TARGET_WALK_SPEED);
             if (s >= 0.001f)
             {
                 stateProcessor.TransitionTo(typeof(GroundWalk));
-            }
-        }
-
-        void CheckJump()
-        {
-            bool JumpIsPressed = subComponentProcessor.GetBool(PlayerBool.PRESSED_JUMP);
-
-            if (JumpIsPressed)
-            {
-                subComponentProcessor.SetEntity(SetPlayer.ADD_JUMP_FORCE);
-                stateProcessor.TransitionTo(typeof(WaitingToJump));
             }
         }
     }
