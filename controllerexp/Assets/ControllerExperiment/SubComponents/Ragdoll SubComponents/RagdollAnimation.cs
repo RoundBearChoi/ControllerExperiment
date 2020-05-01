@@ -16,7 +16,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         [SerializeField] Rigidbody HipRigidbody;
         [SerializeField] ConfigurableJoint HipJoint;
         [SerializeField] Rigidbody RootPivot;
-        [SerializeField] ConfigurableJoint RootPivotJoint;
         [Space(5)]
         [SerializeField] GameObject Dummy = null;
 
@@ -50,7 +49,6 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             HipRigidbody = GetHip();
             HipJoint = HipRigidbody.GetComponent<ConfigurableJoint>();
             RootPivot = HipJoint.connectedBody;
-            RootPivotJoint = RootPivot.GetComponent<ConfigurableJoint>();
         }
 
         Rigidbody GetHip()
@@ -100,18 +98,20 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             joint.enablePreprocessing = false;
         }
 
-        void RootPivotJointDefaultSettings(ConfigurableJoint joint)
-        {
-            joint.enableCollision = false;
-            joint.enablePreprocessing = false;
-        }
-
-        void RigidBodyDefaultSettings(Rigidbody rbody)
+        void CharacterBodyDefaultSettings(Rigidbody rbody)
         {
             rbody.interpolation = RigidbodyInterpolation.Interpolate;
             rbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rbody.isKinematic = false;
             rbody.useGravity = true;
+        }
+
+        void RootBodyDefaultSettings(Rigidbody rbody)
+        {
+            rbody.interpolation = RigidbodyInterpolation.Interpolate;
+            rbody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+            rbody.isKinematic = true;
+            rbody.useGravity = false;
         }
 
         void StopAnimating()
@@ -121,18 +121,16 @@ namespace ControllerExperiment.SubComponents.Ragdoll
                 a.DoNotSync = true;
 
                 JointDefaultSettings(a.myJoint);
-                RigidBodyDefaultSettings(a.myRigidBody);
+                CharacterBodyDefaultSettings(a.myRigidBody);
                 
                 JointUpdater.UpdateAngularDrive(a.myJoint, 0f, 0f);
                 JointUpdater.UpdateTargetRotation(a.myJoint, Vector3.zero);
             }
 
             JointDefaultSettings(HipJoint);
-            RigidBodyDefaultSettings(HipRigidbody);
+            CharacterBodyDefaultSettings(HipRigidbody);
 
-            //RootPivotJointDefaultSettings(RootPivotJoint);
-            //JointUpdater.UpdateDrive(RootPivotJoint, 10f, 0f);
-            //JointUpdater.UpdateAngularDrive(RootPivotJoint, 10f, 0f);
+            RootBodyDefaultSettings(RootPivot);
         }
 
         void StartAnimating()
@@ -142,17 +140,15 @@ namespace ControllerExperiment.SubComponents.Ragdoll
                 a.DoNotSync = false;
 
                 JointDefaultSettings(a.myJoint);
-                RigidBodyDefaultSettings(a.myRigidBody);
+                CharacterBodyDefaultSettings(a.myRigidBody);
 
                 JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
             }
 
             JointDefaultSettings(HipJoint);
-            RigidBodyDefaultSettings(HipRigidbody);
+            CharacterBodyDefaultSettings(HipRigidbody);
 
-            //RootPivotJointDefaultSettings(RootPivotJoint);
-            //JointUpdater.UpdateDrive(RootPivotJoint, 10f, 0f);
-            //JointUpdater.UpdateAngularDrive(RootPivotJoint, 10f, 0f);
+            RootBodyDefaultSettings(RootPivot);
         }
     }
 }
