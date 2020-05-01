@@ -6,13 +6,24 @@ using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment
 {
+    public enum PlayerRenderType
+    {
+        CAPSULE,
+        NO_CAPSULE,
+    }
+
     public class PlayerController : ControllerEntity
     {
         [HideInInspector]
         public CapsuleCollider capCollider;
 
+        [Header("Player Controller Attributes")]
+        [SerializeField] PlayerRenderType mPlayerRenderType;
+
         private void Start()
         {
+            subComponentProcessor.DelegateGetInt(PlayerInt.GET_SELECTED_PLAYER_RENDER_TYPE, GetSelectedPlayerRenderType);
+
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
             //init physics state
@@ -63,6 +74,11 @@ namespace ControllerExperiment
             }
 
             //Debug.Log("colliding grounds: " + CollidingGrounds.ToString());
+        }
+
+        int GetSelectedPlayerRenderType()
+        {
+            return (int)mPlayerRenderType;
         }
     }
 }

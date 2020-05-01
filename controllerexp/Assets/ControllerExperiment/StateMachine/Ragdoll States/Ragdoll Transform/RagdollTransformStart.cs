@@ -9,13 +9,13 @@ namespace ControllerExperiment.States.Ragdoll
     {
         public override void ProcStateFixedUpdate()
         {
-            RagdollTransformState t = (RagdollTransformState)subComponentProcessor.GetInt(RagdollInt.RAGDOLL_TRANSFORM_STATE);
+            int t = subComponentProcessor.GetInt(RagdollInt.RAGDOLL_TRANSFORM_STATE);
 
-            if (t == RagdollTransformState.INSTANT_FOLLOW)
+            if (t == (int)RagdollTransformState.INSTANT_FOLLOW)
             {
                 stateProcessor.TransitionTo(typeof(InstantFollowController));
             }
-            else if (t == RagdollTransformState.NO_FOLLOW)
+            else if (t == (int)RagdollTransformState.NO_FOLLOW)
             {
                 stateProcessor.TransitionTo(typeof(NoFollow));
             }
