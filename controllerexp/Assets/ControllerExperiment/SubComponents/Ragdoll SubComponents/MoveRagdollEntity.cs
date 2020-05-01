@@ -30,7 +30,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             {
                 subComponentProcessor.owner.rbody.MovePosition(TargetObj.transform.position);
 
-                //temp
+                // make sure root pivot stays anchored
                 if (RootPivot == null)
                 {
                     RootPivot = RagdollPartFinder.GetRootJoint(subComponentProcessor.owner);

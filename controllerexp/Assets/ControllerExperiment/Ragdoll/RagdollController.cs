@@ -34,7 +34,7 @@ namespace ControllerExperiment
             subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_ANIMATION_STATE, GetSelectedAnimationState);
             subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_TRANSFORM_STATE, GetSelectedTransformState);
 
-            //wait for all functions to be delegated
+            // wait for all functions to be delegated
             yield return new WaitForEndOfFrame();
 
             subComponentProcessor.SetEntity(SetRagdoll.SET_RAGDOLL_DUMMY);

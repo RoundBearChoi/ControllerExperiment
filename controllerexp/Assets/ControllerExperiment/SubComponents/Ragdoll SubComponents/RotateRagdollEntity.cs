@@ -34,7 +34,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         {
             subComponentProcessor.owner.rbody.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
             
-            //temp
+            // make sure root pivot is aligned with the root obj
             RootPivot.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
         }
     }

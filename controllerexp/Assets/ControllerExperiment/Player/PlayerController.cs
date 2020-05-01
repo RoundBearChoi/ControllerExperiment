@@ -26,7 +26,7 @@ namespace ControllerExperiment
 
             capCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
-            //init physics state
+            // init physics state
             GetStateProcessor(StateProcessorType.PLAYER_PHYSICS).TransitionTo(typeof(CheckGround));
             GetStateProcessor(StateProcessorType.PLAYER_RENDER).TransitionTo(typeof(CheckPlayerRender));
         }
