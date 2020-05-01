@@ -9,7 +9,7 @@ namespace ControllerExperiment
     public abstract class ControllerEntity : MonoBehaviour
     {
         [Header("Controller Entity Debug")]
-        [SerializeField] Rigidbody m_rbody = null;
+        [SerializeField] Rigidbody mRigidBody = null;
         [SerializeField] SubComponentProcessor m_SubComponentProcessor = null;
         [Space(5)]
         [SerializeField] List<StateProcessor> StateProcessorsList = new List<StateProcessor>();
@@ -26,11 +26,11 @@ namespace ControllerExperiment
         {
             get
             {
-                if (m_rbody == null)
+                if (mRigidBody == null)
                 {
-                    m_rbody = this.gameObject.GetComponent<Rigidbody>();
+                    mRigidBody = this.gameObject.GetComponent<Rigidbody>();
                 }
-                return m_rbody;
+                return mRigidBody;
             }
         }
 

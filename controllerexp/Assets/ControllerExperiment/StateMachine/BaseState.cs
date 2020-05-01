@@ -27,15 +27,15 @@ namespace ControllerExperiment.States
         {
             get
             {
-                if (m_owner == null)
+                if (mOwner == null)
                 {
-                    m_owner = this.gameObject.GetComponentInParent<ControllerEntity>();
+                    mOwner = this.gameObject.GetComponentInParent<ControllerEntity>();
                 }
-                return m_owner;
+                return mOwner;
             }
         }
 
-        ControllerEntity m_owner = null;
+        ControllerEntity mOwner = null;
 
         protected SubComponents.SubComponentProcessor subComponentProcessor
         {
