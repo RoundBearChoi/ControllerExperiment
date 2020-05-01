@@ -11,11 +11,11 @@ namespace ControllerExperiment.States.Ragdoll
         {
             RagdollTransformState t = (RagdollTransformState)subComponentProcessor.GetInt(RagdollInt.RAGDOLL_TRANSFORM_STATE);
 
-            if (t == RagdollTransformState.FOLLOW_DUMMY_POSITION)
+            if (t == RagdollTransformState.INSTANT_FOLLOW)
             {
                 stateProcessor.TransitionTo(typeof(FollowDummy));
             }
-            else if (t == RagdollTransformState.DONT_FOLLOW_DUMMY_POSITION)
+            else if (t == RagdollTransformState.NO_FOLLOW)
             {
                 stateProcessor.TransitionTo(typeof(DontFollowDummy));
             }

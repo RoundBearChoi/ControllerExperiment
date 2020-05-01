@@ -14,8 +14,8 @@ namespace ControllerExperiment
 
     public enum RagdollTransformState
     {
-        FOLLOW_DUMMY_POSITION,
-        DONT_FOLLOW_DUMMY_POSITION,
+        INSTANT_FOLLOW,
+        NO_FOLLOW,
     }
 
     public class RagdollController : ControllerEntity
