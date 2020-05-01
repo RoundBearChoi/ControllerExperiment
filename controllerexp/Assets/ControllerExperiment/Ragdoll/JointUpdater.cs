@@ -21,6 +21,29 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             }
         }
 
+        public static void UpdateDrive(ConfigurableJoint joint, float spring, float damp)
+        {
+            if (joint.xDrive.positionSpring != spring ||
+                joint.yDrive.positionSpring != spring ||
+                joint.zDrive.positionSpring != spring ||
+                joint.xDrive.positionDamper != damp ||
+                joint.yDrive.positionDamper != damp ||
+                joint.zDrive.positionDamper != damp)
+            {
+                JointDrive newXDrive = GetNewDrive(spring, damp);
+                newXDrive.maximumForce = joint.xDrive.maximumForce;
+                joint.xDrive = newXDrive;
+
+                JointDrive newYDrive = GetNewDrive(spring, damp);
+                newYDrive.maximumForce = joint.yDrive.maximumForce;
+                joint.yDrive = newYDrive;
+
+                JointDrive newZDrive = GetNewDrive(spring, damp);
+                newZDrive.maximumForce = joint.zDrive.maximumForce;
+                joint.zDrive = newZDrive;
+            }
+        }
+
         static JointDrive GetNewDrive(float spring, float damp)
         {
             JointDrive newDrive = new JointDrive();

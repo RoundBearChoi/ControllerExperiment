@@ -16,6 +16,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         [SerializeField] Rigidbody HipRigidbody;
         [SerializeField] ConfigurableJoint HipJoint;
         [SerializeField] Rigidbody RootPivot;
+        [SerializeField] ConfigurableJoint RootPivotJoint;
         [Space(5)]
         [SerializeField] GameObject Dummy = null;
 
@@ -49,6 +50,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             HipRigidbody = GetHip();
             HipJoint = HipRigidbody.GetComponent<ConfigurableJoint>();
             RootPivot = HipJoint.connectedBody;
+            RootPivotJoint = RootPivot.GetComponent<ConfigurableJoint>();
         }
 
         Rigidbody GetHip()
@@ -98,10 +100,18 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             joint.enablePreprocessing = false;
         }
 
+        void RootPivotJointDefaultSettings(ConfigurableJoint joint)
+        {
+            joint.enableCollision = false;
+            joint.enablePreprocessing = false;
+        }
+
         void RigidBodyDefaultSettings(Rigidbody rbody)
         {
             rbody.interpolation = RigidbodyInterpolation.Interpolate;
             rbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            rbody.isKinematic = false;
+            rbody.useGravity = true;
         }
 
         void StopAnimating()
@@ -119,6 +129,10 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
             JointDefaultSettings(HipJoint);
             RigidBodyDefaultSettings(HipRigidbody);
+
+            //RootPivotJointDefaultSettings(RootPivotJoint);
+            //JointUpdater.UpdateDrive(RootPivotJoint, 10f, 0f);
+            //JointUpdater.UpdateAngularDrive(RootPivotJoint, 10f, 0f);
         }
 
         void StartAnimating()
@@ -135,11 +149,10 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
             JointDefaultSettings(HipJoint);
             RigidBodyDefaultSettings(HipRigidbody);
-        }
 
-        void AlignRootPivotToRootObj()
-        {
-            RootPivot.MoveRotation(Quaternion.Euler(0, this.transform.root.gameObject.transform.rotation.y, 0f));
+            //RootPivotJointDefaultSettings(RootPivotJoint);
+            //JointUpdater.UpdateDrive(RootPivotJoint, 10f, 0f);
+            //JointUpdater.UpdateAngularDrive(RootPivotJoint, 10f, 0f);
         }
     }
 }

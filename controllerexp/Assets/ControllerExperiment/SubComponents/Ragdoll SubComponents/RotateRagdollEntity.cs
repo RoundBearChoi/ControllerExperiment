@@ -33,27 +33,28 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         {
             processor.owner.rbody.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
             
+
             //temp
-            if (RootPivot == null)
-            {
-                Rigidbody[] arr = processor.owner.gameObject.GetComponentsInChildren<Rigidbody>();
-
-                foreach(Rigidbody r in arr)
-                {
-                    ConfigurableJoint j = r.GetComponent<ConfigurableJoint>();
-
-                    if (j == null)
-                    {
-                        if (r.gameObject != processor.owner.gameObject)
-                        {
-                            RootPivot = r;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            RootPivot.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
+            //if (RootPivot == null)
+            //{
+            //    Rigidbody[] arr = processor.owner.gameObject.GetComponentsInChildren<Rigidbody>();
+            //
+            //    foreach(Rigidbody r in arr)
+            //    {
+            //        ConfigurableJoint j = r.GetComponent<ConfigurableJoint>();
+            //
+            //        if (j == null)
+            //        {
+            //            if (r.gameObject != processor.owner.gameObject)
+            //            {
+            //                RootPivot = r;
+            //                break;
+            //            }
+            //        }
+            //    }
+            //}
+            //
+            //RootPivot.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
         }
     }
 }
