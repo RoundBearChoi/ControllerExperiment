@@ -16,7 +16,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
             GUILayout.Space(10);
 
-            if (GUILayout.Button("Find Ragdoll Setters"))
+            if (GUILayout.Button("Find Ragdoll Movers"))
             {
                 f.FindRagdollSetters();
             }

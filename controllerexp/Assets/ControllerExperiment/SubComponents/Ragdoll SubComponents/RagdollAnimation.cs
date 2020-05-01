@@ -46,26 +46,24 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             RagdollMover[] arr = processor.owner.GetComponentsInChildren<RagdollMover>();
             RagdollMovers.AddRange(arr);
 
-            HipRigidbody = GetHip(RagdollMovers[0].myJoint);
+            HipRigidbody = GetHip();
             HipJoint = HipRigidbody.GetComponent<ConfigurableJoint>();
             RootPivot = HipJoint.connectedBody;
         }
 
-        Rigidbody GetHip(ConfigurableJoint joint)
+        Rigidbody GetHip()
         {
-            // get parent joint
-            Rigidbody parentRigid = joint.connectedBody;
-            ConfigurableJoint parentJoint = parentRigid.GetComponent<ConfigurableJoint>();
+            ConfigurableJoint[] arr = processor.owner.GetComponentsInChildren<ConfigurableJoint>();
 
-            // if parent joint doesn't have configurable joint, this joint is a hip
-            if (parentJoint == null)
+            foreach(ConfigurableJoint j in arr)
             {
-                return joint.GetComponent<Rigidbody>();
+                if (j.name.Contains("hip") || j.name.Contains("Hip"))
+                {
+                    return j.GetComponent<Rigidbody>();
+                }
             }
-            else
-            {
-                return GetHip(parentRigid.GetComponent<ConfigurableJoint>());
-            }
+
+            return null;
         }
 
         void SetDummy()
