@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Ragdoll;
 
 namespace ControllerExperiment.SubComponents.Ragdoll
 {
-    public class MoveRagdollEntity : SubComponent
+    public class MoveRagdollEntity : BaseSubComponent
     {
         [Header("Move Attributes")]
         [SerializeField] string TargetPositionObj;

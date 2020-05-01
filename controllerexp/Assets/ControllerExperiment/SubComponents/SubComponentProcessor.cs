@@ -39,28 +39,28 @@ namespace ControllerExperiment.SubComponents
         public delegate int GetIntDelegate();
 
         [Header("SubComponent Processor Debug")]
-        public List<SubComponent> SubComponents = new List<SubComponent>();
+        public List<BaseSubComponent> SubComponents = new List<BaseSubComponent>();
 
         private void Awake()
         {
             SubComponents.Clear();
 
-            SubComponent[] arr = this.gameObject.GetComponentsInChildren<SubComponent>();
+            BaseSubComponent[] arr = this.gameObject.GetComponentsInChildren<BaseSubComponent>();
 
-            foreach(SubComponent s in arr)
+            foreach(BaseSubComponent s in arr)
             {
                 SubComponents.Add(s);
 
                 // check whether the subcomponent needs to be updated/fixedupdated
                 System.Type child = s.GetType();
-                s.DoFixedUpdate = OverrideCheck.IsOverridden(child, typeof(SubComponent), "OnFixedUpdate");
-                s.DoUpdate = OverrideCheck.IsOverridden(child, typeof(SubComponent), "OnUpdate");
+                s.DoFixedUpdate = OverrideCheck.IsOverridden(child, typeof(BaseSubComponent), "OnFixedUpdate");
+                s.DoUpdate = OverrideCheck.IsOverridden(child, typeof(BaseSubComponent), "OnUpdate");
             }
         }
 
         public void FixedUpdateSubComponents()
         {
-            foreach(SubComponent s in SubComponents)
+            foreach(BaseSubComponent s in SubComponents)
             {
                 if (s.DoFixedUpdate)
                 {
@@ -71,7 +71,7 @@ namespace ControllerExperiment.SubComponents
 
         public void UpdateSubComponents()
         {
-            foreach (SubComponent s in SubComponents)
+            foreach (BaseSubComponent s in SubComponents)
             {
                 if (s.DoUpdate)
                 {

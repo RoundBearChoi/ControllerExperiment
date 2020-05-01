@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment.SubComponents.Player
 {
-    public class PlayerInput : SubComponent
+    public class PlayerInput : BaseSubComponent
     {
         [Header("Player Input Debug")]
         [SerializeField] bool Up;

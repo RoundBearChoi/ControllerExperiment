@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment.SubComponents.Player
 {
-    public class Rotation : SubComponent
+    public class Rotation : BaseSubComponent
     {
         [Header("Attributes")]
         [SerializeField] AnimationCurve TorqueMultiplier;

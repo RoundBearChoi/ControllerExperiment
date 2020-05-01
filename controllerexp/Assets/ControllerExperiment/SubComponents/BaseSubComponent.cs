@@ -2,7 +2,7 @@
 
 namespace ControllerExperiment.SubComponents
 {
-    public abstract class SubComponent : MonoBehaviour
+    public abstract class BaseSubComponent : MonoBehaviour
     {
         [Header("SubComponent Debug")]
         public bool DoFixedUpdate;
@@ -17,17 +17,17 @@ namespace ControllerExperiment.SubComponents
             throw new System.NotImplementedException();
         }
 
-        private SubComponentProcessor mSubComponentProcessor = null;
+        private SubComponentProcessor mProcessor = null;
 
         protected SubComponentProcessor processor
         {
             get
             {
-                if (mSubComponentProcessor == null)
+                if (mProcessor == null)
                 {
-                    mSubComponentProcessor = this.gameObject.GetComponentInParent<SubComponentProcessor>();
+                    mProcessor = this.gameObject.GetComponentInParent<SubComponentProcessor>();
                 }
-                return mSubComponentProcessor;
+                return mProcessor;
             }
         }
     }

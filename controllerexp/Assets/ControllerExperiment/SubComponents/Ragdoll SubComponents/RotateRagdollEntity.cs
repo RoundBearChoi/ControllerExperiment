@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Ragdoll;
 
 namespace ControllerExperiment.SubComponents.Ragdoll
 {
-    public class RotateRagdollEntity : SubComponent
+    public class RotateRagdollEntity : BaseSubComponent
     {
         [Header("Rotation Attributes")]
         [SerializeField] string TargetRotationObjectName;

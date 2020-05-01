@@ -6,7 +6,7 @@ using ControllerExperiment.Animations;
 
 namespace ControllerExperiment.SubComponents.Player
 {
-    public class PlayAnimation : SubComponent
+    public class PlayAnimation : BaseSubComponent
     {
         [Header("Play Animation Attributes")]
         [SerializeField] string TargetAnimationObjectName;

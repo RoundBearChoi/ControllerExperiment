@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment.SubComponents
 {
-    public class CharacterJointFinder : SubComponent
+    public class CharacterJointFinder : BaseSubComponent
     {
         [Header("Debug")]
         [SerializeField] List<CharacterJoint> CharacterJoints = new List<CharacterJoint>();

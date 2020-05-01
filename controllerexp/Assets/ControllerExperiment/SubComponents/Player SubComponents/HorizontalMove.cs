@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment.SubComponents.Player
 {
-    public class HorizontalMove : SubComponent
+    public class HorizontalMove : BaseSubComponent
     {
         [Header("Move Debug")]
         [SerializeField] Vector3 TargetWalkDir = new Vector3();

@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Ragdoll;
 
 namespace ControllerExperiment.SubComponents.Ragdoll
 {
-    public class RagdollAnimation : SubComponent
+    public class RagdollAnimation : BaseSubComponent
     {
         [Header("Attributes")]
         [SerializeField] string DummyRootName;

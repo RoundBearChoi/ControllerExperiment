@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment.SubComponents.Player
 {
-    public class GroundDetection : SubComponent
+    public class GroundDetection : BaseSubComponent
     {
         [Header("Ground Detection Debug")]
         [SerializeField] bool mIsGrounded;

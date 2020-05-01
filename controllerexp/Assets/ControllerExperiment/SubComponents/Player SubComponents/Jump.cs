@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment.SubComponents.Player
 {
-    public class Jump : SubComponent
+    public class Jump : BaseSubComponent
     {
         [Header("Jump Attributes")]
         [SerializeField] float JumpForce;
