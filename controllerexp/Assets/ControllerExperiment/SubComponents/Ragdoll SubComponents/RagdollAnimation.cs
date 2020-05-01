@@ -21,10 +21,10 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         private void Start()
         {
-            processor.DelegateSetEntity(SetRagdoll.SET_RAGDOLL_DUMMY, SetDummy);
-            processor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
-            processor.DelegateSetEntity(SetRagdoll.STOP_ANIMATING, StopAnimating);
-            processor.DelegateSetEntity(SetRagdoll.START_ANIMATING, StartAnimating);
+            subComponentProcessor.DelegateSetEntity(SetRagdoll.SET_RAGDOLL_DUMMY, SetDummy);
+            subComponentProcessor.DelegateSetEntity(SetRagdoll.COPY_DUMMY_ANIMATION, CopyAnimation);
+            subComponentProcessor.DelegateSetEntity(SetRagdoll.STOP_ANIMATING, StopAnimating);
+            subComponentProcessor.DelegateSetEntity(SetRagdoll.START_ANIMATING, StartAnimating);
 
             FindRagdollSetters();
         }
@@ -43,10 +43,10 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         {
             RagdollMovers.Clear();
 
-            RagdollMover[] arr = processor.owner.GetComponentsInChildren<RagdollMover>();
+            RagdollMover[] arr = subComponentProcessor.owner.GetComponentsInChildren<RagdollMover>();
             RagdollMovers.AddRange(arr);
 
-            HipRigidbody = RagdollPartFinder.GetHip(processor.owner);
+            HipRigidbody = RagdollPartFinder.GetHip(subComponentProcessor.owner);
             HipJoint = HipRigidbody.GetComponent<ConfigurableJoint>();
             RootPivot = HipJoint.connectedBody;
         }

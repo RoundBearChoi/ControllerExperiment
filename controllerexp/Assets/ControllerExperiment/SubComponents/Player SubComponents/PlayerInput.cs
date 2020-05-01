@@ -16,11 +16,11 @@ namespace ControllerExperiment.SubComponents.Player
 
         private void Start()
         {
-            processor.DelegateGetBool(PlayerBool.PRESSED_UP, Pressed_Up);
-            processor.DelegateGetBool(PlayerBool.PRESSED_DOWN, Pressed_Down);
-            processor.DelegateGetBool(PlayerBool.PRESSED_LEFT, Pressed_Left);
-            processor.DelegateGetBool(PlayerBool.PRESSED_RIGHT, Pressed_Right);
-            processor.DelegateGetBool(PlayerBool.PRESSED_JUMP, Pressed_Jump);
+            subComponentProcessor.DelegateGetBool(PlayerBool.PRESSED_UP, Pressed_Up);
+            subComponentProcessor.DelegateGetBool(PlayerBool.PRESSED_DOWN, Pressed_Down);
+            subComponentProcessor.DelegateGetBool(PlayerBool.PRESSED_LEFT, Pressed_Left);
+            subComponentProcessor.DelegateGetBool(PlayerBool.PRESSED_RIGHT, Pressed_Right);
+            subComponentProcessor.DelegateGetBool(PlayerBool.PRESSED_JUMP, Pressed_Jump);
         }
 
         public override void OnUpdate()

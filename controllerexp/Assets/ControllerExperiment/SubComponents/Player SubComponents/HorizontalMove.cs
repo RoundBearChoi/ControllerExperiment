@@ -17,40 +17,40 @@ namespace ControllerExperiment.SubComponents.Player
 
         private void Start()
         {
-            processor.DelegateSetEntity(SetPlayer.SET_WALK_DIRECTION, SetTargetWalkDir);
-            processor.DelegateSetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
-            processor.DelegateSetEntity(SetPlayer.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
-            processor.DelegateSetFloat(PlayerFloat.SET_TARGET_WALK_SPEED, SetWalkSpeed);
-            processor.DelegateGetFloat(PlayerFloat.GET_TARGET_WALK_SPEED, GetWalkDirectionMagnitude);
+            subComponentProcessor.DelegateSetEntity(SetPlayer.SET_WALK_DIRECTION, SetTargetWalkDir);
+            subComponentProcessor.DelegateSetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION, WalkToTargetDir);
+            subComponentProcessor.DelegateSetEntity(SetPlayer.CANCEL_HORIZONTAL_VELOCITY, CancelHorizontalVelocity);
+            subComponentProcessor.DelegateSetFloat(PlayerFloat.SET_TARGET_WALK_SPEED, SetWalkSpeed);
+            subComponentProcessor.DelegateGetFloat(PlayerFloat.GET_TARGET_WALK_SPEED, GetWalkDirectionMagnitude);
         }
 
         void SetTargetWalkDir()
         {
             TargetWalkDir = Vector3.zero;
 
-            bool Up = processor.GetBool(PlayerBool.PRESSED_UP);
-            bool Down = processor.GetBool(PlayerBool.PRESSED_DOWN);
-            bool Left = processor.GetBool(PlayerBool.PRESSED_LEFT);
-            bool Right = processor.GetBool(PlayerBool.PRESSED_RIGHT);
+            bool Up = subComponentProcessor.GetBool(PlayerBool.PRESSED_UP);
+            bool Down = subComponentProcessor.GetBool(PlayerBool.PRESSED_DOWN);
+            bool Left = subComponentProcessor.GetBool(PlayerBool.PRESSED_LEFT);
+            bool Right = subComponentProcessor.GetBool(PlayerBool.PRESSED_RIGHT);
 
             if (Up)
             {
-                TargetWalkDir += processor.owner.transform.forward;
+                TargetWalkDir += subComponentProcessor.owner.transform.forward;
             }
 
             if (Down)
             {
-                TargetWalkDir -= processor.owner.transform.forward;
+                TargetWalkDir -= subComponentProcessor.owner.transform.forward;
             }
 
             if (Left)
             {
-                TargetWalkDir -= processor.owner.transform.right;
+                TargetWalkDir -= subComponentProcessor.owner.transform.right;
             }
 
             if (Right)
             {
-                TargetWalkDir += processor.owner.transform.right;
+                TargetWalkDir += subComponentProcessor.owner.transform.right;
             }
 
             if (Vector3.SqrMagnitude(TargetWalkDir) > 0.1f)
@@ -70,13 +70,13 @@ namespace ControllerExperiment.SubComponents.Player
                     TargetWalkDir.Normalize();
                 }
 
-                Debug.DrawLine(processor.owner.rbody.position, processor.owner.rbody.position + TargetWalkDir, Color.yellow, 0.25f);
+                Debug.DrawLine(subComponentProcessor.owner.rbody.position, subComponentProcessor.owner.rbody.position + TargetWalkDir, Color.yellow, 0.25f);
             }
         }
 
         void CancelHorizontalVelocity()
         {
-            Rigidbody ownerRigidBody = processor.owner.rbody;
+            Rigidbody ownerRigidBody = subComponentProcessor.owner.rbody;
             ownerRigidBody.AddForce(Vector3.right * -ownerRigidBody.velocity.x, ForceMode.VelocityChange);
             ownerRigidBody.AddForce(Vector3.forward * -ownerRigidBody.velocity.z, ForceMode.VelocityChange);
         }
@@ -85,12 +85,12 @@ namespace ControllerExperiment.SubComponents.Player
         {
             CancelHorizontalVelocity();
             MoveForce = TargetWalkDir.normalized * Speed;
-            processor.owner.rbody.AddForce(MoveForce, ForceMode.VelocityChange);
+            subComponentProcessor.owner.rbody.AddForce(MoveForce, ForceMode.VelocityChange);
         }
 
         Vector3 GetGroundNormal()
         {
-            Ray ray = new Ray(processor.owner.rbody.position, Vector3.down);
+            Ray ray = new Ray(subComponentProcessor.owner.rbody.position, Vector3.down);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 2f, DefaultLayerMask))

@@ -13,8 +13,8 @@ namespace ControllerExperiment.SubComponents.Player
 
         private void Start()
         {
-            processor.DelegateSetEntity(SetPlayer.PLAY_ANIMATION_IDLE, Play_Idle);
-            processor.DelegateSetEntity(SetPlayer.PLAY_ANIMATION_WALK, Play_Walk);
+            subComponentProcessor.DelegateSetEntity(SetPlayer.PLAY_ANIMATION_IDLE, Play_Idle);
+            subComponentProcessor.DelegateSetEntity(SetPlayer.PLAY_ANIMATION_WALK, Play_Walk);
         }
 
         void Play_Idle()

@@ -13,7 +13,7 @@ namespace ControllerExperiment.SubComponents
         {
             ClearList();
 
-            CharacterJoint[] joints = processor.owner.gameObject.GetComponentsInChildren<CharacterJoint>();
+            CharacterJoint[] joints = subComponentProcessor.owner.gameObject.GetComponentsInChildren<CharacterJoint>();
 
             foreach (CharacterJoint j in joints)
             {

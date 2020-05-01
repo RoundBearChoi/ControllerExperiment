@@ -17,26 +17,26 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         private void Start()
         {
-            RootPivot = RagdollPartFinder.GetRootJoint(processor.owner);
+            RootPivot = RagdollPartFinder.GetRootJoint(subComponentProcessor.owner);
             RootPivotAnchor = RootPivot.transform.localPosition;
             TargetObj = GameObject.Find(TargetPositionObj);
 
-            processor.DelegateSetEntity(SetRagdoll.INSTANT_MOVE_ENTITY, InstantMoveEntity);
+            subComponentProcessor.DelegateSetEntity(SetRagdoll.INSTANT_MOVE_ENTITY, InstantMoveEntity);
         }
 
         void InstantMoveEntity()
         {
             if (TargetObj != null)
             {
-                processor.owner.rbody.MovePosition(TargetObj.transform.position);
+                subComponentProcessor.owner.rbody.MovePosition(TargetObj.transform.position);
 
                 //temp
                 if (RootPivot == null)
                 {
-                    RootPivot = RagdollPartFinder.GetRootJoint(processor.owner);
+                    RootPivot = RagdollPartFinder.GetRootJoint(subComponentProcessor.owner);
                 }
 
-                RootPivot.MovePosition(processor.owner.transform.position + RootPivotAnchor);
+                RootPivot.MovePosition(subComponentProcessor.owner.transform.position + RootPivotAnchor);
             }
         }
     }

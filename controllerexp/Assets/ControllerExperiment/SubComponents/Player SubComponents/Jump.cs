@@ -12,21 +12,21 @@ namespace ControllerExperiment.SubComponents.Player
 
         private void Start()
         {
-            processor.DelegateSetEntity(SetPlayer.ADD_JUMP_FORCE, AddJumpForce);
-            processor.DelegateSetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY, CancelVerticalVelocity);
+            subComponentProcessor.DelegateSetEntity(SetPlayer.ADD_JUMP_FORCE, AddJumpForce);
+            subComponentProcessor.DelegateSetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY, CancelVerticalVelocity);
         }
 
         void AddJumpForce()
         {
-            processor.owner.rbody.AddForce(Vector3.up * -processor.owner.rbody.velocity.y, ForceMode.VelocityChange);
-            processor.owner.rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
+            subComponentProcessor.owner.rbody.AddForce(Vector3.up * -subComponentProcessor.owner.rbody.velocity.y, ForceMode.VelocityChange);
+            subComponentProcessor.owner.rbody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
         }
 
         void CancelVerticalVelocity()
         {
-            if (processor.owner.rbody.velocity.y > 0f)
+            if (subComponentProcessor.owner.rbody.velocity.y > 0f)
             {
-                processor.owner.rbody.AddForce(Vector3.up * -processor.owner.rbody.velocity.y, ForceMode.VelocityChange);
+                subComponentProcessor.owner.rbody.AddForce(Vector3.up * -subComponentProcessor.owner.rbody.velocity.y, ForceMode.VelocityChange);
             }
         }
     }

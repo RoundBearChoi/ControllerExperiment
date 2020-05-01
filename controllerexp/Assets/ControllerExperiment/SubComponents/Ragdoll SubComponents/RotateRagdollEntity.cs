@@ -17,9 +17,9 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         private void Start()
         {
-            processor.DelegateSetEntity(SetRagdoll.INSTANT_ROTATE_ENTITY, InstantRotateEntity);
+            subComponentProcessor.DelegateSetEntity(SetRagdoll.INSTANT_ROTATE_ENTITY, InstantRotateEntity);
             TargetRotationObj = GameObject.Find(TargetRotationObjectName);
-            RootPivot = RagdollPartFinder.GetRootJoint(processor.owner);
+            RootPivot = RagdollPartFinder.GetRootJoint(subComponentProcessor.owner);
         }
 
         public override void OnFixedUpdate()
@@ -32,7 +32,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         void InstantRotateEntity()
         {
-            processor.owner.rbody.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
+            subComponentProcessor.owner.rbody.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
             
             //temp
             RootPivot.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
