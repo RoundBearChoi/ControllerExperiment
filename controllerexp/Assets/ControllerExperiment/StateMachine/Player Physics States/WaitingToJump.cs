@@ -9,7 +9,7 @@ namespace ControllerExperiment.States.Player
     {
         public override void ProcStateFixedUpdate()
         {
-            if (owner.rbody.velocity.y > 0f)
+            if (stateProcessor.owner.rbody.velocity.y > 0f)
             {
                 subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY);
                 stateProcessor.TransitionTo(typeof(JumpingUp));

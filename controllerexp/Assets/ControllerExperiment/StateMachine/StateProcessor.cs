@@ -29,6 +29,20 @@ namespace ControllerExperiment.States
         [Space(10)]
         public BaseState Current = null;
 
+        private ControllerEntity m_owner;
+
+        public ControllerEntity owner
+        {
+            get
+            {
+                if (m_owner == null)
+                {
+                    m_owner = this.gameObject.GetComponentInParent<ControllerEntity>();
+                }
+                return m_owner;
+            }
+        }
+
         private void Awake()
         {
             AllStates.Clear();

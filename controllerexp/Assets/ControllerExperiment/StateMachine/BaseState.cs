@@ -23,25 +23,11 @@ namespace ControllerExperiment.States
             throw new System.NotImplementedException();
         }
 
-        protected ControllerEntity owner
-        {
-            get
-            {
-                if (mOwner == null)
-                {
-                    mOwner = this.gameObject.GetComponentInParent<ControllerEntity>();
-                }
-                return mOwner;
-            }
-        }
-
-        ControllerEntity mOwner = null;
-
         protected SubComponents.SubComponentProcessor subComponentProcessor
         {
             get
             {
-                return owner.subComponentProcessor;
+                return stateProcessor.owner.subComponentProcessor;
             }
         }
     }

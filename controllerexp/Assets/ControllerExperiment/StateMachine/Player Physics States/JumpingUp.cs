@@ -8,7 +8,7 @@ namespace ControllerExperiment.States.Player
     {
         public override void ProcStateFixedUpdate()
         {
-            if (owner.rbody.velocity.y < 0f)
+            if (stateProcessor.owner.rbody.velocity.y < 0f)
             {
                 stateProcessor.TransitionTo(typeof(FreeFall));
             }
