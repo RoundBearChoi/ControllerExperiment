@@ -28,8 +28,8 @@ namespace ControllerExperiment
         private IEnumerator Start()
         {
             // must init ragdoll states
-            GetStateProcessor(STATE.RAGDOLL_ANIMATION).TransitionTo(typeof(RagdollAnimationStart));
-            GetStateProcessor(STATE.RAGDOLL_TRANSFORM).TransitionTo(typeof(RagdollTransformStart));
+            GetStateProcessor(StateProcessorType.RAGDOLL_ANIMATION).TransitionTo(typeof(RagdollAnimationStart));
+            GetStateProcessor(StateProcessorType.RAGDOLL_TRANSFORM).TransitionTo(typeof(RagdollTransformStart));
 
             subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_ANIMATION_STATE, GetSelectedAnimationState);
             subComponentProcessor.DelegateGetInt(RagdollInt.RAGDOLL_TRANSFORM_STATE, GetSelectedTransformState);

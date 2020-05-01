@@ -4,14 +4,16 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public enum STATE
+    public enum StateProcessorType
     {
         NONE,
         
         PLAYER_PHYSICS,
-        RAGDOLL_ANIMATION,
 
+        RAGDOLL_ANIMATION,
         RAGDOLL_TRANSFORM,
+
+        PLAYER_RENDER,
     }
 }
 
@@ -20,7 +22,7 @@ namespace ControllerExperiment.States
     public class StateProcessor : MonoBehaviour
     {
         [Header("State Processor Attributes")]
-        public STATE m_StateType;
+        public StateProcessorType m_StateType;
 
         [Header("State Processor Debug")]
         public List<BaseState> AllStates = new List<BaseState>();

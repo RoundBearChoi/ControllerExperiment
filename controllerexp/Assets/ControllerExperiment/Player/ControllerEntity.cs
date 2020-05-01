@@ -9,12 +9,12 @@ namespace ControllerExperiment
     public abstract class ControllerEntity : MonoBehaviour
     {
         [Header("Controller Entity Debug")]
-        public Rigidbody m_rbody = null;
+        [SerializeField] Rigidbody m_rbody = null;
         [SerializeField] SubComponentProcessor m_SubComponentProcessor = null;
         [Space(5)]
         [SerializeField] List<StateProcessor> StateProcessorsList = new List<StateProcessor>();
 
-        Dictionary<STATE, StateProcessor> StateProcessorDic = new Dictionary<STATE, StateProcessor>();
+        Dictionary<StateProcessorType, StateProcessor> StateProcessorDic = new Dictionary<StateProcessorType, StateProcessor>();
 
         private void Awake()
         {
@@ -46,7 +46,7 @@ namespace ControllerExperiment
             }
         }
 
-        protected StateProcessor GetStateProcessor(STATE type)
+        protected StateProcessor GetStateProcessor(StateProcessorType type)
         {
             if (StateProcessorDic.Count == 0)
             {
