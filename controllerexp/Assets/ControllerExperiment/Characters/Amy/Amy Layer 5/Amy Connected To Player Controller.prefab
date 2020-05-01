@@ -182,6 +182,11 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.0030053586
       objectReference: {fileID: 0}
+    - target: {fileID: 7249671125660876666, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
+        type: 3}
+      propertyPath: TargetPositionObj
+      value: Base Player Controller
+      objectReference: {fileID: 0}
     - target: {fileID: 7271144448814181222, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_LocalPosition.x

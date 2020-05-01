@@ -7,7 +7,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 {
     public class RotateRagdollEntity : SubComponent
     {
-        [Header("Attributes")]
+        [Header("Rotation Attributes")]
         [SerializeField] string TargetRotationObjectName;
         [SerializeField] GameObject TargetRotationObj;
         [SerializeField] float DesiredYRotation;
@@ -17,8 +17,9 @@ namespace ControllerExperiment.SubComponents.Ragdoll
 
         private void Start()
         {
-            processor.DelegateSetEntity(SetRagdoll.ROTATE_ENTITY, RotateEntity);
+            processor.DelegateSetEntity(SetRagdoll.INSTANT_ROTATE_ENTITY, InstantRotateEntity);
             TargetRotationObj = GameObject.Find(TargetRotationObjectName);
+            RootPivot = RagdollPartFinder.GetRootJoint(processor.owner);
         }
 
         public override void OnFixedUpdate()
@@ -29,15 +30,11 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             }
         }
 
-        void RotateEntity()
+        void InstantRotateEntity()
         {
             processor.owner.rbody.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
             
-            if (RootPivot == null)
-            {
-                RootPivot = RagdollPartFinder.GetRootJoint(processor.owner);
-            }
-            
+            //temp
             RootPivot.MoveRotation(Quaternion.Euler(0, DesiredYRotation, 0f));
         }
     }
