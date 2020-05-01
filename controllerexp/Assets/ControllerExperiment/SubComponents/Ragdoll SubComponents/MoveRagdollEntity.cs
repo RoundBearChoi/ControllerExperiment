@@ -10,6 +10,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         [Header("Move Attributes")]
         [SerializeField] string TargetPositionObj;
         [SerializeField] GameObject TargetObj;
+        [SerializeField] Vector3 Offset = new Vector3();
 
         [Header("Move Debug")]
         [SerializeField] Rigidbody RootPivot;
@@ -28,7 +29,7 @@ namespace ControllerExperiment.SubComponents.Ragdoll
         {
             if (TargetObj != null)
             {
-                subComponentProcessor.owner.rbody.MovePosition(TargetObj.transform.position);
+                subComponentProcessor.owner.rbody.MovePosition(TargetObj.transform.position + Offset);
 
                 // make sure root pivot stays anchored
                 if (RootPivot == null)
