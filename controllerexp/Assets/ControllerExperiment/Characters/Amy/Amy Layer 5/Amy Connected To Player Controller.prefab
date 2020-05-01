@@ -147,6 +147,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amy Connected To Player Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 5959127085548673397, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 6988906417255225933, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_ConnectedAnchor.x

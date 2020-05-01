@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Ragdoll;
 
 namespace ControllerExperiment.States.Ragdoll
 {
-    public class InstantFollowController : BaseState
+    public class InstantFollowPlayerController : BaseState
     {
         public override void ProcStateFixedUpdate()
         {

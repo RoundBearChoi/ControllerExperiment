@@ -13,7 +13,7 @@ namespace ControllerExperiment.States.Ragdoll
 
             if (t == (int)RagdollTransformState.INSTANT_FOLLOW)
             {
-                stateProcessor.TransitionTo(typeof(InstantFollowController));
+                stateProcessor.TransitionTo(typeof(InstantFollowPlayerController));
             }
             else if (t == (int)RagdollTransformState.NO_FOLLOW)
             {
