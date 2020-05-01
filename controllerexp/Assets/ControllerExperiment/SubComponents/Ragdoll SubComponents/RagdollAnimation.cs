@@ -111,14 +111,14 @@ namespace ControllerExperiment.SubComponents.Ragdoll
                 a.DoNotSync = true;
 
                 JointDefaultSettings(a.myJoint);
-                JointDefaultSettings(HipJoint);
-
                 RigidBodyDefaultSettings(a.myRigidBody);
-                RigidBodyDefaultSettings(HipRigidbody);
-
+                
                 JointUpdater.UpdateAngularDrive(a.myJoint, 0f, 0f);
                 JointUpdater.UpdateTargetRotation(a.myJoint, Vector3.zero);
             }
+
+            JointDefaultSettings(HipJoint);
+            RigidBodyDefaultSettings(HipRigidbody);
         }
 
         void StartAnimating()
@@ -128,13 +128,13 @@ namespace ControllerExperiment.SubComponents.Ragdoll
                 a.DoNotSync = false;
 
                 JointDefaultSettings(a.myJoint);
-                JointDefaultSettings(HipJoint);
-
                 RigidBodyDefaultSettings(a.myRigidBody);
-                RigidBodyDefaultSettings(HipRigidbody);
 
                 JointUpdater.UpdateAngularDrive(a.myJoint, 1000f, 0f);
             }
+
+            JointDefaultSettings(HipJoint);
+            RigidBodyDefaultSettings(HipRigidbody);
         }
 
         void AlignRootPivotToRootObj()
