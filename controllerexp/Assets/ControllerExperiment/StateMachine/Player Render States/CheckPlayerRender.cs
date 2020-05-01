@@ -13,11 +13,11 @@ namespace ControllerExperiment.States.Player
 
             if (r == (int)PlayerRenderType.CAPSULE)
             {
-
+                stateProcessor.TransitionTo(typeof(RenderCapsule));
             }
             else if (r == (int)PlayerRenderType.NO_CAPSULE)
             {
-
+                stateProcessor.TransitionTo(typeof(NoPlayerControllerRender));
             }
         }
     }

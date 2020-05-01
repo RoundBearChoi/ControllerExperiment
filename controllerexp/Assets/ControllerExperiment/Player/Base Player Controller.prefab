@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DoFixedUpdate: 0
   DoUpdate: 0
-  m_IsGrounded: 0
+  mIsGrounded: 0
 --- !u!1 &1104336226459916248
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,10 +607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c0e65ce05f3274cb41a588c9927e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rbody: {fileID: 0}
+  mRigidBody: {fileID: 0}
   m_SubComponentProcessor: {fileID: 0}
   StateProcessorsList: []
   capCollider: {fileID: 0}
+  mPlayerRenderType: 1
 --- !u!1 &7797556371536090322
 GameObject:
   m_ObjectHideFlags: 0
