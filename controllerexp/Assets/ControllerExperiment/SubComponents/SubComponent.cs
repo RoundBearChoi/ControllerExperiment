@@ -17,17 +17,17 @@ namespace ControllerExperiment.SubComponents
             throw new System.NotImplementedException();
         }
 
-        private SubComponentProcessor m_processor = null;
+        private SubComponentProcessor mSubComponentProcessor = null;
 
         protected SubComponentProcessor processor
         {
             get
             {
-                if (m_processor == null)
+                if (mSubComponentProcessor == null)
                 {
-                    m_processor = this.gameObject.GetComponentInParent<SubComponentProcessor>();
+                    mSubComponentProcessor = this.gameObject.GetComponentInParent<SubComponentProcessor>();
                 }
-                return m_processor;
+                return mSubComponentProcessor;
             }
         }
     }
