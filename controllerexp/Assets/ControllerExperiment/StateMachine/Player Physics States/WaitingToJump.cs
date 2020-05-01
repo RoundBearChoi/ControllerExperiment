@@ -14,6 +14,11 @@ namespace ControllerExperiment.States.Player
                 subComponentProcessor.SetEntity(SetPlayer.CANCEL_HORIZONTAL_ANGULAR_VELOCITY);
                 stateProcessor.TransitionTo(typeof(JumpingUp));
             }
+            else
+            {
+                // temp
+                stateProcessor.TransitionTo(typeof(GroundIdle));
+            }
         }
     }
 }
