@@ -46,24 +46,9 @@ namespace ControllerExperiment.SubComponents.Ragdoll
             RagdollMover[] arr = processor.owner.GetComponentsInChildren<RagdollMover>();
             RagdollMovers.AddRange(arr);
 
-            HipRigidbody = GetHip();
+            HipRigidbody = RagdollPartFinder.GetHip(processor.owner);
             HipJoint = HipRigidbody.GetComponent<ConfigurableJoint>();
             RootPivot = HipJoint.connectedBody;
-        }
-
-        Rigidbody GetHip()
-        {
-            ConfigurableJoint[] arr = processor.owner.GetComponentsInChildren<ConfigurableJoint>();
-
-            foreach(ConfigurableJoint j in arr)
-            {
-                if (j.name.Contains("hip") || j.name.Contains("Hip"))
-                {
-                    return j.GetComponent<Rigidbody>();
-                }
-            }
-
-            return null;
         }
 
         void SetDummy()

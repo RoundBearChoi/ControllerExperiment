@@ -25,5 +25,20 @@ namespace ControllerExperiment
 
             return null;
         }
+
+        public static Rigidbody GetHip(ControllerEntity entity)
+        {
+            ConfigurableJoint[] arr = entity.GetComponentsInChildren<ConfigurableJoint>();
+
+            foreach (ConfigurableJoint j in arr)
+            {
+                if (j.name.Contains("hip") || j.name.Contains("Hip"))
+                {
+                    return j.GetComponent<Rigidbody>();
+                }
+            }
+
+            return null;
+        }
     }
 }
