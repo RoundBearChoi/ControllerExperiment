@@ -15,7 +15,7 @@ namespace ControllerExperiment.States.Player
 
         public override void ProcStateFixedUpdate()
         {
-            stateProcessor.TransitionTo(typeof(OnGround));
+            stateProcessor.TransitionTo(typeof(GroundIdle));
         }
     }
 }

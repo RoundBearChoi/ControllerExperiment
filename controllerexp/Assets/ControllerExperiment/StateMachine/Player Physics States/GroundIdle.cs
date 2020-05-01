@@ -5,25 +5,31 @@ using ControllerExperiment.Keys.Player;
 
 namespace ControllerExperiment.States.Player
 {
-    public class OnGround : BaseState
+    public class GroundIdle : BaseState
     {
-        [Header("OnGround Debug")]
-        public float GroundSpeed = 3.5f;
+        [Header("Idle Debug")]
+        [SerializeField] readonly float GroundSpeed = 0f;
 
         public override void OnEnter()
         {
             subComponentProcessor.SetFloat(PlayerFloat.SET_TARGET_WALK_SPEED, GroundSpeed);
+            subComponentProcessor.SetEntity(SetPlayer.PLAY_ANIMATION_IDLE);
         }
 
         public override void ProcStateFixedUpdate()
         {
             subComponentProcessor.SetEntity(SetPlayer.SET_WALK_DIRECTION);
             subComponentProcessor.SetEntity(SetPlayer.ROTATE_TO_TARGET_ANGLE);
-            subComponentProcessor.SetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION);
-            subComponentProcessor.SetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY);
+            //subComponentProcessor.SetEntity(SetPlayer.WALK_TO_TARGET_DIRECTION);
+            //subComponentProcessor.SetEntity(SetPlayer.CANCEL_VERTICAL_VELOCITY);
 
-            CheckWalk();
             CheckJump();
+
+            float s = subComponentProcessor.GetFloat(PlayerFloat.GET_TARGET_WALK_SPEED);
+            if (s >= 0.001f)
+            {
+                stateProcessor.TransitionTo(typeof(GroundWalk));
+            }
         }
 
         void CheckJump()
@@ -34,20 +40,6 @@ namespace ControllerExperiment.States.Player
             {
                 subComponentProcessor.SetEntity(SetPlayer.ADD_JUMP_FORCE);
                 stateProcessor.TransitionTo(typeof(WaitingToJump));
-            }
-        }
-
-        void CheckWalk()
-        {
-            float s = subComponentProcessor.GetFloat(PlayerFloat.GET_TARGET_WALK_SPEED);
-
-            if (s > 0.0001f)
-            {
-                subComponentProcessor.SetEntity(SetPlayer.PLAY_ANIMATION_WALK);
-            }
-            else
-            {
-                subComponentProcessor.SetEntity(SetPlayer.PLAY_ANIMATION_IDLE);
             }
         }
     }

@@ -17,7 +17,7 @@ namespace ControllerExperiment.States.Player
             }
             else 
             {
-                stateProcessor.TransitionTo(typeof(OnGround));
+                stateProcessor.TransitionTo(typeof(GroundIdle));
             }
         }
     }
