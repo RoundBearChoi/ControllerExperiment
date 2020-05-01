@@ -5,7 +5,7 @@ using ControllerExperiment.Keys.Ragdoll;
 
 namespace ControllerExperiment.States.Ragdoll
 {
-    public class DontFollowDummy : BaseState
+    public class InstantFollowController : BaseState
     {
         public override void ProcStateFixedUpdate()
         {

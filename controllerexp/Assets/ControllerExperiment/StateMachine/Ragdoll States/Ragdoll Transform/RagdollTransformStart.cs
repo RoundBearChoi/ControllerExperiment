@@ -13,11 +13,11 @@ namespace ControllerExperiment.States.Ragdoll
 
             if (t == RagdollTransformState.INSTANT_FOLLOW)
             {
-                stateProcessor.TransitionTo(typeof(FollowDummy));
+                stateProcessor.TransitionTo(typeof(InstantFollowController));
             }
             else if (t == RagdollTransformState.NO_FOLLOW)
             {
-                stateProcessor.TransitionTo(typeof(DontFollowDummy));
+                stateProcessor.TransitionTo(typeof(NoFollow));
             }
         }
     }
