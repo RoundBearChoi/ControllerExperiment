@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
+    // https://www.gamasutra.com/blogs/VivekTank/20180806/323709/How_to_work_with_Bezier_Curve_in_Games_with_Unity.php
+
     public abstract class BezierBase : MonoBehaviour
     {
         [Range(0f, 1f)]
@@ -29,11 +31,11 @@ namespace ControllerExperiment
                     {
                         timeScale = 0.1f;
                     }
-                }
 
-                if (time >= 1f)
-                {
-                    time = 0f;
+                    if (time >= 1f)
+                    {
+                        time = 0f;
+                    }
                 }
 
                 yield return new WaitForEndOfFrame();

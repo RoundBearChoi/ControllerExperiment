@@ -4,39 +4,45 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public class QuadraticBezier : BezierBase
+    public class CubicBezier : BezierBase
     {
 		Vector3 a = new Vector3();
 		Vector3 b = new Vector3();
+		Vector3 c = new Vector3();
+		Vector3 d = new Vector3();
+		Vector3 e = new Vector3();
 
 		public override void GetBezier(out Vector3 pos, List<GameObject> Checkpoints, float time)
 		{
-			if (Checkpoints.Count > 3)
+			if (Checkpoints.Count > 4)
 			{
-				for (int i = 3; i < Checkpoints.Count; i++)
+				for (int i = 4; i < Checkpoints.Count; i++)
 				{
 					Checkpoints.RemoveAt(i);
 				}
 			}
 
-			QuadraticCurve(out pos,
+			CubicCurve(out pos,
 				Checkpoints[0].transform.position,
 				Checkpoints[1].transform.position,
 				Checkpoints[2].transform.position,
+				Checkpoints[3].transform.position,
 				time);
 		}
 
-		// https://youtu.be/Xwj8_z9OrFw
-		void QuadraticCurve(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, float t)
+		void CubicCurve(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
 		{
 			float tt = t * t;
+			float ttt = t * tt;
 
-			float u = 1 - t;
+			float u = 1.0f - t;
 			float uu = u * u;
+			float uuu = u * uu;
 
-			result = uu * p0;
-			result += 2f * u * t * p1;
-			result += tt * p2;
+			result = uuu * p0;
+			result += 3f * uu * t * p1;
+			result += 3f * u * tt * p2;
+			result += ttt * p3;
 		}
 
 		private void Update()
@@ -51,11 +57,19 @@ namespace ControllerExperiment
 		{
 			Debug.DrawLine(Checkpoints[0].transform.position, Checkpoints[1].transform.position, Color.green);
 			Debug.DrawLine(Checkpoints[1].transform.position, Checkpoints[2].transform.position, Color.green);
+			Debug.DrawLine(Checkpoints[2].transform.position, Checkpoints[3].transform.position, Color.green);
 
 			a = Vector3.Lerp(Checkpoints[0].transform.position, Checkpoints[1].transform.position, time);
 			b = Vector3.Lerp(Checkpoints[1].transform.position, Checkpoints[2].transform.position, time);
+			c = Vector3.Lerp(Checkpoints[2].transform.position, Checkpoints[3].transform.position, time);
 
 			Debug.DrawLine(a, b, Color.yellow);
+			Debug.DrawLine(b, c, Color.yellow);
+
+			d = Vector3.Lerp(a, b, time);
+			e = Vector3.Lerp(b, c, time);
+
+			Debug.DrawLine(d, e, Color.red);
 		}
 	}
 }
