@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  AutoTime: 0
+  AutoTime: 1
   timeScale: 0
   Checkpoints:
   - {fileID: 257447453}
@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  AutoTime: 0
+  AutoTime: 1
   timeScale: 0
   Checkpoints:
   - {fileID: 995488910}
