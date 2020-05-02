@@ -4,23 +4,25 @@ using UnityEngine;
 
 namespace ControllerExperiment.Bezier
 {
-	public enum BezierCurveType
-	{ 
-		CUBIC,
+	public enum BezierType
+	{
 		QUADRATIC,
+		CUBIC,
 	}
 
-    public class BezierTest : MonoBehaviour
+    public class BezierCurve : MonoBehaviour
     {
 		[Range(0f, 1f)]
 		public float time;
+		public float scale;
 
-		public BezierCurveType mBezierCurveType;
+		public BezierType mBezierCurveType;
         public GameObject RedCube;
         public GameObject GreenCube;
         public GameObject BlueCube;
 		public GameObject YellowCube;
-		public Vector3 pos = new Vector3();
+		
+		Vector3 pos = new Vector3();
 
 		private IEnumerator Start()
 		{
@@ -28,7 +30,7 @@ namespace ControllerExperiment.Bezier
 
 			while (true)
 			{
-				time += Time.deltaTime;
+				time += Time.deltaTime * scale;
 
 				if (time >= 1f)
 				{
@@ -41,7 +43,7 @@ namespace ControllerExperiment.Bezier
 
 		private void Update()
 		{
-			if (mBezierCurveType == BezierCurveType.CUBIC)
+			if (mBezierCurveType == BezierType.CUBIC)
 			{
 				BezierPathCalculation(out pos,
 				RedCube.transform.position,
@@ -52,7 +54,7 @@ namespace ControllerExperiment.Bezier
 
 				this.transform.position = pos;
 			}
-			else if (mBezierCurveType == BezierCurveType.QUADRATIC)
+			else if (mBezierCurveType == BezierType.QUADRATIC)
 			{
 				BezierPathCalculation(out pos,
 				RedCube.transform.position,
@@ -62,7 +64,6 @@ namespace ControllerExperiment.Bezier
 
 				this.transform.position = pos;
 			}
-			
 		}
 
 		// Cubic Curve https://www.gamasutra.com/blogs/VivekTank/20180806/323709/How_to_work_with_Bezier_Curve_in_Games_with_Unity.php
