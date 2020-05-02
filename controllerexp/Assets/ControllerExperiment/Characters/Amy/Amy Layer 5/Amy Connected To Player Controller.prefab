@@ -70,22 +70,22 @@ PrefabInstance:
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_LowAngularXLimit.limit
-      value: -12.364353
+      value: -49.28945
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_HighAngularXLimit.limit
-      value: 7.4607983
+      value: 67.02281
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularYLimit.limit
-      value: 13.440943
+      value: 3.3296208
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularZLimit.limit
-      value: 11.446939
+      value: 5.569566
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
@@ -120,22 +120,22 @@ PrefabInstance:
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularXDrive.positionSpring
-      value: 20
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularXDrive.positionDamper
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularYZDrive.positionSpring
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularYZDrive.positionDamper
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3945497017144447082, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
@@ -372,6 +372,16 @@ PrefabInstance:
         type: 3}
       propertyPath: TargetRotationObjectName
       value: Base Player Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182766766149721146, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182766766149721146, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34d403b1f35dcd4a8c7c694efb46ed7, type: 3}

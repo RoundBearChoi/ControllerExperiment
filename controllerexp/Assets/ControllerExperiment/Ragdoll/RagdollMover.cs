@@ -7,6 +7,7 @@ namespace ControllerExperiment
     public class RagdollMover : MonoBehaviour
     {
         public bool DoNotSync;
+
         public Rigidbody myRigidBody
         {
             get
