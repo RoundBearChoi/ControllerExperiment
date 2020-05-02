@@ -39,7 +39,7 @@ namespace ControllerExperiment
                 Vector3 p1 = Checkpoints[index1].transform.position;
                 Vector3 p2 = Checkpoints[index2].transform.position;
 
-                BezierEquation.GetQuadraticCurve(out pos, p0, p1, p2, localPercentage);
+                QuadraticBezierEquation.GetCurve(out pos, p0, p1, p2, localPercentage);
                 this.transform.position = pos;
             }
             else
