@@ -17,6 +17,7 @@ namespace ControllerExperiment.Bezier
 		public float scale;
 
 		public BezierType mBezierCurveType;
+		public bool AutoTime;
         public GameObject RedCube;
         public GameObject GreenCube;
         public GameObject BlueCube;
@@ -30,7 +31,10 @@ namespace ControllerExperiment.Bezier
 
 			while (true)
 			{
-				time += Time.deltaTime * scale;
+				if (AutoTime)
+				{
+					time += Time.deltaTime * scale;
+				}
 
 				if (time >= 1f)
 				{
