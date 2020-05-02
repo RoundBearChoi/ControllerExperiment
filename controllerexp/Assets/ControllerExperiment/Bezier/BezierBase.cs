@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    // https://www.gamasutra.com/blogs/VivekTank/20180806/323709/How_to_work_with_Bezier_Curve_in_Games_with_Unity.php
+    // https://denisrizov.com/2016/06/02/bezier-curves-unity-package-included/
 
     public abstract class BezierBase : MonoBehaviour
     {
