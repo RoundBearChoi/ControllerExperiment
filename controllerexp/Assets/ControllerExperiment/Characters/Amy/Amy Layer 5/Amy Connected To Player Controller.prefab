@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_LinearLimit.limit
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
@@ -91,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_LinearLimit.contactDistance
-      value: 0.05
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
