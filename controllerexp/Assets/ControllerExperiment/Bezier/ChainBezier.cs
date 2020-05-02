@@ -41,8 +41,6 @@ namespace ControllerExperiment
 
                 BezierEquation.GetQuadraticCurve(out pos, p0, p1, p2, localPercentage);
                 this.transform.position = pos;
-
-                Debug.Log(index0 + " " + index1 + " " + index2);
             }
             else
             {

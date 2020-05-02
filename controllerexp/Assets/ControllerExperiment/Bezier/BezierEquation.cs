@@ -4,7 +4,9 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public static class BezierEquation
+	// https://denisrizov.com/2016/06/02/bezier-curves-unity-package-included/
+
+	public static class BezierEquation
     {
 		public static void GetQuadraticCurve(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, float t)
 		{

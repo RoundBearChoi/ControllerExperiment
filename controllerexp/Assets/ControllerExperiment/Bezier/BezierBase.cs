@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    // https://denisrizov.com/2016/06/02/bezier-curves-unity-package-included/
-
     public abstract class BezierBase : MonoBehaviour
     {
         [Range(0f, 1f)]
