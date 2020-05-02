@@ -46,21 +46,21 @@ namespace ControllerExperiment.Bezier
 			if (mBezierCurveType == BezierType.CUBIC)
 			{
 				BezierPathCalculation(out pos,
-				RedCube.transform.position,
-				GreenCube.transform.position,
-				BlueCube.transform.position,
-				YellowCube.transform.position,
-				time);
+					RedCube.transform.position,
+					GreenCube.transform.position,
+					BlueCube.transform.position,
+					YellowCube.transform.position,
+					time);
 
 				this.transform.position = pos;
 			}
 			else if (mBezierCurveType == BezierType.QUADRATIC)
 			{
 				BezierPathCalculation(out pos,
-				RedCube.transform.position,
-				GreenCube.transform.position,
-				BlueCube.transform.position,
-				time);
+					RedCube.transform.position,
+					GreenCube.transform.position,
+					BlueCube.transform.position,
+					time);
 
 				this.transform.position = pos;
 			}
