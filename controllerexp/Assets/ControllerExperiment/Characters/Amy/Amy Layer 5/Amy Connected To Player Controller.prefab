@@ -90,37 +90,37 @@ PrefabInstance:
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_XDrive.positionSpring
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_XDrive.positionDamper
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_YDrive.positionSpring
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_YDrive.positionDamper
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_ZDrive.positionSpring
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_ZDrive.positionDamper
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularXDrive.positionSpring
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: m_AngularYZDrive.positionSpring
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1395896667080022793, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
@@ -311,7 +311,7 @@ PrefabInstance:
     - target: {fileID: 7249671125660876666, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
       propertyPath: Offset.y
-      value: -0.95
+      value: -0.975
       objectReference: {fileID: 0}
     - target: {fileID: 7271144448814181222, guid: e34d403b1f35dcd4a8c7c694efb46ed7,
         type: 3}
