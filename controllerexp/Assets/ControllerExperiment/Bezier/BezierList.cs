@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ControllerExperiment
 {
-    public class BezierCurveInfinite : MonoBehaviour
+    public class BezierList : MonoBehaviour
     {
 		[Range(0f, 1f)]
 		public float time;
@@ -63,31 +63,22 @@ namespace ControllerExperiment
 			float u = 1f - t;
 			int n = objs.Count - 1;
 
-			Vector3 head = GetMultiplier(u, 3) * objs[0].transform.position;
+			Vector3 head = Mathf.Pow(u, n) * objs[0].transform.position;
 
 			Vector3 mid = Vector3.zero;
 
 			for (int i = 1; i < objs.Count - 1; i++)
 			{
-				float s = n * GetMultiplier(u, n - i) * GetMultiplier(t, i);
-				mid += s * objs[i].transform.position;
+				float a = n;
+				float b = Mathf.Pow(u, n - i);
+				float c = Mathf.Pow(t, i);
+
+				mid += (a * b * c) * objs[i].transform.position;
 			}
 
-			Vector3 tail = GetMultiplier(t, 3) * objs[n].transform.position;
+			Vector3 tail = Mathf.Pow(t, n) * objs[n].transform.position;
 
 			result = head + mid + tail;
-		}
-
-		float GetMultiplier(float x, int n = 1)
-		{
-			if (n <= 1)
-			{
-				return x;
-			}
-
-			float result = Mathf.Pow(x, n - 1) * x;
-
-			return result;
 		}
 	}
 }
