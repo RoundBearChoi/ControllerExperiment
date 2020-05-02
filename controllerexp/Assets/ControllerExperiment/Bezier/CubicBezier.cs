@@ -22,27 +22,12 @@ namespace ControllerExperiment
 				}
 			}
 
-			CubicCurve(out pos,
+			BezierEquation.GetCubicCurve(out pos,
 				Checkpoints[0].transform.position,
 				Checkpoints[1].transform.position,
 				Checkpoints[2].transform.position,
 				Checkpoints[3].transform.position,
 				time);
-		}
-
-		void CubicCurve(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
-		{
-			float tt = t * t;
-			float ttt = t * tt;
-
-			float u = 1.0f - t;
-			float uu = u * u;
-			float uuu = u * uu;
-
-			result = uuu * p0;
-			result += 3f * uu * t * p1;
-			result += 3f * u * tt * p2;
-			result += ttt * p3;
 		}
 
 		private void Update()

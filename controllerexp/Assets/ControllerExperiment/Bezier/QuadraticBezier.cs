@@ -19,24 +19,11 @@ namespace ControllerExperiment
 				}
 			}
 
-			QuadraticCurve(out pos,
+			BezierEquation.GetQuadraticCurve(out pos,
 				Checkpoints[0].transform.position,
 				Checkpoints[1].transform.position,
 				Checkpoints[2].transform.position,
 				time);
-		}
-
-		// https://youtu.be/Xwj8_z9OrFw
-		void QuadraticCurve(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, float t)
-		{
-			float tt = t * t;
-
-			float u = 1 - t;
-			float uu = u * u;
-
-			result = uu * p0;
-			result += 2f * u * t * p1;
-			result += tt * p2;
 		}
 
 		private void Update()
