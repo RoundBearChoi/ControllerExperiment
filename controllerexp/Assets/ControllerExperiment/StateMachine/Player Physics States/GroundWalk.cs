@@ -8,7 +8,7 @@ namespace ControllerExperiment.States.Player
     public class GroundWalk : BaseState
     {
         [Header("Idle Debug")]
-        [SerializeField] readonly float GroundSpeed = 1.75f;
+        [SerializeField] readonly float GroundSpeed = 0.9f;
 
         public override void OnEnter()
         {
