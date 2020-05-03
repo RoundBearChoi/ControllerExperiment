@@ -337,6 +337,7 @@ MonoBehaviour:
   mUseInefficientCode: 0
   mDrawDebugLines: 1
   mUseJobs: 1
+  CallUpdate: 1
 --- !u!1 &5737155641724278140
 GameObject:
   m_ObjectHideFlags: 0

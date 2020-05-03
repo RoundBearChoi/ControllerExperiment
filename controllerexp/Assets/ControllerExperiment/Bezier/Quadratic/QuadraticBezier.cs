@@ -11,11 +11,14 @@ namespace ControllerExperiment
 		[Header("Interpolate every line")]
 		[SerializeField] bool mUseInefficientCode;
 
-		[Header("Debug")]
-		[SerializeField] bool mDrawDebugLines;
-
 		[Header("Jobs System")]
 		[SerializeField] bool mUseJobs;
+
+		[Header("Update")]
+		[SerializeField] bool CallUpdate;
+
+		[Header("Debug")]
+		[SerializeField] bool mDrawDebugLines;
 
 		QuadraticBezierJob job;
 		JobHandle jobHandle;
@@ -39,6 +42,14 @@ namespace ControllerExperiment
 		}
 
 		private void Update()
+		{
+			if (CallUpdate)
+			{
+				UpdateCube();
+			}
+		}
+
+		void UpdateCube()
 		{
 			// jobs approach
 			if (mUseJobs)
