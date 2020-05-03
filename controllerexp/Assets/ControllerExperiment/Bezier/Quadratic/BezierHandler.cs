@@ -6,16 +6,19 @@ namespace ControllerExperiment
 {
     public class BezierHandler : MonoBehaviour
     {
+        [Header("Bezier Attributes")]
         public int TotalBeziers;
-        public float mTime;
-        public float mTimeScale;
+        public float time;
+        public float timeScale;
         public GameObject BezierPrefab;
-        public List<OptimizedBezier> AllBeziers = new List<OptimizedBezier>();
+
+        [Space(10)]
+        public List<NonOptimizedBezier> AllBeziers = new List<NonOptimizedBezier>();
 
         private void Start()
         {
             AllBeziers.Clear();
-            mTime = 0f;
+            time = 0f;
 
             for (int i = 0; i < TotalBeziers; i++)
             {
@@ -26,18 +29,10 @@ namespace ControllerExperiment
         private void Update()
         {
             SetTime();
-            
-            foreach(OptimizedBezier b in AllBeziers)
-            {
-                b.MoveCube();
-            }
-        }
 
-        private void LateUpdate()
-        {
-            foreach (OptimizedBezier b in AllBeziers)
+            foreach (NonOptimizedBezier b in AllBeziers)
             {
-                b.UpdateResult();
+                b.MoveCubeTraditional();
             }
         }
 
@@ -46,18 +41,18 @@ namespace ControllerExperiment
             GameObject obj = Instantiate(BezierPrefab);
             obj.transform.position = Vector3.zero + (Vector3.forward * z) + (Vector3.up * y);
 
-            OptimizedBezier b = obj.GetComponent<OptimizedBezier>();
+            NonOptimizedBezier b = obj.GetComponent<NonOptimizedBezier>();
             b.owner = this;
             AllBeziers.Add(b);
         }
 
         void SetTime()
         {
-            mTime += (Time.deltaTime * mTimeScale);
+            time += (Time.deltaTime * timeScale);
 
-            if (mTime >= 1f)
+            if (time >= 1f)
             {
-                mTime = 0f;
+                time = 0f;
             }
         }
     }
