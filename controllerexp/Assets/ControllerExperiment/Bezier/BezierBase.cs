@@ -6,6 +6,7 @@ namespace ControllerExperiment
 {
     public abstract class BezierBase : MonoBehaviour
     {
+        [SerializeField] protected GameObject Cube;
         [Range(0f, 1f)]
         [SerializeField] protected float time;
         [SerializeField] protected bool AutoTime;

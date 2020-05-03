@@ -26,7 +26,7 @@ namespace ControllerExperiment
 		private void Update()
 		{
 			GetBezier(out myPosition, Checkpoints, time);
-			this.transform.position = myPosition;
+			Cube.transform.position = myPosition;
 		}
 	}
 }

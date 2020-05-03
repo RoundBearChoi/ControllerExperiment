@@ -13,7 +13,7 @@ namespace ControllerExperiment
         private void Update()
         {
             GetBezier(out myPosition, Checkpoints, time);
-            this.transform.position = myPosition;
+            Cube.transform.position = myPosition;
         }
 
         public override void GetBezier(out Vector3 pos, List<GameObject> Checkpoints, float time)
@@ -40,7 +40,6 @@ namespace ControllerExperiment
                 Vector3 p2 = Checkpoints[index2].transform.position;
 
                 QuadraticBezierEquation.GetCurve(out pos, p0, p1, p2, localPercentage);
-                this.transform.position = pos;
             }
             else
             {
@@ -48,7 +47,6 @@ namespace ControllerExperiment
                 Vector3 end = Checkpoints[nCheckpoints - 1].transform.position;
 
                 pos = Vector3.Lerp(start, end, localPercentage);
-                this.transform.position = pos;
             }
         }
 
