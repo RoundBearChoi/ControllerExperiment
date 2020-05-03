@@ -14,9 +14,6 @@ namespace ControllerExperiment
 		[Header("Jobs System")]
 		[SerializeField] bool mUseJobs;
 
-		[Header("Update")]
-		[SerializeField] bool CallUpdate;
-
 		[Header("Debug")]
 		[SerializeField] bool mDrawDebugLines;
 
@@ -43,10 +40,7 @@ namespace ControllerExperiment
 
 		private void Update()
 		{
-			if (CallUpdate)
-			{
-				UpdateCube();
-			}
+			UpdateCube();
 		}
 
 		void UpdateCube()
