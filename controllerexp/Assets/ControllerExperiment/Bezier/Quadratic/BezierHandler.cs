@@ -13,7 +13,6 @@ namespace ControllerExperiment
 
         [Header("Bezier Attributes")]
         public int TotalBeziers;
-        public float time;
         public GameObject BezierPrefab;
 
         [Space(10)]
