@@ -22,11 +22,18 @@ namespace ControllerExperiment
 				Checkpoints[2].transform.position,
 				Checkpoints[3].transform.position,
 				time);
+
+			CubicBezierEquation.DrawLines(
+				Checkpoints[0].transform.position,
+				Checkpoints[1].transform.position,
+				Checkpoints[2].transform.position,
+				Checkpoints[3].transform.position,
+				time);
 		}
 
 		private void Update()
 		{
-			GetBezier(out myPosition, Checkpoints, time);
+			GetBezier(out myPosition, Checkpoints, mTime);
 			Cube.transform.position = myPosition;
 		}
 	}

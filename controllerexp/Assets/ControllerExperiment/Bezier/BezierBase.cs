@@ -8,7 +8,7 @@ namespace ControllerExperiment
     {
         [SerializeField] protected GameObject Cube;
         [Range(0f, 1f)]
-        [SerializeField] protected float time;
+        [SerializeField] protected float mTime;
         [SerializeField] protected bool AutoTime;
         [Range(0.1f, 10f)]
         [SerializeField] protected float timeScale;
@@ -24,16 +24,16 @@ namespace ControllerExperiment
             {
                 if (AutoTime)
                 {
-                    time += Time.deltaTime * timeScale;
+                    mTime += Time.deltaTime * timeScale;
 
                     if (timeScale <= 0f)
                     {
                         timeScale = 0.1f;
                     }
 
-                    if (time >= 1f)
+                    if (mTime >= 1f)
                     {
-                        time = 0f;
+                        mTime = 0f;
                     }
                 }
 

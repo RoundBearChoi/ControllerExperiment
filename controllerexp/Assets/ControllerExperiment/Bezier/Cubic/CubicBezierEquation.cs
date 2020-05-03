@@ -25,11 +25,9 @@ namespace ControllerExperiment
 			result += 3f * uu * time * p1;
 			result += 3f * u * tt * p2;
 			result += ttt * p3;
-
-			DrawLines(p0, p1, p2, p3, time);
 		}
 
-		static void DrawLines(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float time)
+		public static void DrawLines(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float time)
 		{
 			Debug.DrawLine(p0, p1, Color.green);
 			Debug.DrawLine(p1, p2, Color.green);

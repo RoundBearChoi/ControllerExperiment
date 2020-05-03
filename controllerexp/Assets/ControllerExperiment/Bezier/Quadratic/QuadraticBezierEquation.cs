@@ -26,20 +26,16 @@ namespace ControllerExperiment
 
 		static void _Inefficient(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, float time)
 		{
-			Debug.DrawLine(p0, p1, Color.green);
-			Debug.DrawLine(p1, p2, Color.green);
-
+			//Debug.Log("inefficient equation..");
 			a = Vector3.Lerp(p0, p1, time);
 			b = Vector3.Lerp(p1, p2, time);
-			
-			Debug.DrawLine(a, b, Color.yellow);
-
 			c = Vector3.Lerp(a, b, time);
 			result = c;
 		}
 
-		static void _Efficient(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, float time)
+		public static void _Efficient(out Vector3 result, Vector3 p0, Vector3 p1, Vector3 p2, float time)
 		{
+			//Debug.Log("efficient equation..");
 			float tt = time * time;
 
 			float u = 1f - time;
@@ -50,7 +46,7 @@ namespace ControllerExperiment
 			result += tt * p2;
 		}
 
-		static void DrawLines(Vector3 p0, Vector3 p1, Vector3 p2, float time)
+		public static void DrawLines(Vector3 p0, Vector3 p1, Vector3 p2, float time)
 		{
 			Debug.DrawLine(p0, p1, Color.green);
 			Debug.DrawLine(p1, p2, Color.green);

@@ -13,7 +13,7 @@ namespace ControllerExperiment
 
         private void Update()
         {
-            GetBezier(out myPosition, Checkpoints, time);
+            GetBezier(out myPosition, Checkpoints, mTime);
             Cube.transform.position = myPosition;
         }
 
