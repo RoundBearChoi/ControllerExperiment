@@ -258,7 +258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseJobs: 0
   TotalBeziers: 1000
-  time: 0
   BezierPrefab: {fileID: 3101705473724220558, guid: 52b334029564b124f977e6c862f51298,
     type: 3}
   AllBeziers: []
