@@ -10,17 +10,16 @@ namespace ControllerExperiment
     {
         [SerializeField] GameObject Cube;
 		[SerializeField] List<GameObject> Checkpoints = new List<GameObject>();
-		public BezierHandler owner;
 
 		Vector3 pos;
 
-		public void MoveCubeTraditional()
+		public void MoveCubeTraditional(float time)
 		{
 			QuadraticBezierEquation.GetCurve(out pos,
 				Checkpoints[0].transform.position,
 				Checkpoints[1].transform.position,
 				Checkpoints[2].transform.position,
-				owner.time,
+				time,
 				false);
 
 			Cube.transform.position = pos;

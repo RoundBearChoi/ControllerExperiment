@@ -57,7 +57,7 @@ namespace ControllerExperiment
 					p2 = Checkpoints[2].transform.position,
 					time = mTime,
 					useInefficientCode = mUseInefficientCode,
-					positionArray = result
+					resultArray = result
 				};
 
 				jobHandle = job.Schedule();

@@ -256,9 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770b6c9b7715ea34498f8bf9d2807ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalBeziers: 10000
+  TotalBeziers: 2000
   time: 0
-  timeScale: 0.5
   BezierPrefab: {fileID: 3101705473724220558, guid: 52b334029564b124f977e6c862f51298,
     type: 3}
   AllBeziers: []
