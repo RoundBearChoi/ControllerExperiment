@@ -7,6 +7,7 @@ using Unity.Burst;
 
 namespace ControllerExperiment
 {
+	// encapsulating data & functionality in a struct
 	[BurstCompile]
 	struct QuadraticBezierJob : IJob
 	{
@@ -27,6 +28,7 @@ namespace ControllerExperiment
 				Vector3 c = Vector3.Lerp(a, b, time);
 				pos = c;
 
+				// native array allows you to reference the result position
 				resultArray[0] = pos;
 			}
 			else
@@ -40,6 +42,7 @@ namespace ControllerExperiment
 				pos += 2f * u * time * p1;
 				pos += tt * p2;
 
+				// native array allows you to reference the result position
 				resultArray[0] = pos;
 			}
 		}
