@@ -8,8 +8,8 @@ namespace ControllerExperiment
 {
     public class NonOptimizedBezier : MonoBehaviour
     {
-        [SerializeField] GameObject Cube;
-		[SerializeField] List<GameObject> Checkpoints = new List<GameObject>();
+        public GameObject Cube;
+		public List<GameObject> Checkpoints = new List<GameObject>();
 
 		Vector3 pos;
 
@@ -23,6 +23,8 @@ namespace ControllerExperiment
 				false);
 
 			Cube.transform.position = pos;
+
+			CostlyFunction.Costly();
 		}
 	}
 }
