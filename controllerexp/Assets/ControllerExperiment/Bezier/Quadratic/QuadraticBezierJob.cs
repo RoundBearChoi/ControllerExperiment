@@ -68,8 +68,6 @@ namespace ControllerExperiment
 			pos += tt * p2[index];
 
 			resultArray[index] = pos;
-
-			CostlyFunction.Costly();
 		}
 	}
 }

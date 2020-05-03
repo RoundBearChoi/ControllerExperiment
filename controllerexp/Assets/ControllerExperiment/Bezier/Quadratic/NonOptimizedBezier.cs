@@ -23,8 +23,6 @@ namespace ControllerExperiment
 				false);
 
 			Cube.transform.position = pos;
-
-			CostlyFunction.Costly();
 		}
 	}
 }
