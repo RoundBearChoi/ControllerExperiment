@@ -327,13 +327,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cube: {fileID: 5737155640640064591}
-  time: 0
+  mTime: 0
   AutoTime: 1
   timeScale: 0.1
   Checkpoints:
   - {fileID: 5737155641724278140}
   - {fileID: 5737155640869441874}
   - {fileID: 5737155640786707552}
+  mUseInefficientCode: 0
+  mDrawDebugLines: 1
+  mUseJobs: 1
 --- !u!1 &5737155641724278140
 GameObject:
   m_ObjectHideFlags: 0

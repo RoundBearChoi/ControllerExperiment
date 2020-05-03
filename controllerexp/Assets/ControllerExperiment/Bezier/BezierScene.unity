@@ -395,26 +395,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3572065405634456605, guid: fc21f0e7ae8501e45bde34d828e5e890,
-        type: 3}
-      propertyPath: UseJobs
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3572065405634456605, guid: fc21f0e7ae8501e45bde34d828e5e890,
-        type: 3}
-      propertyPath: DrawDebugLines
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3572065405634456605, guid: fc21f0e7ae8501e45bde34d828e5e890,
-        type: 3}
-      propertyPath: mDrawDebugLines
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3572065405634456605, guid: fc21f0e7ae8501e45bde34d828e5e890,
-        type: 3}
-      propertyPath: mUseJobs
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5737155641098753632, guid: fc21f0e7ae8501e45bde34d828e5e890,
         type: 3}
       propertyPath: m_LocalPosition.x
