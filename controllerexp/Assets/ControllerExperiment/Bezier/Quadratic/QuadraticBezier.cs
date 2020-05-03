@@ -6,6 +6,8 @@ namespace ControllerExperiment
 {
     public class QuadraticBezier : BezierBase
     {
+		[Header("Draw every line")]
+		[SerializeField] bool UseInefficientCode;
 		public override void GetBezier(out Vector3 pos, List<GameObject> Checkpoints, float time)
 		{
 			if (Checkpoints.Count > 3)
@@ -20,7 +22,8 @@ namespace ControllerExperiment
 				Checkpoints[0].transform.position,
 				Checkpoints[1].transform.position,
 				Checkpoints[2].transform.position,
-				time);
+				time,
+				UseInefficientCode);
 		}
 
 		private void Update()

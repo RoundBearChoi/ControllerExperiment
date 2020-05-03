@@ -6,6 +6,7 @@ namespace ControllerExperiment
 {
     public class ChainBezier : BezierBase
     {
+        [SerializeField] bool UseInefficientCode;
         int nCheckpoints;
         int nCurves;
         float subTotal = 0f;
@@ -39,7 +40,7 @@ namespace ControllerExperiment
                 Vector3 p1 = Checkpoints[index1].transform.position;
                 Vector3 p2 = Checkpoints[index2].transform.position;
 
-                QuadraticBezierEquation.GetCurve(out pos, p0, p1, p2, localPercentage);
+                QuadraticBezierEquation.GetCurve(out pos, p0, p1, p2, localPercentage, UseInefficientCode);
             }
             else
             {
