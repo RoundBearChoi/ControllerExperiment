@@ -14,30 +14,30 @@ namespace ControllerExperiment
 
 		QuadraticBezierJob job;
 		JobHandle jobHandle;
+		NativeArray<Vector3> result;
 
 		public void MoveCube()
         {
-			NativeArray<Vector3> result = new NativeArray<Vector3>(1, Allocator.TempJob);
+			result = new NativeArray<Vector3>(1, Allocator.TempJob);
 
 			job = new QuadraticBezierJob()
 			{
 				p0 = Checkpoints[0].transform.position,
 				p1 = Checkpoints[1].transform.position,
 				p2 = Checkpoints[2].transform.position,
-				time = owner.time,
+				time = owner.mTime,
 				useInefficientCode = false,
 				positionArray = result
 			};
 
 			jobHandle = job.Schedule();
+		}
+
+		public void UpdateResult()
+		{
 			jobHandle.Complete();
 			Cube.transform.position = result[0];
 			result.Dispose();
-		}
-
-		private void Update()
-		{
-			MoveCube();
 		}
 	}
 }
