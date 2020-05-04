@@ -8,6 +8,7 @@ using Unity.Burst;
 namespace ControllerExperiment
 {
 	// encapsulating data & functionality in a struct
+
 	[BurstCompile]
 	struct QuadraticBezierJob : IJob
 	{
