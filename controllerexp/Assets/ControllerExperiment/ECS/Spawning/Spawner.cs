@@ -4,11 +4,15 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.Transforms;
 using Unity.Rendering;
+using Unity.Mathematics;
 
 namespace ControllerExperiment
 {
     public class Spawner : MonoBehaviour
     {
+        [SerializeField] Mesh CubeMesh;
+        [SerializeField] Material BlueMaterial;
+
         private void Start()
         {
             CreateEntity();
@@ -17,20 +21,28 @@ namespace ControllerExperiment
         void CreateEntity()
         {
             EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-
-            // an archetype is a combination of component types
-            EntityArchetype archetype = entityManager.CreateArchetype(
-                // struct containing values for moving & rotating
-                typeof(Translation),
-                typeof(Rotation),
-                // struct containing values for rendering (hybrid renderer uses them)
-                typeof(RenderMesh),
-                typeof(RenderBounds),
-                typeof(LocalToWorld)
-                );
-            
-            Entity entity = entityManager.CreateEntity(archetype);
+            Entity entity = entityManager.CreateEntity();
             entityManager.SetName(entity, "My Spawned Entity");
+
+            // adding position values
+            entityManager.AddComponentData(entity, new Translation {
+                Value = new float3(0f, 0f, 0f) 
+            });
+
+            // adding rotation values
+            entityManager.AddComponentData(entity, new Rotation
+            {
+                Value = Quaternion.Euler(new Vector3(0f, 45f, 0f))
+            });
+
+            // adding render values
+            entityManager.AddSharedComponentData(entity, new RenderMesh {
+                mesh = CubeMesh,
+                material = BlueMaterial
+            });
+
+            // adding render values (used by hybrid renderer)
+            entityManager.AddComponentData(entity, new LocalToWorld { });
         }
     }
 }
