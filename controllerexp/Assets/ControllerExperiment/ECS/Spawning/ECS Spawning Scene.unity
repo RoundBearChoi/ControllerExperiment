@@ -357,8 +357,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cad3934a05ab7438ce100f88160c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnType: 0
+  zCount: 2
+  yCount: 1
+  spacing: 1
   CubeMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   BlueMaterial: {fileID: 2100000, guid: b76bd5c9bb3fd7b4383f70fda9e13319, type: 2}
+  CubePrefab: {fileID: 585085576812787538, guid: 1f377f8c99e49a24fbe06c8baaabaca4,
+    type: 3}
 --- !u!4 &2057645027
 Transform:
   m_ObjectHideFlags: 0
