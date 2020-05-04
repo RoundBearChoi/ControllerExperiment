@@ -48,9 +48,10 @@ namespace ControllerExperiment
                 {
                     for (int z = 0; z < gridZ; z++)
                     {
-                        Instantiate(CubePrefab,
-                            (Vector3.forward * z * spacing) + (Vector3.up * y * spacing),
-                            Quaternion.identity);
+                        float3 position = new float3(0f, y * spacing, z * spacing);
+                        Quaternion rotation = Quaternion.Euler(0f, 5f * y, 5f * z);
+
+                        Instantiate(CubePrefab, position, rotation);
                     }
                 }
             }
@@ -63,7 +64,10 @@ namespace ControllerExperiment
                 {
                     for (int z = 0; z < gridZ; z++)
                     {
-                        CreateEntity(new float3(0f, y * spacing, z * spacing));
+                        float3 position = new float3(0f, y * spacing, z * spacing);
+                        Quaternion rotation = Quaternion.Euler(0f, 5f * y, 5f * z);
+
+                        CreateEntity(position, rotation);
                         entitycount++;
                     }
                 }
@@ -81,14 +85,17 @@ namespace ControllerExperiment
                 {
                     for (int z = 0; z < gridZ; z++)
                     {
-                        CreateConvertedEntity(entity, new float3(0f, y * spacing, z * spacing));
+                        float3 position = new float3(0f, y * spacing, z * spacing);
+                        Quaternion rotation = Quaternion.Euler(0f, 5f * y, 5f * z);
+
+                        CreateConvertedEntity(entity, position, rotation);
                         entitycount++;
                     }
                 }
             }
         }
 
-        void CreateEntity(float3 position)
+        void CreateEntity(float3 position, Quaternion rotation)
         {
             Entity entity = entityManager.CreateEntity();
 
@@ -102,7 +109,7 @@ namespace ControllerExperiment
             // adding rotation values
             entityManager.AddComponentData(entity, new Rotation
             {
-                Value = Quaternion.Euler(new Vector3(0f, 0f, 0f))
+                Value = rotation
             });
 
             // adding render values
@@ -115,7 +122,7 @@ namespace ControllerExperiment
             entityManager.AddComponentData(entity, new LocalToWorld { });
         }
 
-        void CreateConvertedEntity(Entity entity, float3 position)
+        void CreateConvertedEntity(Entity entity, float3 position, Quaternion rotation)
         {
             entity = entityManager.Instantiate(entity);
 
@@ -124,6 +131,11 @@ namespace ControllerExperiment
             entityManager.AddComponentData(entity, new Translation
             {
                 Value = position
+            });
+
+            entityManager.AddComponentData(entity, new Rotation
+            {
+                Value = rotation
             });
         }
     }
