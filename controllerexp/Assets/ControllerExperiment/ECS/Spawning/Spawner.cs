@@ -48,7 +48,7 @@ namespace ControllerExperiment
                 {
                     for (int z = 0; z < gridZ; z++)
                     {
-                        GameObject obj = GameObject.Instantiate(CubePrefab,
+                        Instantiate(CubePrefab,
                             (Vector3.forward * z * spacing) + (Vector3.up * y * spacing),
                             Quaternion.identity);
                     }
@@ -68,18 +68,19 @@ namespace ControllerExperiment
                     }
                 }
             }
+
             else if (spawnType == SpawnType.CONVERSION)
             {
                 world = World.DefaultGameObjectInjectionWorld;
-                entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+                entityManager = world.EntityManager;
+
+                conversionSettings = GameObjectConversionSettings.FromWorld(world, null);
+                Entity entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(CubePrefab, conversionSettings);
 
                 for (int y = 0; y < gridY; y++)
                 {
                     for (int z = 0; z < gridZ; z++)
                     {
-                        conversionSettings = GameObjectConversionSettings.FromWorld(world, null);
-                        Entity entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(CubePrefab, conversionSettings);
-
                         CreateConvertedEntity(entity, new float3(0f, y * spacing, z * spacing));
                         entitycount++;
                     }
@@ -116,20 +117,14 @@ namespace ControllerExperiment
 
         void CreateConvertedEntity(Entity entity, float3 position)
         {
-            entityManager.Instantiate(entity);
+            entity = entityManager.Instantiate(entity);
+
             entityManager.SetName(entity, "My Converted Entity " + entitycount);
 
             entityManager.AddComponentData(entity, new Translation
             {
                 Value = position
             });
-
-            entityManager.AddComponentData(entity, new Rotation
-            {
-                Value = Quaternion.Euler(new Vector3(0f, 45f, 0f))
-            });
-
-            entityManager.AddComponentData(entity, new LocalToWorld { });
         }
     }
 }
