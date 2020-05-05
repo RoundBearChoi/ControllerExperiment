@@ -78,14 +78,6 @@ namespace ControllerExperiment
 
             entityManager.SetName(entity, "My Spawned Entity " + entitycount);
 
-            EntityArchetype archetype = entityManager.CreateArchetype(
-                typeof(Translation),
-                typeof(Rotation),
-                typeof(RenderMesh),
-                typeof(LocalToWorld));
-
-            entityManager.SetArchetype(entity, archetype);
-
             // adding position values
             entityManager.AddComponentData(entity, new Translation {
                 Value = position
