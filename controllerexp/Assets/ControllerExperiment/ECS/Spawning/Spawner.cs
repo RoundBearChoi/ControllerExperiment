@@ -63,7 +63,10 @@ namespace ControllerExperiment
                     for (int z = 0; z < gridZ; z++)
                     {
                         float3 position = new float3(0f, y * spacing, z * spacing);
-                        Quaternion rotation = Quaternion.Euler(0f, 5f * y, 5f * z);
+                        quaternion rotation = quaternion.Euler(
+                            0f * Mathf.Deg2Rad,
+                            5f * y * Mathf.Deg2Rad,
+                            5f * z * Mathf.Deg2Rad);
 
                         CreateEntity(position, rotation);
                         entitycount++;
@@ -84,7 +87,10 @@ namespace ControllerExperiment
                     for (int z = 0; z < gridZ; z++)
                     {
                         float3 position = new float3(0f, y * spacing, z * spacing);
-                        Quaternion rotation = Quaternion.Euler(0f, 5f * y, 5f * z);
+                        quaternion rotation = quaternion.Euler(
+                            0f * Mathf.Deg2Rad,
+                            5f * y * Mathf.Deg2Rad,
+                            5f * z * Mathf.Deg2Rad);
 
                         CreateConvertedEntity(entity, position, rotation);
                         entitycount++;
@@ -93,7 +99,7 @@ namespace ControllerExperiment
             }
         }
 
-        void CreateEntity(float3 position, Quaternion rotation)
+        void CreateEntity(float3 position, quaternion rotation)
         {
             Entity entity = entityManager.CreateEntity();
 
@@ -120,7 +126,7 @@ namespace ControllerExperiment
             entityManager.AddComponentData(entity, new LocalToWorld { });
         }
 
-        void CreateConvertedEntity(Entity entity, float3 position, Quaternion rotation)
+        void CreateConvertedEntity(Entity entity, float3 position, quaternion rotation)
         {
             entity = entityManager.Instantiate(entity);
 
