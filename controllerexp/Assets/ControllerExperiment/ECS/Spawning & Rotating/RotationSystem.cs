@@ -1,22 +1,28 @@
-﻿using Unity.Entities;
+﻿using UnityEngine;
+using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
-using UnityEngine;
+using Unity.Jobs;
+using Unity.Collections;
 
 namespace ControllerExperiment
 {
-    public class RotationSystem : ComponentSystem
+    public class RotationSystem : JobComponentSystem
     {
-        protected override void OnUpdate()
+        protected override JobHandle OnUpdate(JobHandle dependencies)
         {
-            Entities.ForEach((ref Rotation rotation) =>
+            float deltaTime = Time.DeltaTime;
+
+            JobHandle handle = Entities.ForEach((ref Rotation rotation) =>
             {
                 // get angle on y-axis
-                quaternion yRot = quaternion.RotateY(180f * Mathf.Deg2Rad * Time.DeltaTime);
+                quaternion yRot = quaternion.RotateY(180f * Mathf.Deg2Rad * deltaTime);
 
                 // matrix multiplication
                 rotation.Value = math.mul(rotation.Value, yRot);
-            });
+            }).Schedule(dependencies);
+
+            return handle;
         }
     }
 }
