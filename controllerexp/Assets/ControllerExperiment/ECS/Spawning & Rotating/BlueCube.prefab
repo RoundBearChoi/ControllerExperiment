@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3118655760399046944}
   - component: {fileID: 8794925950760167802}
   - component: {fileID: 1601866479325144173}
+  - component: {fileID: 3038833526051565925}
   m_Layer: 0
   m_Name: BlueCube
   m_TagString: Untagged
@@ -79,3 +80,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3038833526051565925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585085576812787538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974c809a8f2f3f24795cc23f35f1b691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

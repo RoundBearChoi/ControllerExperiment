@@ -11,8 +11,7 @@ namespace ControllerExperiment
         public enum SpawnType
         {
             TRADITIONAL,
-            PURE_ECS,
-            CONVERSION,
+            ECS,
         }
 
         [SerializeField] SpawnType spawnType;
@@ -27,9 +26,7 @@ namespace ControllerExperiment
         [Header("Conversion")]
         [SerializeField] GameObject CubePrefab;
 
-        World world;
         EntityManager entityManager;
-        GameObjectConversionSettings conversionSettings;
         int entitycount;
 
         private void Start()
@@ -54,7 +51,7 @@ namespace ControllerExperiment
                 }
             }
 
-            else if (spawnType == SpawnType.PURE_ECS)
+            else if (spawnType == SpawnType.ECS)
             {
                 entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
@@ -73,30 +70,6 @@ namespace ControllerExperiment
                     }
                 }
             }
-
-            else if (spawnType == SpawnType.CONVERSION)
-            {
-                world = World.DefaultGameObjectInjectionWorld;
-                entityManager = world.EntityManager;
-
-                conversionSettings = GameObjectConversionSettings.FromWorld(world, null);
-                Entity entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(CubePrefab, conversionSettings);
-
-                for (int y = 0; y < gridY; y++)
-                {
-                    for (int z = 0; z < gridZ; z++)
-                    {
-                        float3 position = new float3(0f, y * spacing, z * spacing);
-                        quaternion rotation = quaternion.Euler(
-                            0f * Mathf.Deg2Rad,
-                            5f * y * Mathf.Deg2Rad,
-                            5f * z * Mathf.Deg2Rad);
-
-                        CreateConvertedEntity(entity, position, rotation);
-                        entitycount++;
-                    }
-                }
-            }
         }
 
         void CreateEntity(float3 position, quaternion rotation)
@@ -104,6 +77,14 @@ namespace ControllerExperiment
             Entity entity = entityManager.CreateEntity();
 
             entityManager.SetName(entity, "My Spawned Entity " + entitycount);
+
+            EntityArchetype archetype = entityManager.CreateArchetype(
+                typeof(Translation),
+                typeof(Rotation),
+                typeof(RenderMesh),
+                typeof(LocalToWorld));
+
+            entityManager.SetArchetype(entity, archetype);
 
             // adding position values
             entityManager.AddComponentData(entity, new Translation {
@@ -124,23 +105,6 @@ namespace ControllerExperiment
 
             // adding render values (used by hybrid renderer)
             entityManager.AddComponentData(entity, new LocalToWorld { });
-        }
-
-        void CreateConvertedEntity(Entity entity, float3 position, quaternion rotation)
-        {
-            entity = entityManager.Instantiate(entity);
-
-            entityManager.SetName(entity, "My Converted Entity " + entitycount);
-
-            entityManager.AddComponentData(entity, new Translation
-            {
-                Value = position
-            });
-
-            entityManager.AddComponentData(entity, new Rotation
-            {
-                Value = rotation
-            });
         }
     }
 }
