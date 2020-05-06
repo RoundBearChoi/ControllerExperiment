@@ -16,12 +16,17 @@ namespace ControllerExperiment
         {
             float deltaTime = Time.DeltaTime;
 
+            bool w = Input.GetKey(KeyCode.W);
+            bool a = Input.GetKey(KeyCode.A);
+            bool s = Input.GetKey(KeyCode.S);
+            bool d = Input.GetKey(KeyCode.D);
+
             Entities.WithAny<ControllableTag>().ForEach((ref PlayerInputData inputData) =>
             {
-                inputData.W = Input.GetKey(KeyCode.W);
-                inputData.A = Input.GetKey(KeyCode.A);
-                inputData.S = Input.GetKey(KeyCode.S);
-                inputData.D = Input.GetKey(KeyCode.D);
+                inputData.W = w;
+                inputData.A = a;
+                inputData.S = s;
+                inputData.D = d;
 
                 quaternion targetRotationDelta = quaternion.identity;
 
@@ -36,7 +41,7 @@ namespace ControllerExperiment
                 }
 
                 inputData.TargetRotationDelta = targetRotationDelta;
-            }).Run();
+            }).Schedule();
         }
     }
 }
