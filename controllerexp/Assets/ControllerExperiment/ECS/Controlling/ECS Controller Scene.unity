@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: -108576913577776861, guid: e17b5db0b368f104aa0f8a71562a1403, type: 3}
   material: {fileID: 2100000, guid: 9add67de5e2465e4b9e64b53f0df6e83, type: 2}
-  TotalEntities: 1
+  TotalEntities: 1000
   Spacing: 0.025
 --- !u!4 &430921984
 Transform:
