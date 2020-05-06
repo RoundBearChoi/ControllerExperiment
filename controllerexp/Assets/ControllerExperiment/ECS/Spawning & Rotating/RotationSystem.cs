@@ -7,10 +7,9 @@ using Unity.Collections;
 
 namespace ControllerExperiment
 {
-    // to identify cubes
+    // identify cubes
     public struct CubeTag : IComponentData { }
 
-    // multithread
     public class RotationSystem : SystemBase
     {
         protected override void OnUpdate()
