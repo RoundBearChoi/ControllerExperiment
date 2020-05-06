@@ -8,6 +8,8 @@ using Unity.Rendering;
 
 namespace ControllerExperiment
 {
+    public struct ControllableTag: IComponentData { }
+
     public class ControllableEntity : MonoBehaviour
     {
         [SerializeField] Mesh mesh;
@@ -46,6 +48,8 @@ namespace ControllerExperiment
             });
 
             entityManager.AddComponentData(entity, new LocalToWorld { });
+
+            entityManager.AddComponentData(entity, new ControllableTag { });
         }
     }
 }
