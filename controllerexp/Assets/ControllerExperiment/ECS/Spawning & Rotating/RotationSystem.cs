@@ -7,6 +7,9 @@ using Unity.Collections;
 
 namespace ControllerExperiment
 {
+    // to identify cubes
+    public struct CubeTag : IComponentData { }
+
     // multithread
     public class RotationSystem : SystemBase
     {
@@ -15,8 +18,9 @@ namespace ControllerExperiment
             // references (like TimeData) are not allowed in a job
             // https://docs.unity3d.com/Manual/JobSystemSafetySystem.html
             float deltaTime = Time.DeltaTime;
-    
-            Entities.ForEach((ref Rotation rotation) =>
+
+            // specify entities with cubetag, not all entities
+            Entities.WithAll<CubeTag>().ForEach((ref Rotation rotation) =>
             {
                 quaternion yRot = quaternion.RotateY(180f * Mathf.Deg2Rad * deltaTime);
                 rotation.Value = math.mul(rotation.Value, yRot);

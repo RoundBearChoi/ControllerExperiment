@@ -97,6 +97,9 @@ namespace ControllerExperiment
 
             // adding render values (used by hybrid renderer)
             entityManager.AddComponentData(entity, new LocalToWorld { });
+
+            // add cube tag
+            entityManager.AddComponentData(entity, new CubeTag { });
         }
     }
 }
