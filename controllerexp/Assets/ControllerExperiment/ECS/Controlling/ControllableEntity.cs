@@ -30,8 +30,19 @@ namespace ControllerExperiment
         {
             entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
             Entity entity = entityManager.CreateEntity();
-            
+
+            EntityArchetype archetype = entityManager.CreateArchetype(
+                typeof(Translation),
+                typeof(Rotation),
+                typeof(RenderMesh),
+                typeof(WorldToLocal),
+                typeof(ControllableTag),
+                typeof(PlayerInputData));
+
+            entityManager.SetArchetype(entity, archetype);
+
             entityManager.SetName(entity, "Controllable Entity " + count);
+            count++;
 
             entityManager.AddComponentData(entity, new Translation
             {
