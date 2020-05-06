@@ -12,6 +12,8 @@ namespace ControllerExperiment
     {
         protected override void OnUpdate()
         {
+            // references (like TimeData) are not allowed in a job
+            // https://docs.unity3d.com/Manual/JobSystemSafetySystem.html
             float deltaTime = Time.DeltaTime;
     
             Entities.ForEach((ref Rotation rotation) =>
