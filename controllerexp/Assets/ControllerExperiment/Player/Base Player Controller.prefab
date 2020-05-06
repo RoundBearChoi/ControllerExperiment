@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 5445128290480772959}
   - component: {fileID: 5445128290480772944}
   m_Layer: 2
-  m_Name: Rotation
+  m_Name: PlayerRotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

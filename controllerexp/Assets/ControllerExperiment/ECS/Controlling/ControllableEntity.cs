@@ -8,12 +8,12 @@ using Unity.Rendering;
 
 namespace ControllerExperiment
 {
-    public struct ControllableTag: IComponentData { }
-
     public class ControllableEntity : MonoBehaviour
     {
         [SerializeField] Mesh mesh;
         [SerializeField] Material material;
+        [SerializeField] int TotalEntities;
+        [SerializeField] float Spacing;
 
         EntityManager entityManager;
         int count;
@@ -21,7 +21,11 @@ namespace ControllerExperiment
         private void Start()
         {
             count = 0;
-            SpawnControllableEntity(float3.zero);
+
+            for (int i = 0; i < TotalEntities; i++)
+            {
+                SpawnControllableEntity(new float3(0f, 0f, i * Spacing));
+            }
         }
 
         void SpawnControllableEntity(float3 position)
@@ -50,6 +54,10 @@ namespace ControllerExperiment
             entityManager.AddComponentData(entity, new LocalToWorld { });
 
             entityManager.AddComponentData(entity, new ControllableTag { });
+
+            entityManager.AddComponentData(entity, new PlayerInputData {
+                TargetRotationDelta = quaternion.identity
+            });
         }
     }
 }
