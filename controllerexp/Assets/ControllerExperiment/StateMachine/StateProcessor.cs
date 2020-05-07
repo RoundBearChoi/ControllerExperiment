@@ -85,11 +85,9 @@ namespace ControllerExperiment.States
             obj.transform.parent = this.transform;
             obj.transform.localPosition = Vector3.zero;
             obj.transform.localRotation = Quaternion.identity;
-
             obj.name = type.Name;
-            obj.AddComponent(type);
-
-            BaseState newState = obj.GetComponent<BaseState>();
+            
+            BaseState newState = (BaseState)obj.AddComponent(type);
 
             return newState;
         }
